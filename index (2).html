@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>스마트 분전반 대시보드</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: 'Segoe UI', sans-serif; background:#0f1117; color:#e0e0e0; }
+
+  .header {
+    background: linear-gradient(135deg, #1a1f2e, #2d3561);
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #2a2f45;
+  }
+  .header h1 { font-size: 22px; color: #7eb8f7; }
+  .header .updated { font-size: 12px; color: #888; }
+
+  .container { max-width: 1400px; margin: 0 auto; padding: 20px; }
+
+  .top-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+
+  .card {
+    background: #1a1f2e;
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid #2a2f45;
+  }
+  .card h3 { font-size: 13px; color: #888; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; }
+
+  .alert-box { text-align: center; padding: 10px; border-radius: 8px; }
+  .alert-normal  { background: #0d2b1a; border: 1px solid #1a5c35; }
+  .alert-warning { background: #2b1f0d; border: 1px solid #7a5500; }
+  .alert-danger  { background: #2b0d0d; border: 1px solid #7a1515; }
+  .alert-icon { font-size: 36px; margin-bottom: 8px; }
+  .alert-level { font-size: 20px; font-weight: bold; }
+  .alert-reason { font-size: 12px; color: #aaa; margin-top: 6px; }
+
+  .weather-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+  .weather-item { text-align: center; }
+  .weather-item .value { font-size: 24px; font-weight: bold; color: #7eb8f7; }
+  .weather-item .label { font-size: 11px; color: #888; margin-top: 4px; }
+
+  .gauge-container { position: relative; text-align: center; }
+  .gauge-value { font-size: 32px; font-weight: bold; color: #7eb8f7; }
+  .gauge-sub { font-size: 12px; color: #888; margin-top: 4px; }
+  .gauge-bar-bg { background: #2a2f45; border-radius: 8px; height: 12px; margin: 12px 0; }
+  .gauge-bar { height: 12px; border-radius: 8px; transition: width 0.5s; }
+  .gauge-labels { display: flex; justify-content: space-between; font-size: 11px; color: #666; }
+
+  .mid-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+  .full-row { margin-bottom: 20px; }
+
+  /* 달력 */
+  .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+    margin-top: 8px;
+  }
+  .calendar-header { text-align: center; font-size: 12px; color: #888; padding: 6px 0; }
+
+  /* 실제 예보 — 파란 계열 */
+  .calendar-day {
+    border-radius: 8px;
+    padding: 8px 6px;
+    font-size: 11px;
+    min-height: 100px;
+    cursor: pointer;
+    transition: transform 0.1s, border-color 0.1s;
+  }
+  .calendar-day:hover { transform: scale(1.04); }
+  .calendar-day.empty { background: transparent; border: none; min-height: 0; cursor: default; }
+  .calendar-day.empty:hover { transform: none; }
+
+  /* 실제 예보 스타일 */
+  .day-forecast {
+    background: #0d1e35;
+    border: 1px solid #1e4d8c;
+  }
+  .day-forecast:hover { border-color: #7eb8f7; }
+  .day-forecast .cal-type-badge {
+    background: #1e4d8c;
+    color: #7eb8f7;
+  }
+
+  /* 5년 평균 스타일 */
+  .day-average {
+    background: #141820;
+    border: 1px solid #2a2f45;
+    opacity: 0.75;
+  }
+  .day-average:hover { border-color: #555; opacity: 1; }
+  .day-average .cal-type-badge {
+    background: #2a2f45;
+    color: #666;
+  }
+
+  /* 오늘 강조 */
+  .day-today {
+    background: #1a2a40 !important;
+    border: 2px solid #7eb8f7 !important;
+    opacity: 1 !important;
+  }
+
+  .cal-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 3px; }
+  .cal-date { font-size: 13px; font-weight: bold; color: #ccc; }
+  .cal-type-badge {
+    font-size: 9px;
+    padding: 1px 5px;
+    border-radius: 4px;
+    font-weight: bold;
+  }
+  .cal-icon { font-size: 18px; margin: 3px 0; }
+  .cal-temp { font-size: 11px; color: #aaa; margin: 2px 0; }
+  .cal-detail { font-size: 10px; color: #666; margin: 1px 0; }
+  .cal-load {
+    font-size: 10px;
+    margin-top: 4px;
+    padding: 2px 4px;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+  }
+  .load-normal  { background: rgba(46,204,113,0.15); color: #2ecc71; }
+  .load-warning { background: rgba(243,156,18,0.15); color: #f39c12; }
+  .load-danger  { background: rgba(231,76,60,0.15);  color: #e74c3c; }
+
+  .cal-alert-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; }
+  .dot-normal  { background: #2ecc71; }
+  .dot-warning { background: #f39c12; }
+  .dot-danger  { background: #e74c3c; }
+
+  /* 범례 */
+  .legend { display: flex; gap: 16px; margin: 8px 0 4px; flex-wrap: wrap; }
+  .legend-item { display: flex; align-items: center; gap: 6px; font-size: 11px; color: #888; }
+  .legend-box { width: 12px; height: 12px; border-radius: 3px; }
+  .legend-forecast { background: #0d1e35; border: 1px solid #1e4d8c; }
+  .legend-average  { background: #141820; border: 1px solid #2a2f45; }
+
+  .month-labels { display: flex; gap: 10px; justify-content: flex-end; margin-bottom: 8px; }
+  .month-label { display: flex; align-items: center; gap: 4px; font-size: 11px; color: #888; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; }
+
+  .yearly-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin-top: 12px; }
+  .yearly-item { text-align: center; background: #12171f; border-radius: 8px; padding: 12px 8px; border: 1px solid #2a2f45; }
+  .yearly-year { font-size: 12px; color: #888; margin-bottom: 6px; }
+  .yearly-max  { font-size: 18px; font-weight: bold; color: #e74c3c; }
+  .yearly-avg  { font-size: 13px; color: #7eb8f7; margin: 2px 0; }
+  .yearly-min  { font-size: 13px; color: #3498db; }
+
+  canvas { width: 100% !important; }
+
+/* ══════════════════════════════
+   모바일 전용 스타일 (768px 이하)
+══════════════════════════════ */
+@media (max-width: 768px) {
+
+  /* 헤더 */
+  .header { padding: 14px 16px; flex-direction: column; align-items: flex-start; gap: 4px; }
+  .header h1 { font-size: 17px; }
+  .header .updated { font-size: 11px; }
+
+  .container { padding: 12px; }
+
+  /* 상단 카드 — 1열 세로 */
+  .top-row { grid-template-columns: 1fr; gap: 12px; }
+
+  /* 중단 그래프 — 1열 세로 + 높이 줄이기 */
+  .mid-row { grid-template-columns: 1fr; gap: 12px; }
+  .mid-row canvas { height: 160px !important; }
+
+  /* 카드 패딩 */
+  .card { padding: 14px; }
+  .card h3 { font-size: 12px; margin-bottom: 10px; }
+
+  /* 경보 */
+  .alert-icon { font-size: 28px; }
+  .alert-level { font-size: 18px; }
+  .alert-reason { font-size: 12px; }
+
+  /* 날씨 현황 */
+  .weather-grid { grid-template-columns: 1fr 1fr 1fr; gap: 6px; }
+  .weather-item .value { font-size: 20px; }
+  .weather-item .label { font-size: 11px; }
+
+  /* 게이지 */
+  .gauge-value { font-size: 26px; }
+  .gauge-sub { font-size: 11px; }
+  .gauge-labels { font-size: 10px; }
+
+  /* 달력 — 모바일 2열 정사각형 */
+  .calendar-grid { gap: 6px; grid-template-columns: repeat(2, 1fr) !important; }
+  .calendar-header { display: none; }
+  .calendar-day {
+    min-height: 0 !important;
+    aspect-ratio: 1 / 1;
+    padding: 10px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .calendar-day.empty { display: none; }
+  .cal-date { font-size: 15px; font-weight: bold; }
+  .cal-icon { font-size: 20px; margin: 2px 0; }
+  .cal-temp { font-size: 12px; }
+  .cal-detail { font-size: 11px; }
+  .cal-load { font-size: 11px; padding: 3px 6px; }
+  .cal-type-badge { font-size: 9px; padding: 1px 4px; }
+  .cal-top { margin-bottom: 2px; }
+
+  /* 범례 */
+  .legend { gap: 8px; font-size: 11px; flex-wrap: wrap; }
+
+  /* 5년 통계 — 3열로 */
+  .yearly-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .yearly-max { font-size: 15px; }
+  .yearly-avg { font-size: 12px; }
+  .yearly-min { font-size: 12px; }
+  .yearly-year { font-size: 11px; }
+
+  /* 월별 히스토리 */
+  #monthChart { height: 180px !important; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>⚡ 스마트 분전반 대시보드</h1>
+  <span class="updated" id="updated">로딩 중...</span>
+</div>
+
+<div class="container">
+
+  <!-- 상단 -->
+  <div class="top-row">
+    <div class="card">
+      <h3>현재 경보 상태</h3>
+      <div class="alert-box" id="alert-box">
+        <div class="alert-icon" id="alert-icon">🟢</div>
+        <div class="alert-level" id="alert-level">로딩 중</div>
+        <div class="alert-reason" id="alert-reason">-</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>현재 날씨</h3>
+      <div class="weather-grid">
+        <div class="weather-item">
+          <div class="value" id="cur-temp">-</div>
+          <div class="label">기온 (°C)</div>
+        </div>
+        <div class="weather-item">
+          <div class="value" id="cur-hum">-</div>
+          <div class="label">습도 (%)</div>
+        </div>
+        <div class="weather-item">
+          <div class="value" id="cur-rain">-</div>
+          <div class="label">강수량 (mm)</div>
+        </div>
+      </div>
+      <div style="margin-top:14px; display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+        <div class="weather-item">
+          <div class="value" style="font-size:18px" id="today-max">-</div>
+          <div class="label">오늘 최고 (°C)</div>
+        </div>
+        <div class="weather-item">
+          <div class="value" style="font-size:18px" id="today-min">-</div>
+          <div class="label">오늘 최저 (°C)</div>
+        </div>
+        <div class="weather-item">
+          <div class="value" style="font-size:18px" id="today-pop">-</div>
+          <div class="label">강수확률 (%)</div>
+        </div>
+        <div class="weather-item">
+          <div class="value" style="font-size:18px" id="today-reh">-</div>
+          <div class="label">평균습도 (%)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>차단기 용량 대비 사용률</h3>
+      <div class="gauge-container">
+        <div class="gauge-value" id="gauge-pct">-</div>
+        <div class="gauge-sub" id="gauge-kw">-</div>
+        <div class="gauge-bar-bg">
+          <div class="gauge-bar" id="gauge-bar" style="width:0%"></div>
+        </div>
+        <div class="gauge-labels">
+          <span>0%</span>
+          <span style="color:#f39c12">주의 70%</span>
+          <span style="color:#e74c3c">위험 90%</span>
+          <span>100%</span>
+        </div>
+      </div>
+      <div style="margin-top:14px; font-size:12px; color:#888; text-align:center;" id="gauge-status">-</div>
+    </div>
+  </div>
+
+  <!-- 그래프 -->
+  <div class="mid-row">
+    <div class="card">
+      <h3>오늘 시간별 전력 부하 예측</h3>
+      <canvas id="loadChart" height="180"></canvas>
+    </div>
+    <div class="card">
+      <h3>오늘 시간별 기온 예보</h3>
+      <canvas id="tempChart" height="180"></canvas>
+    </div>
+  </div>
+
+  <!-- 달력 -->
+  <div class="card full-row">
+    <h3 id="cal-title">이번 달 날씨 + 전력 예측</h3>
+    <div class="legend">
+      <div class="legend-item">
+        <div class="legend-box legend-forecast"></div>
+        <span>기상청 실제 예보</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-box legend-average"></div>
+        <span>5년 평균 AI 예측 (참고용)</span>
+      </div>
+      <div class="legend-item"><span class="cal-alert-dot dot-normal" style="width:8px;height:8px"></span> 정상</div>
+      <div class="legend-item"><span class="cal-alert-dot dot-warning" style="width:8px;height:8px"></span> 주의</div>
+      <div class="legend-item"><span class="cal-alert-dot dot-danger"  style="width:8px;height:8px"></span> 위험</div>
+    </div>
+    <div class="calendar-grid">
+      <div class="calendar-header">일</div>
+      <div class="calendar-header">월</div>
+      <div class="calendar-header">화</div>
+      <div class="calendar-header">수</div>
+      <div class="calendar-header">목</div>
+      <div class="calendar-header">금</div>
+      <div class="calendar-header">토</div>
+    </div>
+    <div class="calendar-grid" id="calendar-body"></div>
+  </div>
+
+  <!-- 하단 -->
+  <div class="mid-row">
+    <div class="card">
+      <h3>월별 경보 히스토리 (5년)</h3>
+      <div class="month-labels">
+        <div class="month-label"><div class="dot" style="background:#2ecc71"></div>정상</div>
+        <div class="month-label"><div class="dot" style="background:#f39c12"></div>주의</div>
+        <div class="month-label"><div class="dot" style="background:#e74c3c"></div>위험</div>
+      </div>
+      <canvas id="monthChart" height="200"></canvas>
+    </div>
+    <div class="card">
+      <h3>5년치 연도별 기온 통계</h3>
+      <div class="yearly-grid" id="yearly-grid"></div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+async function loadData() {
+  const res  = await fetch('dashboard_data.json');
+  const data = await res.json();
+
+  document.getElementById('updated').textContent = '업데이트: ' + data.updated_at;
+
+  // 경보 상태
+  const level = data.current_alert;
+  const box   = document.getElementById('alert-box');
+  const icon  = level.includes('위험') ? '🔴' : level.includes('주의') ? '🟡' : '🟢';
+  const cls   = level.includes('위험') ? 'alert-danger' : level.includes('주의') ? 'alert-warning' : 'alert-normal';
+  box.className = 'alert-box ' + cls;
+  document.getElementById('alert-icon').textContent  = icon;
+  document.getElementById('alert-level').textContent = level;
+  document.getElementById('alert-reason').textContent = data.current_reason;
+
+  // 현재 날씨
+  const cw = data.current_weather;
+  document.getElementById('cur-temp').textContent = cw['기온'] + '°C';
+  document.getElementById('cur-hum').textContent  = cw['습도'] + '%';
+  document.getElementById('cur-rain').textContent = cw['강수량'] + 'mm';
+
+  // 오늘 예보
+  const today = data.today;
+  document.getElementById('today-max').textContent = today.max_temp + '°C';
+  document.getElementById('today-min').textContent = today.min_temp + '°C';
+  document.getElementById('today-pop').textContent = today.max_pop + '%';
+  document.getElementById('today-reh').textContent = today.avg_reh + '%';
+
+  // 게이지
+  const pct   = today.usage_pct;
+  const color = pct >= 90 ? '#e74c3c' : pct >= 70 ? '#f39c12' : '#2ecc71';
+  document.getElementById('gauge-pct').textContent = pct + '%';
+  document.getElementById('gauge-kw').textContent  = today.avg_kw + 'kW / ' + (today.avg_kw*1000/220).toFixed(1) + 'A';
+  document.getElementById('gauge-bar').style.width      = Math.min(pct,100) + '%';
+  document.getElementById('gauge-bar').style.background = color;
+  document.getElementById('gauge-status').textContent   =
+    pct >= 90 ? '🔴 위험 — 과부하 주의!' :
+    pct >= 70 ? '🟡 주의 — 사용량 높음' : '🟢 정상 — 안전 범위';
+
+  // 전력 그래프
+  const loadHours = Object.keys(today.hourly_load).map(Number).sort((a,b)=>a-b);
+  const loadVals  = loadHours.map(h => today.hourly_load[String(h)]);
+  new Chart(document.getElementById('loadChart'), {
+    type: 'bar',
+    data: {
+      labels: loadHours.map(h => h + '시'),
+      datasets: [{
+        label: '전력 (kW)',
+        data: loadVals,
+        backgroundColor: loadVals.map(v =>
+          v >= data.threshold.danger  ? 'rgba(231,76,60,0.7)' :
+          v >= data.threshold.warning ? 'rgba(243,156,18,0.7)' :
+          'rgba(126,184,247,0.7)'
+        ),
+        borderRadius: 4,
+      }]
+    },
+    options: {
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { ticks:{color:'#888',font:{size:10}}, grid:{color:'#2a2f45'} },
+        y: { ticks:{color:'#888'}, grid:{color:'#2a2f45'}, min:0, max:data.threshold.max }
+      }
+    }
+  });
+
+  // 기온 그래프
+  const tempHours = Object.keys(today.hourly_temp).map(Number).sort((a,b)=>a-b);
+  const tempVals  = tempHours.map(h => today.hourly_temp[String(h)]);
+  new Chart(document.getElementById('tempChart'), {
+    type: 'line',
+    data: {
+      labels: tempHours.map(h => h + '시'),
+      datasets: [{
+        label: '기온 (°C)',
+        data: tempVals,
+        borderColor: '#f39c12',
+        backgroundColor: 'rgba(243,156,18,0.1)',
+        fill: true, tension: 0.4,
+        pointRadius: 4, pointBackgroundColor: '#f39c12',
+      }]
+    },
+    options: {
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { ticks:{color:'#888',font:{size:10}}, grid:{color:'#2a2f45'} },
+        y: { ticks:{color:'#888'}, grid:{color:'#2a2f45'} }
+      }
+    }
+  });
+
+  // 달력
+  const cal      = data.calendar;
+  const calTitle = data.calendar_month || '';
+  document.getElementById('cal-title').textContent = calTitle + ' 날씨 + 전력 예측';
+
+  const firstDay = new Date(2026, 2, 1).getDay();
+  const body     = document.getElementById('calendar-body');
+  const todayNum = new Date().getDate();
+
+  for (let i = 0; i < firstDay; i++) {
+    const empty = document.createElement('div');
+    empty.className = 'calendar-day empty';
+    body.appendChild(empty);
+  }
+
+  for (let day = 1; day <= 31; day++) {
+    const d    = cal[String(day)];
+    const cell = document.createElement('div');
+
+    const isForecast = d && d.type === 'forecast';
+    const isToday    = day === todayNum;
+    const typeClass  = isForecast ? 'day-forecast' : 'day-average';
+    cell.className   = 'calendar-day ' + typeClass + (isToday ? ' day-today' : '');
+
+    if (d) {
+      const loadClass = d.alert.includes('위험') ? 'load-danger' :
+                        d.alert.includes('주의') ? 'load-warning' : 'load-normal';
+      const dotClass  = d.alert.includes('위험') ? 'dot-danger' :
+                        d.alert.includes('주의') ? 'dot-warning' : 'dot-normal';
+      const badge     = isForecast ? '예보' : '평균';
+
+      // 5년 평균은 날씨 아이콘 없이, 예보만 아이콘 표시
+      const iconHtml  = isForecast
+        ? `<div class="cal-icon">${d.icon}</div>`
+        : '';
+
+      cell.innerHTML = `
+        <div class="cal-top">
+          <span class="cal-date">${day}</span>
+          <span class="cal-type-badge">${badge}</span>
+        </div>
+        ${iconHtml}
+        <div class="cal-temp">${d.min_temp}~${d.max_temp}°C</div>
+        <div class="cal-detail">💧${d.avg_pop}% 💨${d.avg_wsd}m/s</div>
+        <div class="cal-load ${loadClass}">
+          <span class="cal-alert-dot ${dotClass}"></span>
+          ${d.avg_load}kW
+        </div>`;
+    } else {
+      cell.innerHTML = `<div class="cal-top"><span class="cal-date">${day}</span></div>`;
+    }
+    body.appendChild(cell);
+  }
+
+  // 월별 히스토리
+  const monthly = data.monthly_alert;
+  const months  = Object.keys(monthly).map(Number).sort((a,b)=>a-b);
+  new Chart(document.getElementById('monthChart'), {
+    type: 'bar',
+    data: {
+      labels: months.map(m => m + '월'),
+      datasets: [
+        { label:'정상', data:months.map(m=>monthly[m]['정상']), backgroundColor:'rgba(46,204,113,0.7)',  borderRadius:3 },
+        { label:'주의', data:months.map(m=>monthly[m]['주의']), backgroundColor:'rgba(243,156,18,0.7)',  borderRadius:3 },
+        { label:'위험', data:months.map(m=>monthly[m]['위험']), backgroundColor:'rgba(231,76,60,0.7)',   borderRadius:3 },
+      ]
+    },
+    options: {
+      plugins: { legend:{ labels:{color:'#888',font:{size:11}} } },
+      scales: {
+        x: { stacked:true, ticks:{color:'#888'}, grid:{color:'#2a2f45'} },
+        y: { stacked:true, ticks:{color:'#888'}, grid:{color:'#2a2f45'} }
+      }
+    }
+  });
+
+  // 5년 통계
+  const yearly = data.yearly_stats;
+  const grid   = document.getElementById('yearly-grid');
+  Object.keys(yearly).sort().forEach(year => {
+    const s = yearly[year];
+    grid.innerHTML += `
+      <div class="yearly-item">
+        <div class="yearly-year">${year}년</div>
+        <div class="yearly-max">${s.max}°C</div>
+        <div class="yearly-avg">${s.avg}°C</div>
+        <div class="yearly-min">${s.min}°C</div>
+      </div>`;
+  });
+}
+
+loadData();
+</script>
+</body>
+</html>
