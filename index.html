@@ -194,19 +194,28 @@
   .gauge-sub { font-size: 11px; }
   .gauge-labels { font-size: 10px; }
 
-  /* 달력 — 한 칸 작게 */
-  .calendar-grid { gap: 3px; }
-  .calendar-day { min-height: 72px; padding: 5px 4px; }
-  .calendar-header { font-size: 11px; padding: 4px 0; }
-  .cal-date { font-size: 12px; }
-  .cal-icon { font-size: 14px; margin: 1px 0; }
-  .cal-temp { font-size: 10px; }
-  .cal-detail { font-size: 9px; }
-  .cal-load { font-size: 9px; }
-  .cal-type-badge { font-size: 8px; padding: 1px 3px; }
+  /* 달력 — 모바일 2열 정사각형 */
+  .calendar-grid { gap: 6px; grid-template-columns: repeat(2, 1fr) !important; }
+  .calendar-header { display: none; }
+  .calendar-day {
+    min-height: 0 !important;
+    aspect-ratio: 1 / 1;
+    padding: 10px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .calendar-day.empty { display: none; }
+  .cal-date { font-size: 15px; font-weight: bold; }
+  .cal-icon { font-size: 20px; margin: 2px 0; }
+  .cal-temp { font-size: 12px; }
+  .cal-detail { font-size: 11px; }
+  .cal-load { font-size: 11px; padding: 3px 6px; }
+  .cal-type-badge { font-size: 9px; padding: 1px 4px; }
+  .cal-top { margin-bottom: 2px; }
 
   /* 범례 */
-  .legend { gap: 8px; font-size: 10px; }
+  .legend { gap: 8px; font-size: 11px; flex-wrap: wrap; }
 
   /* 5년 통계 — 3열로 */
   .yearly-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
