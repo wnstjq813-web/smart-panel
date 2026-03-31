@@ -88,6 +88,19 @@
     color: #7eb8f7;
   }
 
+  /* 지난 날 — 예보 배지는 유지, 배경/테두리만 어둡게 */
+  .day-past {
+    background: #141820 !important;
+    border: 1px solid #2a2f45 !important;
+    opacity: 0.75;
+  }
+  .day-past:hover { border-color: #555 !important; opacity: 1; }
+  .day-past .cal-type-badge {
+    background: #1e4d8c !important;
+    color: #7eb8f7 !important;
+    opacity: 0.6;
+  }
+
   /* 5년 평균 스타일 */
   .day-average {
     background: #141820;
