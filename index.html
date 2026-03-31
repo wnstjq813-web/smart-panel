@@ -508,9 +508,9 @@ async function loadData() {
 
   // 달력 데이터 저장
   const now2       = new Date();
-  thisCalData      = data.calendar;
-  nextCalData      = data.next_calendar;
-  nextCalMonth     = data.next_calendar_month || '';
+  window._thisCalData  = data.calendar;
+  window._nextCalData  = data.next_calendar;
+  window._nextCalTitle = data.next_calendar_month || '';
   window._thisCalTitle = (data.calendar_month || '') + ' 날씨 + 전력 예측';
   window._thisYear     = now2.getFullYear();
   window._thisMonth    = now2.getMonth() + 1;
@@ -522,7 +522,7 @@ async function loadData() {
   document.getElementById('cal-title').textContent = window._thisCalTitle;
 
   // 이번 달 달력 먼저 렌더링
-  renderCalendar(thisCalData, window._thisYear, window._thisMonth);
+  renderCalendar(window._thisCalData, window._thisYear, window._thisMonth);
 
   // 월별 히스토리
   const monthly = data.monthly_alert;
@@ -570,41 +570,48 @@ let nextCalData = null;
 let nextCalMonth = '';
 
 function switchTab(tab) {
-  currentTab = tab;
+  currentTab          = tab;
+  window._currentTab  = tab;
+  window._calExpanded = false;
+
   const btnThis = document.getElementById('tab-this');
   const btnNext = document.getElementById('tab-next');
   const title   = document.getElementById('cal-title');
+  const btn     = document.getElementById('cal-toggle-btn');
 
   if (tab === 'this') {
-    btnThis.style.background   = '#1e4d8c';
-    btnThis.style.borderColor  = '#7eb8f7';
-    btnThis.style.color        = '#7eb8f7';
-    btnThis.style.fontWeight   = 'bold';
-    btnNext.style.background   = '#2a2f45';
-    btnNext.style.borderColor  = '#3a3f55';
-    btnNext.style.color        = '#888';
-    btnNext.style.fontWeight   = 'normal';
+    btnThis.style.background  = '#1e4d8c';
+    btnThis.style.borderColor = '#7eb8f7';
+    btnThis.style.color       = '#7eb8f7';
+    btnThis.style.fontWeight  = 'bold';
+    btnNext.style.background  = '#2a2f45';
+    btnNext.style.borderColor = '#3a3f55';
+    btnNext.style.color       = '#888';
+    btnNext.style.fontWeight  = 'normal';
     title.textContent = window._thisCalTitle || '이번 달 날씨 + 전력 예측';
-    renderCalendar(thisCalData, window._thisYear, window._thisMonth);
+    renderCalendar(window._thisCalData, window._thisYear, window._thisMonth);
   } else {
-    btnNext.style.background   = '#1e4d8c';
-    btnNext.style.borderColor  = '#7eb8f7';
-    btnNext.style.color        = '#7eb8f7';
-    btnNext.style.fontWeight   = 'bold';
-    btnThis.style.background   = '#2a2f45';
-    btnThis.style.borderColor  = '#3a3f55';
-    btnThis.style.color        = '#888';
-    btnThis.style.fontWeight   = 'normal';
-    title.textContent = nextCalMonth + ' 날씨 + 전력 예측 (AI 예측)';
-    renderCalendar(nextCalData, window._nextYear, window._nextMonth);
+    btnNext.style.background  = '#1e4d8c';
+    btnNext.style.borderColor = '#7eb8f7';
+    btnNext.style.color       = '#7eb8f7';
+    btnNext.style.fontWeight  = 'bold';
+    btnThis.style.background  = '#2a2f45';
+    btnThis.style.borderColor = '#3a3f55';
+    btnThis.style.color       = '#888';
+    btnThis.style.fontWeight  = 'normal';
+    title.textContent = (window._nextCalTitle || '') + ' 날씨 + 전력 예측 (AI 예측)';
+    renderCalendar(window._nextCalData, window._nextYear, window._nextMonth);
   }
 
-  calExpanded = false;
+  // 모바일이면 접힘 상태로
   if (window.innerWidth <= 768) {
-    const btn = document.getElementById('cal-toggle-btn');
-    btn.style.display  = 'block';
-    btn.textContent    = '펼치기 ▼';
-    collapseCalendar();
+    btn.style.display = 'block';
+    btn.textContent   = '펼치기 ▼';
+    setTimeout(() => collapseCalendar(tab), 50);
+  } else {
+    // PC는 전부 보이게
+    document.querySelectorAll('#calendar-body .calendar-day')
+      .forEach(d => d.style.display = '');
   }
 }
 
@@ -700,8 +707,7 @@ function collapseCalendar(tab) {
     show2 = tomorrowNum;
   }
 
-  const wrapper = document.getElementById('cal-wrapper');
-  const days    = wrapper.querySelectorAll('.calendar-day');
+  const days = document.querySelectorAll('#calendar-body .calendar-day');
 
   days.forEach(d => {
     if (d.classList.contains('empty')) { d.style.display = 'none'; return; }
