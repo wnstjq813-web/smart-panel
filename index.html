@@ -603,7 +603,7 @@ function switchTab(tab) {
     btnNext.style.borderColor = '#3a3f55';
     btnNext.style.color       = '#888';
     btnNext.style.fontWeight  = 'normal';
-    title.textContent = window._thisCalTitle || '이번 달 날씨 + 전력 예측';
+    title.textContent = (window._thisCalTitle || '이번 달') + ' 날씨 + 전력 예측 (예보 3일 + AI 예측)';
     renderCalendar(window._thisCalData, window._thisYear, window._thisMonth);
   } else {
     btnNext.style.background  = '#1e4d8c';
