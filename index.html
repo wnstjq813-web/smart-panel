@@ -119,6 +119,17 @@
     border: 1px solid #2a2f45;
     opacity: 0.75;
   }
+
+  /* 실측 기록 스타일 — 초록 계열 */
+  .day-actual {
+    background: #0d2018;
+    border: 1px solid #1a5c35;
+  }
+  .day-actual:hover { border-color: #2ecc71; }
+  .day-actual .cal-type-badge {
+    background: #1a5c35;
+    color: #2ecc71;
+  }
   .day-average:hover { border-color: #555; opacity: 1; }
   .day-average .cal-type-badge {
     background: #2a2f45;
@@ -662,7 +673,7 @@ function renderCalendar(cal, year, month) {
                         d.alert.includes('주의') ? 'load-warning' : 'load-normal';
       const dotClass  = d.alert.includes('위험') ? 'dot-danger' :
                         d.alert.includes('주의') ? 'dot-warning' : 'dot-normal';
-      const badge     = isForecast ? '예보' : '평균';
+      const badge     = isActual ? '실측' : isForecast ? '예보' : '평균';
       const iconHtml  = isForecast && d.icon
         ? `<div class="cal-icon">${d.icon}</div>` : '';
 
