@@ -36,9 +36,8 @@
   .alert-normal  { background: #0d2b1a; border: 1px solid #1a5c35; }
   .alert-warning { background: #2b1f0d; border: 1px solid #7a5500; }
   .alert-danger  { background: #2b0d0d; border: 1px solid #7a1515; }
-  .alert-icon { font-size: 36px; margin-bottom: 8px; }
-  .alert-level { font-size: 20px; font-weight: bold; }
-  .alert-reason { font-size: 12px; color: #aaa; margin-top: 6px; }
+  .alert-level { font-size: 28px; font-weight: bold; letter-spacing: 2px; }
+  .alert-reason { font-size: 13px; color: #aaa; margin-top: 10px; line-height: 1.5; }
 
   .weather-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
   .weather-item { text-align: center; }
@@ -256,7 +255,6 @@
     <div class="card">
       <h3>현재 경보 상태</h3>
       <div class="alert-box" id="alert-box">
-        <div class="alert-icon" id="alert-icon">🟢</div>
         <div class="alert-level" id="alert-level">로딩 중</div>
         <div class="alert-reason" id="alert-reason">-</div>
       </div>
@@ -414,14 +412,23 @@ async function loadData() {
   document.getElementById('updated').textContent = '저장: ' + data.updated_at + '  |  조회: ' + now_str;
 
   // 경보 상태
-  const level = data.current_alert;
-  const box   = document.getElementById('alert-box');
-  const icon  = level.includes('위험') ? '🔴' : level.includes('주의') ? '🟡' : '🟢';
-  const cls   = level.includes('위험') ? 'alert-danger' : level.includes('주의') ? 'alert-warning' : 'alert-normal';
+  const level  = data.current_alert;
+  const reason = data.current_reason;
+  const box    = document.getElementById('alert-box');
+  const cls    = level.includes('위험') ? 'alert-danger'
+               : level.includes('주의') ? 'alert-warning' : 'alert-normal';
   box.className = 'alert-box ' + cls;
-  document.getElementById('alert-icon').textContent  = icon;
-  document.getElementById('alert-level').textContent = level;
-  document.getElementById('alert-reason').textContent = data.current_reason;
+
+  // 경보 레벨 텍스트 (아이콘 없이)
+  const levelText = level.includes('위험') ? '위험'
+                  : level.includes('주의') ? '주의' : '정상';
+  document.getElementById('alert-level').textContent = levelText;
+
+  // 이유 간단하게 표시
+  const reasonShort = reason === '이상 없음'
+    ? '현재 날씨 정상 범위'
+    : reason.split(' / ')[0];   // 여러 이유 중 첫 번째만
+  document.getElementById('alert-reason').textContent = reasonShort;
 
   // 현재 날씨
   const cw = data.current_weather;
@@ -676,21 +683,32 @@ function toggleCalendar() {
   }
 }
 
-function collapseCalendar() {
-  const todayNum  = new Date().getDate();
-  const tomorrowNum = todayNum + 1;
-  const wrapper   = document.getElementById('cal-wrapper');
-  const days      = wrapper.querySelectorAll('.calendar-day');
+function collapseCalendar(tab) {
+  const now          = new Date();
+  const todayNum     = now.getDate();
+  const todayMonth   = now.getMonth() + 1;
+  const tomorrowNum  = todayNum + 1;
+
+  // 다음달 탭 — 다음달이 실제 이번달이 됐으면 오늘+내일, 아니면 1+2일
+  let show1, show2;
+  if (tab === 'next') {
+    const isNextMonthNow = (window._nextMonth === todayMonth);
+    show1 = isNextMonthNow ? todayNum    : 1;
+    show2 = isNextMonthNow ? tomorrowNum : 2;
+  } else {
+    show1 = todayNum;
+    show2 = tomorrowNum;
+  }
+
+  const wrapper = document.getElementById('cal-wrapper');
+  const days    = wrapper.querySelectorAll('.calendar-day');
 
   days.forEach(d => {
+    if (d.classList.contains('empty')) { d.style.display = 'none'; return; }
     const dateEl = d.querySelector('.cal-date');
     if (!dateEl) { d.style.display = 'none'; return; }
     const dayNum = parseInt(dateEl.textContent);
-    if (dayNum === todayNum || dayNum === tomorrowNum) {
-      d.style.display = '';
-    } else {
-      d.style.display = 'none';
-    }
+    d.style.display = (dayNum === show1 || dayNum === show2) ? '' : 'none';
   });
 }
 
@@ -699,7 +717,7 @@ function initCalendarMobile() {
   if (window.innerWidth <= 768) {
     const btn = document.getElementById('cal-toggle-btn');
     btn.style.display = 'block';
-    collapseCalendar();
+    collapseCalendar(window._currentTab || 'this');
   }
 }
 
