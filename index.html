@@ -406,7 +406,12 @@ async function loadData() {
   const res  = await fetch('dashboard_data.json');
   const data = await res.json();
 
-  document.getElementById('updated').textContent = '업데이트: ' + data.updated_at;
+  // JSON 저장 시각 + 현재 접속 시각 둘 다 표시
+  const now_str = new Date().toLocaleString('ko-KR', {
+    year:'numeric', month:'2-digit', day:'2-digit',
+    hour:'2-digit', minute:'2-digit'
+  });
+  document.getElementById('updated').textContent = '저장: ' + data.updated_at + '  |  조회: ' + now_str;
 
   // 경보 상태
   const level = data.current_alert;
@@ -615,8 +620,13 @@ function renderCalendar(cal, year, month) {
     const cell = document.createElement('div');
     const isForecast = d && d.type === 'forecast';
     const isToday    = day === todayNum && month === todayMonth;
-    const typeClass  = isForecast ? 'day-forecast' : 'day-average';
-    cell.className   = 'calendar-day ' + typeClass + (isToday ? ' day-today' : '');
+    const isPast     = (month < todayMonth)
+                       || (month === todayMonth && day < todayNum);
+    const typeClass  = isForecast
+      ? (isPast ? 'day-past' : 'day-forecast')
+      : 'day-average';
+    const typeClass_unused =  isForecast ? 'day-forecast' : 'day-average';
+    cell.className   = 'calendar-day ' + (typeClass === 'day-average' ? 'day-average' : typeClass) + (isToday ? ' day-today' : '');
 
     if (d) {
       const loadClass = d.alert.includes('위험') ? 'load-danger' :
