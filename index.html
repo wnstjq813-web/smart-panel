@@ -642,11 +642,11 @@ function switchTab(tab) {
 }
 
 function renderCalendar(cal, year, month) {
-  const body     = document.getElementById('calendar-body');
-  body.innerHTML = '';
-  const firstDay = new Date(year, month - 1, 1).getDay();
-  const todayNum = new Date().getDate();
-  const todayMonth = new Date().getMonth() + 1;
+  const body        = document.getElementById('calendar-body');
+  body.innerHTML    = '';
+  const firstDay    = new Date(year, month - 1, 1).getDay();
+  const todayNum    = new Date().getDate();
+  const todayMonth  = new Date().getMonth() + 1;
   const daysInMonth = new Date(year, month, 0).getDate();
 
   for (let i = 0; i < firstDay; i++) {
@@ -656,17 +656,20 @@ function renderCalendar(cal, year, month) {
   }
 
   for (let day = 1; day <= daysInMonth; day++) {
-    const d    = cal[String(day)];
-    const cell = document.createElement('div');
+    const d       = cal ? cal[String(day)] : null;
+    const cell    = document.createElement('div');
+
+    const isActual   = d && d.type === 'actual';
     const isForecast = d && d.type === 'forecast';
-    const isToday    = day === todayNum && month === todayMonth;
+    const isToday    = (day === todayNum && month === todayMonth);
     const isPast     = (month < todayMonth)
                        || (month === todayMonth && day < todayNum);
-    const typeClass  = isForecast
-      ? (isPast ? 'day-past' : 'day-forecast')
-      : 'day-average';
-    const typeClass_unused =  isForecast ? 'day-forecast' : 'day-average';
-    cell.className   = 'calendar-day ' + (typeClass === 'day-average' ? 'day-average' : typeClass) + (isToday ? ' day-today' : '');
+
+    const typeClass  = isActual   ? 'day-actual'
+                     : isForecast ? (isPast ? 'day-past' : 'day-forecast')
+                     : 'day-average';
+
+    cell.className = 'calendar-day ' + typeClass + (isToday ? ' day-today' : '');
 
     if (d) {
       const loadClass = d.alert.includes('위험') ? 'load-danger' :
@@ -674,7 +677,7 @@ function renderCalendar(cal, year, month) {
       const dotClass  = d.alert.includes('위험') ? 'dot-danger' :
                         d.alert.includes('주의') ? 'dot-warning' : 'dot-normal';
       const badge     = isActual ? '실측' : isForecast ? '예보' : '평균';
-      const iconHtml  = isForecast && d.icon
+      const iconHtml  = ((isForecast || isActual) && d.icon)
         ? `<div class="cal-icon">${d.icon}</div>` : '';
 
       cell.innerHTML = `
