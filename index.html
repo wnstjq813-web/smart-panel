@@ -958,7 +958,9 @@ function renderCalendar(d){
         ?'<span ...>예보</span>'
         :isPast
           ?'<span style="font-size:8px;color:var(--muted);padding:1px 4px;margin-left:3px;font-family:var(--mono)">실적</span>'
-          :'';
+          :isPast
+            ?'<span style="font-size:8px;color:var(--green);margin-left:3px;font-family:var(--mono)">실적</span>'
+            :'';
 
     // 아이콘: 지난날은 실적 상태 아이콘
     const icon=isPast?(actual.status==='danger'?'🔴':actual.status==='warn'?'🟡':'🟢'):(c.icon||'');
