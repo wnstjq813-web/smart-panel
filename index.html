@@ -680,7 +680,8 @@ function renderCalendar(d) {
     const loadColor = c.avg_load >= dangerKw ? 'var(--red)'
                     : c.avg_load >= warnKw   ? 'var(--yellow)'
                     : 'var(--green)';
-    grid.innerHTML += `<div class="cal-day ${isToday ? 'today' : ''} ${alertCls}">
+    const forecastCls = c.type === 'forecast' ? 'forecast-day' : '';
+    grid.innerHTML += `<div class="cal-day ${isToday ? 'today' : ''} ${alertCls} ${forecastCls}">
       <div class="cal-day-num">${day} ${typeBadge}</div>
       <div class="cal-icon">${c.icon || ''}</div>
       <div class="cal-temp">${maxT}° / ${minT}°</div>
