@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>스마트 분전반</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+KR:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0d0f14;--bg2:#13161e;--bg3:#1a1e28;--border:#252a38;--text:#c8cdd8;--muted:#5a6075;--accent:#4fc3f7;--green:#43e97b;--yellow:#ffd740;--red:#ff5252;--orange:#ff9800;--mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans KR',sans-serif;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14px;min-height:100vh;}
+header{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;border-bottom:1px solid var(--border);background:var(--bg2);position:sticky;top:0;z-index:100;}
+.logo{width:30px;height:30px;background:var(--accent);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:15px;}
+.h-title{font-size:15px;font-weight:600;color:#fff;}.h-sub{font-size:11px;color:var(--muted);font-family:var(--mono);}
+.header-left{display:flex;align-items:center;gap:12px;}.header-right{display:flex;align-items:center;gap:12px;}
+.upd{font-size:11px;color:var(--muted);font-family:var(--mono);}
+.sbadge{padding:4px 10px;border-radius:4px;font-size:12px;font-weight:600;font-family:var(--mono);}
+.s-normal{background:rgba(67,233,123,.15);color:var(--green);border:1px solid rgba(67,233,123,.3);}
+.s-warn{background:rgba(255,215,64,.15);color:var(--yellow);border:1px solid rgba(255,215,64,.3);}
+.s-danger{background:rgba(255,82,82,.15);color:var(--red);border:1px solid rgba(255,82,82,.3);}
+.tab-bar{display:flex;border-bottom:1px solid var(--border);background:var(--bg2);padding:0 24px;overflow-x:auto;scrollbar-width:none;position:sticky;top:58px;z-index:99;}
+.tab-bar::-webkit-scrollbar{display:none;}
+.tab-btn{padding:12px 18px;font-size:13px;font-weight:500;color:var(--muted);border:none;background:none;cursor:pointer;white-space:nowrap;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;font-family:var(--sans);}
+.tab-btn.active{color:var(--accent);border-bottom-color:var(--accent);}
+.tab-panel{display:none;}.tab-panel.active{display:block;}
+.container{max-width:1280px;margin:0 auto;padding:20px 24px;}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;}
+.grid-9{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:18px;}
+.card-title{font-size:11px;font-weight:600;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px;}
+.sec-title{font-size:11px;font-weight:600;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.sec-title::after{content:'';flex:1;height:1px;background:var(--border);}
+.section{margin-bottom:16px;}
+.gauge-wrap{display:flex;align-items:center;gap:24px;}
+.gauge-svg-wrap{position:relative;flex-shrink:0;}
+.gauge-label{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;top:10px;}
+.g-kw{font-size:26px;font-weight:600;font-family:var(--mono);color:#fff;line-height:1;}
+.g-pct{font-size:12px;color:var(--muted);font-family:var(--mono);margin-top:4px;}
+.gauge-stats{flex:1;display:flex;flex-direction:column;gap:10px;}
+.stat-row{display:flex;justify-content:space-between;align-items:center;}
+.sl{font-size:12px;color:var(--muted);}.sv{font-size:13px;font-family:var(--mono);color:#fff;font-weight:500;}
+.weather-main{display:flex;align-items:center;gap:16px;margin-bottom:16px;}
+.weather-big-icon{font-size:48px;line-height:1;}
+.w-temp-big{font-size:36px;font-weight:600;font-family:var(--mono);color:#fff;line-height:1;}
+.w-desc{font-size:13px;color:var(--muted);margin-top:4px;}
+.weather-detail-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
+.wd-item{background:var(--bg3);border-radius:6px;padding:8px 10px;}
+.wd-key{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px;}
+.wd-val{font-size:14px;font-family:var(--mono);color:#fff;font-weight:500;}
+.lgt-dot{width:9px;height:9px;border-radius:50%;background:var(--green);}
+.lgt-dot.active{background:var(--yellow);box-shadow:0 0 8px rgba(255,215,64,.6);animation:pulse 1.2s ease infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.lgt-status-row{display:flex;align-items:center;gap:8px;margin-bottom:12px;}
+.lgt-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.lgt-item{background:var(--bg3);border-radius:6px;padding:9px 11px;}
+.lgt-key{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px;}
+.lgt-val{font-size:13px;font-family:var(--mono);color:#fff;font-weight:500;}
+.chart-wrap{height:140px;display:flex;align-items:flex-end;gap:3px;padding-top:8px;}
+.bar-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;height:100%;justify-content:flex-end;}
+.bar-col-inner{width:100%;border-radius:3px 3px 0 0;min-height:2px;}
+.bar-col-label{font-size:9px;font-family:var(--mono);color:var(--muted);}
+.acc-table{width:100%;border-collapse:collapse;}
+.acc-table th{text-align:left;font-size:10px;color:var(--muted);font-weight:500;padding:0 8px 8px 0;letter-spacing:.06em;text-transform:uppercase;border-bottom:1px solid var(--border);}
+.acc-table td{padding:8px 8px 8px 0;font-size:12px;border-bottom:1px solid rgba(37,42,56,.5);vertical-align:middle;}
+.acc-table tr:last-child td{border-bottom:none;}
+.acc-type{display:inline-block;padding:2px 7px;border-radius:3px;font-size:11px;font-family:var(--mono);background:rgba(255,152,0,.12);color:var(--orange);}
+.circuit-card{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:12px;cursor:pointer;transition:border-color .2s,transform .1s;}
+.circuit-card:hover{transform:translateY(-2px);border-color:var(--accent);}
+.circuit-card.warn{border-color:rgba(255,215,64,.4);}
+.circuit-card.danger{border-color:rgba(255,82,82,.4);}
+.c-id{font-size:10px;font-family:var(--mono);color:var(--muted);margin-bottom:2px;}
+.c-name{font-size:12px;font-weight:500;margin-bottom:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.c-bar-wrap{height:4px;background:var(--border);border-radius:2px;margin-bottom:8px;overflow:hidden;}
+.c-bar{height:100%;border-radius:2px;transition:width .5s;}
+.bar-n{background:var(--green);}.bar-w{background:var(--yellow);}.bar-d{background:var(--red);}
+.c-nums{display:flex;justify-content:space-between;}
+.c-kw{font-size:13px;font-family:var(--mono);font-weight:600;color:#fff;}
+.c-pct{font-size:11px;font-family:var(--mono);color:var(--muted);}
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:200;align-items:center;justify-content:center;}
+.modal-overlay.open{display:flex;}
+.modal{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:24px;width:90%;max-width:480px;max-height:80vh;overflow-y:auto;}
+.modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;}
+.modal-title{font-size:15px;font-weight:600;color:#fff;}
+.modal-close{background:none;border:none;color:var(--muted);font-size:20px;cursor:pointer;line-height:1;}
+.modal-close:hover{color:#fff;}
+.modal-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;}
+.modal-item{background:var(--bg3);border-radius:8px;padding:12px;}
+.modal-key{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;}
+.modal-val{font-size:16px;font-family:var(--mono);font-weight:600;color:#fff;}
+.modal-sub{font-size:10px;color:var(--muted);margin-top:2px;}
+.modal-spec-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(37,42,56,.5);font-size:12px;}
+.modal-spec-row:last-child{border-bottom:none;}
+.cal-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+.cal-month{font-size:16px;font-weight:600;color:#fff;}
+.cal-btns{display:flex;gap:8px;}
+.cal-btn{padding:6px 14px;border-radius:6px;border:1px solid var(--border);background:var(--bg3);color:var(--text);font-size:12px;cursor:pointer;font-family:var(--sans);transition:background .2s;}
+.cal-btn.active{background:var(--accent);color:#000;border-color:var(--accent);font-weight:600;}
+.cal-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px;}
+.cal-sum-item{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:12px;text-align:center;}
+.cal-sum-key{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;}
+.cal-sum-val{font-size:18px;font-family:var(--mono);font-weight:600;color:#fff;}
+.cal-sum-sub{font-size:10px;color:var(--muted);margin-top:2px;}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;}
+.cal-dow{text-align:center;font-size:11px;color:var(--muted);padding:4px 0 8px;font-weight:500;}
+.cal-day{border-radius:8px;padding:8px 6px;min-height:76px;background:var(--bg3);border:1px solid var(--border);display:flex;flex-direction:column;gap:3px;cursor:pointer;transition:border-color .2s,background .2s;}
+.cal-day:hover:not(.empty){border-color:var(--accent);background:rgba(79,195,247,.05);}
+.cal-day.empty{background:transparent;border-color:transparent;cursor:default;}
+.cal-day.today{border-color:var(--accent);background:rgba(79,195,247,.12);}
+.cal-day.alert-warn{border-color:rgba(255,215,64,.4);}
+.cal-day.alert-danger{border-color:rgba(255,82,82,.4);}
+.cal-day.forecast-day{border-color:rgba(79,195,247,.35);}
+.cal-day-num{font-size:11px;font-family:var(--mono);color:var(--muted);}
+.cal-day.today .cal-day-num{color:var(--accent);font-weight:600;}
+.cal-icon{font-size:14px;line-height:1;}
+.cal-temp{font-size:10px;font-family:var(--mono);color:var(--text);}
+.cal-load{font-size:10px;font-family:var(--mono);}
+.cal-popup-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:200;align-items:center;justify-content:center;}
+.cal-popup-overlay.open{display:flex;}
+.cal-popup{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:24px;width:90%;max-width:400px;}
+.cal-popup-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;}
+.cal-popup-title{font-size:15px;font-weight:600;color:#fff;}
+.cal-popup-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px;}
+.cpg-item{background:var(--bg3);border-radius:7px;padding:10px 12px;}
+.cpg-key{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px;}
+.cpg-val{font-size:15px;font-family:var(--mono);font-weight:600;color:#fff;}
+.ai-flow{display:flex;align-items:center;gap:0;margin-bottom:20px;overflow-x:auto;padding-bottom:4px;}
+.ai-box{flex-shrink:0;background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:10px 14px;text-align:center;min-width:90px;}
+.ai-box-title{font-size:11px;font-weight:600;color:var(--accent);margin-bottom:4px;}
+.ai-box-desc{font-size:10px;color:var(--muted);line-height:1.4;}
+.ai-arrow{font-size:16px;color:var(--border);padding:0 6px;flex-shrink:0;}
+.model-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;}
+.model-item{background:var(--bg3);border-radius:6px;padding:10px 12px;}
+.model-name{font-size:10px;color:var(--muted);margin-bottom:4px;font-family:var(--mono);}
+.model-r2{font-size:14px;font-family:var(--mono);font-weight:600;}
+.model-mae{font-size:10px;color:var(--muted);font-family:var(--mono);margin-top:2px;}
+.r2-bar-wrap{height:3px;background:var(--border);border-radius:2px;margin-top:6px;overflow:hidden;}
+.r2-bar{height:100%;border-radius:2px;}
+.spec-table{width:100%;border-collapse:collapse;}
+.spec-table th{text-align:left;font-size:10px;color:var(--muted);font-weight:500;padding:0 8px 8px 0;letter-spacing:.06em;text-transform:uppercase;border-bottom:1px solid var(--border);}
+.spec-table td{padding:8px 8px 8px 0;font-size:12px;border-bottom:1px solid rgba(37,42,56,.4);vertical-align:middle;}
+.spec-table tr:last-child td{border-bottom:none;}
+.spec-badge{display:inline-block;padding:2px 7px;border-radius:3px;font-size:10px;font-family:var(--mono);}
+.spec-ok{background:rgba(67,233,123,.12);color:var(--green);}
+.spec-kec{background:rgba(79,195,247,.12);color:var(--accent);}
+.diagram-wrap{overflow-x:auto;padding:8px 0;}
+.loading{display:flex;flex-direction:column;align-items:center;justify-content:center;height:50vh;gap:14px;color:var(--muted);}
+.spinner{width:28px;height:28px;border:2px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg)}}
+.no-data{color:var(--muted);font-size:12px;text-align:center;padding:20px 0;}
+@media(max-width:768px){
+  /* 헤더 */
+  header{padding:10px 14px;flex-wrap:wrap;gap:6px;}
+  .upd{display:none;}
+  .h-sub{font-size:10px;}
+
+  /* 탭 — 아이콘+짧은 텍스트 */
+  .tab-bar{padding:0 10px;}
+  .tab-btn{padding:9px 10px;font-size:11px;}
+
+  /* 레이아웃 */
+  .container{padding:12px 14px;}
+  .grid-2,.grid-3{grid-template-columns:1fr;}
+  .grid-9{grid-template-columns:repeat(2,1fr);}
+
+  /* 게이지 세로 배치 */
+  .gauge-wrap{flex-direction:column;align-items:flex-start;gap:14px;}
+  .gauge-svg-wrap svg{width:110px;height:110px;}
+  .gauge-stats{width:100%;}
+  .g-kw{font-size:22px;}
+
+  /* 날씨 */
+  .weather-main{gap:10px;}
+  .weather-big-icon{font-size:36px;}
+  .w-temp-big{font-size:28px;}
+  .weather-detail-grid{grid-template-columns:repeat(2,1fr);}
+
+  /* 모델 그리드 */
+  .model-grid{grid-template-columns:repeat(2,1fr);}
+
+  /* AI 플로우 가로 스크롤 */
+  .ai-flow{gap:0;padding-bottom:8px;}
+  .ai-box{min-width:72px;padding:8px 8px;}
+  .ai-box-title{font-size:10px;}
+  .ai-box-desc{font-size:9px;}
+  .ai-arrow{font-size:12px;padding:0 3px;}
+
+  /* 달력 */
+  .cal-summary{grid-template-columns:repeat(2,1fr);}
+  .cal-sum-val{font-size:15px;}
+  /* 모바일 달력 - 날짜만 표시 */
+  .cal-day{min-height:40px;padding:6px 3px;gap:0;justify-content:center;align-items:center;}
+  .cal-day-num{font-size:13px;font-family:var(--mono);}
+  .cal-day .cal-icon,
+  .cal-day .cal-temp,
+  .cal-day .cal-load{display:none;}
+  .cal-dow{font-size:10px;padding:3px 0 6px;}
+  /* 상태 점 표시 */
+  .cal-day::after{content:'';display:block;width:5px;height:5px;border-radius:50%;margin-top:3px;}
+  .cal-day.alert-danger::after{background:var(--red);}
+  .cal-day.alert-warn::after{background:var(--yellow);}
+  .cal-day:not(.alert-danger):not(.alert-warn):not(.empty)::after{background:var(--green);opacity:0.4;}
+  .cal-day.empty::after{display:none;}
+
+  /* 달력 팝업 → 1열 */
+  .cal-popup{width:95%;padding:16px;}
+  .cal-popup-grid{grid-template-columns:1fr 1fr;}
+  .cpg-val{font-size:13px;}
+
+  /* 회로 상세 모달 */
+  .modal{width:95%;padding:16px;}
+  .modal-grid{grid-template-columns:1fr 1fr;}
+  .modal-val{font-size:14px;}
+
+  /* 스펙 테이블 */
+  .spec-table td,.spec-table th{font-size:11px;padding:6px 6px 6px 0;}
+  .spec-badge{font-size:9px;padding:1px 5px;}
+
+  /* 단선도 — 모바일에서 가로 스크롤 안내 */
+  .diagram-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  .diagram-wrap::before{content:'← 좌우 스크롤';display:block;font-size:10px;color:var(--muted);margin-bottom:6px;font-family:var(--mono);}
+
+  /* 낙뢰 그리드 */
+  .lgt-grid{grid-template-columns:1fr 1fr;}
+  .lgt-val{font-size:12px;}
+
+  /* 사고 테이블 */
+  .acc-table td,.acc-table th{font-size:11px;padding:6px 6px 6px 0;}
+  .acc-type{font-size:10px;padding:1px 5px;}
+
+  /* 카드 패딩 */
+  .card{padding:14px;}
+
+  /* canvas 그래프 높이 줄임 */
+  #history-canvas{height:140px !important;}
+}
+
+/* 매우 좁은 화면 (400px 이하) */
+@media(max-width:400px){
+  .tab-btn{padding:8px 7px;font-size:10px;}
+  .grid-9{grid-template-columns:1fr;}
+  .cal-grid{gap:2px;}
+  .cal-day{min-height:50px;}
+  .gauge-svg-wrap svg{width:90px;height:90px;}
+  .g-kw{font-size:18px;}
+  .weather-big-icon{font-size:28px;}
+  .w-temp-big{font-size:22px;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-left">
+    <div class="logo">⚡</div>
+    <div><div class="h-title">스마트 분전반</div><div class="h-sub">100A / 22kW · 홍성 사무실</div></div>
+  </div>
+  <div class="header-right">
+    <div class="upd" id="upd-at">—</div>
+    <div class="sbadge s-normal" id="s-badge">정상</div>
+  </div>
+</header>
+
+<nav class="tab-bar">
+  <button class="tab-btn active" onclick="switchTab('overview',this)">📊 현황</button>
+  <button class="tab-btn" onclick="switchTab('circuits',this)">🔌 회로</button>
+  <button class="tab-btn" onclick="switchTab('calendar',this)">📅 달력</button>
+  <button class="tab-btn" onclick="switchTab('lightning',this)">⚡ 낙뢰</button>
+  <button class="tab-btn" onclick="switchTab('ai',this)">🤖 AI</button>
+</nav>
+
+<div id="loading" class="loading"><div class="spinner"></div><div>데이터 로딩 중...</div></div>
+<div id="app" style="display:none">
+
+<!-- ══ 현황 ══ -->
+<div id="tab-overview" class="tab-panel active">
+<div class="container">
+  <div class="section">
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-title">⚡ 총 부하</div>
+        <div class="gauge-wrap">
+          <div class="gauge-svg-wrap">
+            <svg width="120" height="120" viewBox="0 0 120 120">
+              <circle cx="60" cy="60" r="48" fill="none" stroke="#1a1e28" stroke-width="9"/>
+              <circle cx="60" cy="60" r="48" fill="none" stroke="#252a38" stroke-width="9" stroke-dasharray="301.6" transform="rotate(-90 60 60)"/>
+              <circle id="g-bar" cx="60" cy="60" r="48" fill="none" stroke="#43e97b" stroke-width="9" stroke-dasharray="0 301.6" stroke-linecap="round" transform="rotate(-90 60 60)" style="transition:stroke-dasharray .6s,stroke .3s"/>
+            </svg>
+            <div class="gauge-label"><div class="g-kw" id="g-kw">—</div><div class="g-pct" id="g-pct">—%</div></div>
+          </div>
+          <div class="gauge-stats">
+            <div class="stat-row"><span class="sl">전류</span><span class="sv" id="g-cur">—</span></div>
+            <div class="stat-row"><span class="sl">경고</span><span class="sv" style="color:var(--yellow)">15.4 kW</span></div>
+            <div class="stat-row"><span class="sl">위험</span><span class="sv" style="color:var(--red)">19.8 kW</span></div>
+            <div class="stat-row"><span class="sl">용량</span><span class="sv">22.0 kW</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">🌤 현재 날씨</div>
+        <div class="weather-main">
+          <div class="weather-big-icon" id="w-big-icon">—</div>
+          <div class="weather-main-vals">
+            <div class="w-temp-big" id="w-temp-big">—°C</div>
+            <div class="w-desc" id="w-desc">—</div>
+          </div>
+        </div>
+        <div class="weather-detail-grid">
+          <div class="wd-item"><div class="wd-key">습도</div><div class="wd-val" id="wd-hum">—%</div></div>
+          <div class="wd-item"><div class="wd-key">날씨</div><div class="wd-val" id="wd-code">—</div></div>
+          <div class="wd-item"><div class="wd-key">낙뢰</div><div class="wd-val" id="wd-thunder">없음</div></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">📊 오늘 시간별 부하</div>
+        <div class="chart-wrap" id="hourly-chart"></div>
+        <div style="display:flex;justify-content:space-between;margin-top:6px">
+          <span style="font-size:9px;color:var(--muted)">00시</span>
+          <span style="font-size:9px;color:var(--muted)">12시</span>
+          <span style="font-size:9px;color:var(--muted)">23시</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="sec-title">사고 이력 (최근 10건)</div>
+    <div class="card">
+      <div style="overflow-x:auto">
+        <table class="acc-table">
+          <thead><tr><th>시각</th><th>사고 유형</th><th>심각도</th><th>회로</th></tr></thead>
+          <tbody id="acc-tbody"><tr><td colspan="4" class="no-data">—</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ══ 회로 ══ -->
+<div id="tab-circuits" class="tab-panel">
+<div class="container">
+  <div class="section">
+    <div class="sec-title">분전반 단선 결선도</div>
+    <div class="card">
+      <div class="diagram-wrap">
+        <svg width="100%" viewBox="0 0 820 230" style="font-family:'IBM Plex Mono',monospace;min-width:760px">
+
+          <!-- 한전 인입 -->
+          <text x="80" y="14" text-anchor="middle" fill="#5a6075" font-size="10">한전 인입</text>
+          <line x1="80" y1="18" x2="80" y2="50" stroke="#4fc3f7" stroke-width="2.5"/>
+
+          <!-- 주 MCCB -->
+          <rect x="36" y="50" width="88" height="38" rx="6" fill="#1a1e28" stroke="#4fc3f7" stroke-width="1.8"/>
+          <text x="80" y="67" text-anchor="middle" fill="#4fc3f7" font-size="11" font-weight="600">MCCB</text>
+          <text x="80" y="81" text-anchor="middle" fill="#c8cdd8" font-size="10">100A / 22kW</text>
+
+          <!-- SPD (MCCB 우측에 독립 배치) -->
+          <line x1="124" y1="69" x2="148" y2="69" stroke="rgba(79,195,247,.4)" stroke-width="1" stroke-dasharray="3 2"/>
+          <rect x="148" y="56" width="46" height="26" rx="4" fill="rgba(79,195,247,.06)" stroke="rgba(79,195,247,.4)" stroke-width="1.2"/>
+          <text x="171" y="73" text-anchor="middle" fill="#4fc3f7" font-size="10" font-weight="500">SPD</text>
+
+          <!-- 주모선 세로 -->
+          <line x1="80" y1="88" x2="80" y2="112" stroke="#4fc3f7" stroke-width="2.5"/>
+          <!-- 주모선 가로 -->
+          <line x1="80" y1="112" x2="795" y2="112" stroke="#4fc3f7" stroke-width="2.5"/>
+
+          <!-- c1 조명A -->
+          <line x1="100" y1="112" x2="100" y2="132" stroke="#5a6075" stroke-width="1.5"/>
+          <rect x="66" y="132" width="68" height="28" rx="4" fill="#1a1e28" stroke="#252a38" stroke-width="1" id="d-c1"/>
+          <text x="100" y="146" text-anchor="middle" fill="#c8cdd8" font-size="9">20A ELB</text>
+          <text x="100" y="157" text-anchor="middle" fill="#5a6075" font-size="8">c1 조명A</text>
+          <line x1="100" y1="160" x2="100" y2="174" stroke="#5a6075" stroke-width="1.5"/>
+          <text x="100" y="185" text-anchor="middle" fill="#5a6075" font-size="8">1.5kW</text>
+
+          <!-- c2 조명B -->
+          <line x1="190" y1="112" x2="190" y2="132" stroke="#5a6075" stroke-width="1.5"/>
+          <rect x="156" y="132" width="68" height="28" rx="4" fill="#1a1e28" stroke="#252a38" stroke-width="1" id="d-c2"/>
+          <text x="190" y="146" text-anchor="middle" fill="#c8cdd8" font-size="9">20A ELB</text>
+          <text x="190" y="157" text-anchor="middle" fill="#5a6075" font-size="8">c2 조명B</text>
+          <line x1="190" y1="160" x2="190" y2="174" stroke="#5a6075" stroke-width="1.5"/>
+          <text x="190" y="185" text-anchor="middle" fill="#5a6075" font-size="8">0.8kW</text>
+
+          <!-- c3 콘센트A -->
+          <line x1="280" y1="112" x2="280" y2="132" stroke="#5a6075" stroke-width="1.5"/>
+          <rect x="246" y="132" width="68" height="28" rx="4" fill="#1a1e28" stroke="#252a38" stroke-width="1" id="d-c3"/>
+          <text x="280" y="146" text-anchor="middle" fill="#c8cdd8" font-size="9">30A ELB</text>
+          <text x="280" y="157" text-anchor="middle" fill="#5a6075" font-size="8">c3 콘센트A</text>
+          <line x1="280" y1="160" x2="280" y2="174" stroke="#5a6075" stroke-width="1.5"/>
+          <text x="280" y="185" text-anchor="middle" fill="#5a6075" font-size="8">3.5kW</text>
+
+          <!-- c4 콘센트B -->
+          <line x1="370" y1="112" x2="370" y2="132" stroke="#5a6075" stroke-width="1.5"/>
+          <rect x="336" y="132" width="68" height="28" rx="4" fill="#1a1e28" stroke="#252a38" stroke-width="1" id="d-c4"/>
+          <text x="370" y="146" text-anchor="middle" fill="#c8cdd8" font-size="9">20A ELB</text>
+          <text x="370" y="157" text-anchor="middle" fill="#5a6075" font-size="8">c4 콘센트B</text>
+          <line x1="370" y1="160" x2="370" y2="174" stroke="#5a6075" stroke-width="1.5"/>
+          <text x="370" y="185" text-anchor="middle" fill="#5a6075" font-size="8">2.0kW</text>
+
+          <!-- c5 냉난방 -->
+          <line x1="460" y1="112" x2="460" y2="132" stroke="#5a6075" stroke-width="1.5"/>
+          <rect x="426" y="132" width="68" height="28" rx="4" fill="#1a1e28" stroke="#252a38" stroke-width="1" id="d-c5"/>
+          <text x="460" y="146" text-anchor="middle" fill="#c8cdd8" font-size="9">30A ELB</text>
+          <text x="460" y="157" text-anchor="middle" fill="#5a6075" font-size="8">c5 냉난방</text>
+          <line x1="460" y1="160" x2="460" y2="174" stroke="#5a6075" stroke-width="1.5"/>
+          <text x="460" y="185" text-anchor="middle" fill="#5a6075" font-size="8">3.5kW</text>
+
+          <!-- c6 서버 -->
+          <line x1="550" y1="112" x2="550" y2="132" stroke="#5a6075" stroke-width="1.5"/>
+          <rect x="516" y="132" width="68" height="28" rx="4" fill="#1a1e28" stroke="#252a38" stroke-width="1" id="d-c6"/>
+          <text x="550" y="146" text-anchor="middle" fill="#c8cdd8" font-size="9">20A ELB</text>
+          <text x="550" y="157" text-anchor="middle" fill="#5a6075" font-size="8">c6 서버</text>
+          <line x1="550" y1="160" x2="550" y2="174" stroke="#5a6075" stroke-width="1.5"/>
+          <text x="550" y="185" text-anchor="middle" fill="#5a6075" font-size="8">2.0kW</text>
+
+          <!-- c7 복합기 -->
+          <line x1="640" y1="112" x2="640" y2="132" stroke="#5a6075" stroke-width="1.5"/>
+          <rect x="606" y="132" width="68" height="28" rx="4" fill="#1a1e28" stroke="#252a38" stroke-width="1" id="d-c7"/>
+          <text x="640" y="146" text-anchor="middle" fill="#c8cdd8" font-size="9">20A ELB</text>
+          <text x="640" y="157" text-anchor="middle" fill="#5a6075" font-size="8">c7 복합기</text>
+          <line x1="640" y1="160" x2="640" y2="174" stroke="#5a6075" stroke-width="1.5"/>
+          <text x="640" y="185" text-anchor="middle" fill="#5a6075" font-size="8">1.5kW</text>
+
+          <!-- c8 환기팬 MCCB + 모터 -->
+          <line x1="720" y1="112" x2="720" y2="132" stroke="#ff9800" stroke-width="1.8"/>
+          <rect x="686" y="132" width="68" height="28" rx="4" fill="#1a1e28" stroke="#ff9800" stroke-width="1.8" id="d-c8"/>
+          <text x="720" y="146" text-anchor="middle" fill="#ff9800" font-size="9">30A MCCB</text>
+          <text x="720" y="157" text-anchor="middle" fill="#ff9800" font-size="8">c8 환기팬</text>
+          <line x1="720" y1="160" x2="720" y2="170" stroke="#ff9800" stroke-width="1.8"/>
+          <circle cx="720" cy="182" r="11" fill="none" stroke="#ff9800" stroke-width="1.8"/>
+          <text x="720" y="187" text-anchor="middle" fill="#ff9800" font-size="10" font-weight="600">M</text>
+          <text x="720" y="208" text-anchor="middle" fill="#5a6075" font-size="8">3.0kW</text>
+
+          <!-- c9 예비 (점선) -->
+          <line x1="795" y1="112" x2="795" y2="132" stroke="#2a3040" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <rect x="761" y="132" width="58" height="28" rx="4" fill="#1a1e28" stroke="#2a3040" stroke-width="1" id="d-c9"/>
+          <text x="790" y="146" text-anchor="middle" fill="#3a4255" font-size="9">20A ELB</text>
+          <text x="790" y="157" text-anchor="middle" fill="#3a4255" font-size="8">c9 예비</text>
+          <line x1="790" y1="160" x2="790" y2="174" stroke="#2a3040" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <text x="790" y="185" text-anchor="middle" fill="#3a4255" font-size="8">2.0kW</text>
+
+        </svg>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:12px;padding-top:10px;border-top:1px solid #252a38">
+        <div style="display:flex;align-items:center;gap:5px"><div style="width:10px;height:10px;border-radius:2px;border:1px solid #5a6075;background:#1a1e28"></div><span style="font-size:11px;color:#5a6075">ELB 누전차단기</span></div>
+        <div style="display:flex;align-items:center;gap:5px"><div style="width:10px;height:10px;border-radius:2px;border:1.5px solid #ff9800;background:#1a1e28"></div><span style="font-size:11px;color:#5a6075">MCCB 배선차단기</span></div>
+        <div style="display:flex;align-items:center;gap:5px"><div style="width:14px;height:2px;border-top:2px dashed #252a38"></div><span style="font-size:11px;color:#5a6075">예비 미사용</span></div>
+        <div style="display:flex;align-items:center;gap:5px"><div style="width:10px;height:10px;border-radius:3px;border:1px solid rgba(79,195,247,.4);background:rgba(79,195,247,.1)"></div><span style="font-size:11px;color:#5a6075">SPD 서지보호</span></div>
+        <div style="width:1px;height:16px;background:#252a38;margin:0 2px"></div>
+        <div style="display:flex;align-items:center;gap:5px"><div style="width:10px;height:10px;border-radius:2px;border:1.5px solid #43e97b;background:#1a1e28"></div><span style="font-size:11px;color:#43e97b">정상</span></div>
+        <div style="display:flex;align-items:center;gap:5px"><div style="width:10px;height:10px;border-radius:2px;border:1.5px solid #ffd740;background:#1a1e28"></div><span style="font-size:11px;color:#ffd740">경고</span></div>
+        <div style="display:flex;align-items:center;gap:5px"><div style="width:10px;height:10px;border-radius:2px;border:1.5px solid #ff5252;background:#1a1e28"></div><span style="font-size:11px;color:#ff5252">위험</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-title">실시간 회로별 현황 (클릭 → 상세보기)</div>
+    <div class="grid-9" id="circuits-grid"></div>
+  </div>
+
+  <div class="section">
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">📋 시설 스펙 및 법적 기준</div>
+        <table class="spec-table">
+          <thead><tr><th>항목</th><th>값</th><th>기준</th></tr></thead>
+          <tbody>
+            <tr><td>주 차단기</td><td style="font-family:var(--mono)">100A MCCB</td><td><span class="spec-badge spec-kec">KEC 212</span></td></tr>
+            <tr><td>공급 용량</td><td style="font-family:var(--mono)">22.0 kW</td><td><span class="spec-badge spec-kec">KS C IEC 60364</span></td></tr>
+            <tr><td>공칭 전압</td><td style="font-family:var(--mono)">220V / 60Hz</td><td><span class="spec-badge spec-kec">KEC 211</span></td></tr>
+            <tr><td>전압 허용범위</td><td style="font-family:var(--mono)">198V ~ 242V</td><td><span class="spec-badge spec-kec">±10%</span></td></tr>
+            <tr><td>경고 임계값</td><td style="font-family:var(--mono);color:var(--yellow)">15.4 kW (70%)</td><td><span class="spec-badge spec-kec">KEC 212.4</span></td></tr>
+            <tr><td>위험 임계값</td><td style="font-family:var(--mono);color:var(--red)">19.8 kW (90%)</td><td><span class="spec-badge spec-kec">KEC 212.4</span></td></tr>
+            <tr><td>누전 감도전류</td><td style="font-family:var(--mono)">30 mA</td><td><span class="spec-badge spec-kec">KEC 211</span></td></tr>
+            <tr><td>누전 차단시간</td><td style="font-family:var(--mono)">0.03초 이내</td><td><span class="spec-badge spec-kec">KEC 211</span></td></tr>
+            <tr><td>서지보호장치</td><td style="font-family:var(--mono)">SPD 설치</td><td><span class="spec-badge spec-kec">KEC 150</span></td></tr>
+            <tr><td>분기 회로 수</td><td style="font-family:var(--mono)">9회로</td><td><span class="spec-badge spec-ok">설계기준</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card">
+        <div class="card-title">🔌 회로별 스펙</div>
+        <table class="spec-table">
+          <thead><tr><th>회로</th><th>용도</th><th>차단기</th><th>정격</th></tr></thead>
+          <tbody>
+            <tr><td style="font-family:var(--mono);color:var(--accent)">c1</td><td>조명A(사무)</td><td>ELB</td><td style="font-family:var(--mono)">20A/1.5kW</td></tr>
+            <tr><td style="font-family:var(--mono);color:var(--accent)">c2</td><td>조명B(복도)</td><td>ELB</td><td style="font-family:var(--mono)">20A/0.8kW</td></tr>
+            <tr><td style="font-family:var(--mono);color:var(--accent)">c3</td><td>콘센트A(PC)</td><td>ELB</td><td style="font-family:var(--mono)">30A/3.5kW</td></tr>
+            <tr><td style="font-family:var(--mono);color:var(--accent)">c4</td><td>콘센트B(회의)</td><td>ELB</td><td style="font-family:var(--mono)">20A/2.0kW</td></tr>
+            <tr><td style="font-family:var(--mono);color:var(--accent)">c5</td><td>냉난방기</td><td>ELB</td><td style="font-family:var(--mono)">30A/3.5kW</td></tr>
+            <tr><td style="font-family:var(--mono);color:var(--accent)">c6</td><td>서버·네트워크</td><td>ELB</td><td style="font-family:var(--mono)">20A/2.0kW</td></tr>
+            <tr><td style="font-family:var(--mono);color:var(--accent)">c7</td><td>복합기·프린터</td><td>ELB</td><td style="font-family:var(--mono)">20A/1.5kW</td></tr>
+            <tr><td style="font-family:var(--mono);color:var(--orange)">c8</td><td>동력(환기팬)</td><td>MCCB</td><td style="font-family:var(--mono)">30A/3.0kW</td></tr>
+            <tr><td style="font-family:var(--mono);color:var(--muted)">c9</td><td>예비회로</td><td>ELB</td><td style="font-family:var(--mono)">20A/2.0kW</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ══ 달력 ══ -->
+<div id="tab-calendar" class="tab-panel">
+<div class="container">
+  <div class="cal-nav">
+    <div class="cal-month" id="cal-month-title">—</div>
+    <div class="cal-btns">
+      <button class="cal-btn active" id="btn-this" onclick="showCal('this')">이번 달</button>
+      <button class="cal-btn" id="btn-next" onclick="showCal('next')">다음 달</button>
+    </div>
+  </div>
+  <div class="cal-summary" id="cal-summary"></div>
+  <div class="card">
+    <div class="cal-grid" id="cal-grid">
+      <div class="cal-dow">일</div><div class="cal-dow">월</div><div class="cal-dow">화</div>
+      <div class="cal-dow">수</div><div class="cal-dow">목</div><div class="cal-dow">금</div><div class="cal-dow">토</div>
+    </div>
+  </div>
+  <div style="margin-top:12px;display:flex;gap:16px;align-items:center;flex-wrap:wrap">
+    <span style="font-size:11px;color:var(--muted)">범례:</span>
+    <span style="font-size:11px;color:var(--accent)">🟦 KMA 예보</span>
+    <span style="font-size:11px;color:var(--muted)">⬜ ASOS 10년 평균</span>
+    <span style="font-size:11px;color:var(--yellow)">🟡 경고 예상</span>
+    <span style="font-size:11px;color:var(--red)">🔴 위험 예상</span>
+    <span style="font-size:11px;color:var(--accent)">날짜 클릭 → 상세보기</span>
+  </div>
+</div>
+</div>
+
+<!-- ══ 낙뢰 ══ -->
+<div id="tab-lightning" class="tab-panel">
+<div class="container">
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">⚡ 낙뢰 현황</div>
+      <div class="lgt-status-row">
+        <div class="lgt-dot" id="lgt-dot"></div>
+        <div id="lgt-label" style="font-size:13px;font-weight:500;color:#fff">감지 없음</div>
+      </div>
+      <div class="lgt-grid">
+        <div class="lgt-item"><div class="lgt-key">10분 내 건수</div><div class="lgt-val" id="lgt-count">0건</div></div>
+        <div class="lgt-item"><div class="lgt-key">위험도</div><div class="lgt-val" id="lgt-level">없음</div></div>
+        <div class="lgt-item"><div class="lgt-key">분전반까지</div><div class="lgt-val" id="lgt-dist">—</div></div>
+        <div class="lgt-item"><div class="lgt-key">낙뢰 종류</div><div class="lgt-val" id="lgt-type">—</div></div>
+        <div class="lgt-item" style="grid-column:span 2"><div class="lgt-key">발생 위치</div><div class="lgt-val" id="lgt-addr">—</div></div>
+        <div class="lgt-item" style="grid-column:span 2"><div class="lgt-key">강도 (kA)</div><div class="lgt-val" id="lgt-amp">—</div></div>
+        <div class="lgt-item" style="grid-column:span 2"><div class="lgt-key">발생 시각</div><div class="lgt-val" id="lgt-dt">—</div></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">⚠️ KEC 150 서지보호 기준</div>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px">
+        <div style="background:rgba(255,82,82,.08);border:1px solid rgba(255,82,82,.2);border-radius:6px;padding:12px">
+          <div style="font-size:11px;color:var(--red);font-weight:600;margin-bottom:4px">🔴 위험 — CG 5km 이내</div>
+          <div style="font-size:12px;color:var(--text)">구름-지면 직격뢰. 유도전압 최대 ×25 배율<br>SPD 동작 여부 즉시 확인 필요</div>
+        </div>
+        <div style="background:rgba(255,215,64,.08);border:1px solid rgba(255,215,64,.2);border-radius:6px;padding:12px">
+          <div style="font-size:11px;color:var(--yellow);font-weight:600;margin-bottom:4px">🟡 주의 — CG 20km 이내</div>
+          <div style="font-size:12px;color:var(--text)">원거리 유도서지 ×15 배율<br>c3 PC, c6 서버 회로 모니터링</div>
+        </div>
+        <div style="background:rgba(79,195,247,.08);border:1px solid rgba(79,195,247,.2);border-radius:6px;padding:12px">
+          <div style="font-size:11px;color:var(--accent);font-weight:600;margin-bottom:4px">🔵 관찰 — CC 구름방전</div>
+          <div style="font-size:12px;color:var(--text)">구름 간 방전. 간접 서지 ×6 배율<br>50kA 이상 시 ×1.5 추가 배율</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ══ AI 모델 ══ -->
+<div id="tab-ai" class="tab-panel">
+<div class="container">
+  <div class="section">
+    <div class="sec-title">AI 작동 구조</div>
+    <div class="card">
+      <div class="ai-flow">
+        <div class="ai-box"><div class="ai-box-title">입력</div><div class="ai-box-desc">날씨<br>시간대<br>계절<br>이벤트</div></div>
+        <div class="ai-arrow">→</div>
+        <div class="ai-box"><div class="ai-box-title">Claude API</div><div class="ai-box-desc">시뮬레이터<br>회로별<br>부하 생성</div></div>
+        <div class="ai-arrow">→</div>
+        <div class="ai-box"><div class="ai-box-title">CSV 누적</div><div class="ai-box-desc">매일<br>24행<br>추가</div></div>
+        <div class="ai-arrow">→</div>
+        <div class="ai-box"><div class="ai-box-title" style="color:var(--green)">RF 학습</div><div class="ai-box-desc">10개 모델<br>매일 자정<br>재학습</div></div>
+        <div class="ai-arrow">→</div>
+        <div class="ai-box"><div class="ai-box-title" style="color:var(--green)">예측</div><div class="ai-box-desc">부하 예측<br>경보 판정<br>달력 생성</div></div>
+        <div class="ai-arrow">→</div>
+        <div class="ai-box"><div class="ai-box-title">출력</div><div class="ai-box-desc">대시보드<br>Telegram<br>경보</div></div>
+      </div>
+      <div style="display:flex;gap:16px;flex-wrap:wrap">
+        <div style="background:var(--bg3);border-radius:6px;padding:10px 14px;flex:1;min-width:160px">
+          <div style="font-size:10px;color:var(--muted);margin-bottom:6px;text-transform:uppercase;letter-spacing:.06em">피처 (16개)</div>
+          <div style="font-size:11px;color:var(--text);line-height:2">시간 sin/cos · 월 sin/cos · 주말여부 · 기온 · 기온² · 습도 · 낙뢰 · 시간대 · 계절 · 이벤트 · 재실률 · 날씨코드 · 기온×습도 · 기온×여름 · 기온×겨울 · 업무×재실</div>
+        </div>
+        <div style="background:var(--bg3);border-radius:6px;padding:10px 14px;flex:1;min-width:160px">
+          <div style="font-size:10px;color:var(--muted);margin-bottom:6px;text-transform:uppercase;letter-spacing:.06em">모델 구성</div>
+          <div style="font-size:11px;color:var(--text);line-height:2">총 부하 RF (n=200) × 1<br>회로별 RF (n=100) × 9<br>총 10개 독립 모델<br>매일 자정 배치 재학습</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-title">AI 모듈 구성</div>
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-title" style="color:var(--yellow)">🧠 Claude API (시뮬레이터)</div>
+        <div style="font-size:13px;font-weight:500;color:#fff;margin-bottom:8px">합성 전력 데이터 생성</div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="background:var(--bg3);border-radius:6px;padding:8px 10px">
+            <div style="font-size:10px;color:var(--muted);margin-bottom:2px">모델</div>
+            <div style="font-size:12px;font-family:var(--mono);color:#fff">claude-haiku-4-5</div>
+          </div>
+          <div style="background:var(--bg3);border-radius:6px;padding:8px 10px">
+            <div style="font-size:10px;color:var(--muted);margin-bottom:2px">역할</div>
+            <div style="font-size:12px;color:var(--text)">날씨·시간·이벤트 입력 → 9개 회로별 부하량 + 사고 JSON 생성</div>
+          </div>
+          <div style="background:var(--bg3);border-radius:6px;padding:8px 10px">
+            <div style="font-size:10px;color:var(--muted);margin-bottom:2px">실행 주기</div>
+            <div style="font-size:12px;font-family:var(--mono);color:#fff">매일 자정 24시간분</div>
+          </div>
+          <div style="background:var(--bg3);border-radius:6px;padding:8px 10px">
+            <div style="font-size:10px;color:var(--muted);margin-bottom:2px">출력</div>
+            <div style="font-size:12px;font-family:var(--mono);color:var(--accent)">panel_simulation.csv</div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title" style="color:var(--green)">🌲 RandomForest (예측 모델)</div>
+        <div style="font-size:13px;font-weight:500;color:#fff;margin-bottom:8px">부하 예측 + 경보 판정</div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="background:var(--bg3);border-radius:6px;padding:8px 10px">
+            <div style="font-size:10px;color:var(--muted);margin-bottom:2px">알고리즘</div>
+            <div style="font-size:12px;font-family:var(--mono);color:#fff">RandomForestRegressor</div>
+          </div>
+          <div style="background:var(--bg3);border-radius:6px;padding:8px 10px">
+            <div style="font-size:10px;color:var(--muted);margin-bottom:2px">모델 구성</div>
+            <div style="font-size:12px;font-family:var(--mono);color:#fff">총 부하 (n=200) × 1<br>회로별 (n=100) × 9</div>
+          </div>
+          <div style="background:var(--bg3);border-radius:6px;padding:8px 10px">
+            <div style="font-size:10px;color:var(--muted);margin-bottom:2px">입력 피처</div>
+            <div style="font-size:12px;color:var(--text)">16개 — 시간 sin/cos, 기온², 습도, 계절, 시간대, 이벤트, 재실률 등</div>
+          </div>
+          <div style="background:var(--bg3);border-radius:6px;padding:8px 10px">
+            <div style="font-size:10px;color:var(--muted);margin-bottom:2px">재학습</div>
+            <div style="font-size:12px;font-family:var(--mono);color:var(--green)">매일 자정 배치</div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title" style="color:var(--accent)">📡 KMA ASOS (기후 데이터)</div>
+        <div style="font-size:13px;font-weight:500;color:#fff;margin-bottom:8px">달력 예측 기반 데이터</div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="background:var(--bg3);border-radius:6px;padding:8px 10px">
+            <div style="font-size:10px;color:var(--muted);margin-bottom:2px">관측소</div>
+            <div style="font-size:12px;font-family:var(--mono);color:#fff">보령 (지점 235)</div>
+          </div>
+          <div style="background:var(--bg3);border-radius:6px;padding:8px 10px">
+            <div style="font-size:10px;color:var(--muted);margin-bottom:2px">수집 범위</div>
+            <div style="font-size:12px;font-family:var(--mono);color:#fff">최근 10년 일자료</div>
+          </div>
+          <div style="background:var(--bg3);border-radius:6px;padding:8px 10px">
+            <div style="font-size:10px;color:var(--muted);margin-bottom:2px">활용</div>
+            <div style="font-size:12px;color:var(--text)">월-일별 평균 기온·습도 → 달력 6일~말일 기후 기준값</div>
+          </div>
+          <div style="background:var(--bg3);border-radius:6px;padding:8px 10px">
+            <div style="font-size:10px;color:var(--muted);margin-bottom:2px">캐싱</div>
+            <div style="font-size:12px;font-family:var(--mono);color:var(--accent)">하루 1회 수집</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-title">현재 모델 성능</div>
+    <div class="card"><div class="model-grid" id="model-grid"></div></div>
+  </div>
+</div>
+</div>
+
+</div><!-- /app -->
+
+<!-- 회로 상세 모달 -->
+<div class="modal-overlay" id="circuit-modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title" id="modal-title">회로 상세</div>
+      <button class="modal-close" onclick="closeModal()">×</button>
+    </div>
+    <div class="modal-grid" id="modal-grid"></div>
+    <div style="font-size:11px;color:var(--muted);margin-bottom:10px;font-weight:600;text-transform:uppercase;letter-spacing:.06em">스펙 정보</div>
+    <div id="modal-spec"></div>
+  </div>
+</div>
+
+<!-- 달력 팝업 -->
+<div class="cal-popup-overlay" id="cal-popup" onclick="if(event.target===this)closeCalPopup()">
+  <div class="cal-popup">
+    <div class="cal-popup-header">
+      <div class="cal-popup-title" id="cal-popup-title">—</div>
+      <button class="modal-close" onclick="closeCalPopup()">×</button>
+    </div>
+    <div class="cal-popup-grid" id="cal-popup-grid"></div>
+    <div style="background:var(--bg3);border-radius:8px;padding:12px">
+      <div style="font-size:10px;color:var(--muted);margin-bottom:8px;text-transform:uppercase;letter-spacing:.06em">예측 부하</div>
+      <div style="display:flex;align-items:baseline;gap:6px">
+        <span style="font-size:24px;font-family:var(--mono);font-weight:600;color:#fff" id="cal-popup-load">—</span>
+        <span style="font-size:13px;color:var(--muted)">kW 평균</span>
+        <span style="font-size:13px;font-family:var(--mono);margin-left:auto" id="cal-popup-alert">—</span>
+      </div>
+      <div style="height:4px;background:var(--border);border-radius:2px;margin-top:8px;overflow:hidden">
+        <div id="cal-popup-bar" style="height:100%;border-radius:2px;background:var(--green);transition:width .4s"></div>
+      </div>
+      <div style="display:flex;justify-content:space-between;margin-top:4px">
+        <span style="font-size:9px;color:var(--muted)">0</span>
+        <span style="font-size:9px;color:var(--yellow)">15.4</span>
+        <span style="font-size:9px;color:var(--red)">19.8</span>
+        <span style="font-size:9px;color:var(--muted)">22 kW</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const DATA_URL='https://raw.githubusercontent.com/wnstjq813-web/smart-panel/main/dashboard_data.json';
+const WEATHER_ICON={clear:'☀️',partly_cloudy:'⛅',cloudy:'☁️',rainy:'🌧',snowy:'❄️',shower:'🌦',sleet:'🌨',none:'—'};
+const WEATHER_KO={clear:'맑음',partly_cloudy:'구름 조금',cloudy:'흐림',rainy:'비',snowy:'눈',shower:'소나기',sleet:'진눈깨비',none:'—'};
+const ACC_KO={overcurrent:'과전류',earth_fault:'지락',voltage_abnormality:'전압이상',motor_lock:'모터구속',lightning_surge:'낙뢰서지',overvoltage:'과전압',insulation_degradation:'절연열화',contact_failure:'접촉불량',harmonic_distortion:'고조파',low_power_factor:'저역률',phase_unbalance:'불평형',capacitor_failure:'커패시터이상',aging_failure:'노화',arc_fault:'아크',motor_starting:'기동전류',none:'없음'};
+const LGT_LEVEL_KO={none:'없음',watch:'관찰',warning:'주의',danger:'위험'};
+const LGT_TYPE_KO={CG:'구름-지면 (CG)',CC:'구름-구름 (CC)'};
+const MODEL_NAME={total_load_kw:'총 부하',c1_kw:'c1 조명A',c2_kw:'c2 조명B',c3_kw:'c3 콘센트A',c4_kw:'c4 콘센트B',c5_kw:'c5 냉난방기',c6_kw:'c6 서버',c7_kw:'c7 복합기',c8_kw:'c8 환기팬',c9_kw:'c9 예비'};
+const CIRCUIT_SPEC={c1:{breaker:'ELB 20A',rated_kw:1.5,std:'KEC 212'},c2:{breaker:'ELB 20A',rated_kw:0.8,std:'KEC 212'},c3:{breaker:'ELB 30A',rated_kw:3.5,std:'KEC 212'},c4:{breaker:'ELB 20A',rated_kw:2.0,std:'KEC 212'},c5:{breaker:'ELB 30A',rated_kw:3.5,std:'KEC 212'},c6:{breaker:'ELB 20A',rated_kw:2.0,std:'KEC 212'},c7:{breaker:'ELB 20A',rated_kw:1.5,std:'KEC 212'},c8:{breaker:'MCCB 30A',rated_kw:3.0,std:'KEC 212.6'},c9:{breaker:'ELB 20A',rated_kw:2.0,std:'KEC 212'}};
+
+
+let _data=null,_calMode='this';
+function sc(s){return s==='danger'?'var(--red)':s==='warn'?'var(--yellow)':'var(--green)';}
+function switchTab(id,btn){document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+id).classList.add('active');btn.classList.add('active');}
+function showCal(m){_calMode=m;document.getElementById('btn-this').classList.toggle('active',m==='this');document.getElementById('btn-next').classList.toggle('active',m==='next');if(_data)renderCalendar(_data);}
+function closeModal(){document.getElementById('circuit-modal').classList.remove('open');}
+function closeCalPopup(){document.getElementById('cal-popup').classList.remove('open');}
+
+function openActualPopup(day,actual,dateKey,ml){
+  document.getElementById('cal-popup-title').textContent=`${ml} ${day}일 (실적)`;
+  const statusKo=actual.status==='danger'?'🔴 위험':actual.status==='warn'?'🟡 경고':'🟢 정상';
+  document.getElementById('cal-popup-grid').innerHTML=`
+    <div class="cpg-item"><div class="cpg-key">데이터 종류</div><div class="cpg-val" style="font-size:12px;color:var(--green)">시뮬레이터 실적</div></div>
+    <div class="cpg-item"><div class="cpg-key">분전반 상태</div><div class="cpg-val" style="font-size:13px">${statusKo}</div></div>
+    <div class="cpg-item"><div class="cpg-key">평균 기온</div><div class="cpg-val">${actual.avg_temp}°C</div></div>
+    <div class="cpg-item"><div class="cpg-key">평균 습도</div><div class="cpg-val">${actual.avg_reh}%</div></div>
+    <div class="cpg-item"><div class="cpg-key">피크 부하</div><div class="cpg-val" style="color:var(--yellow)">${actual.peak_load} kW</div></div>
+    <div class="cpg-item"><div class="cpg-key">사고 건수</div><div class="cpg-val" style="color:${actual.accident_count>0?'var(--orange)':'var(--green)'}">${actual.accident_count}건</div></div>`;
+  const load=actual.avg_load||0,wk=15.4,dk=19.8,mk=22;
+  const pct=Math.min(load/mk*100,100);
+  const col=load>=dk?'var(--red)':load>=wk?'var(--yellow)':'var(--green)';
+  document.getElementById('cal-popup-load').textContent=load.toFixed(3);
+  document.getElementById('cal-popup-load').style.color=col;
+  document.getElementById('cal-popup-alert').textContent=load>=dk?'🔴 위험':load>=wk?'🟡 경고':'🟢 정상';
+  document.getElementById('cal-popup-bar').style.width=pct+'%';
+  document.getElementById('cal-popup-bar').style.background=col;
+  document.getElementById('cal-popup').classList.add('open');
+}
+
+function openCircuitModal(cid,c){
+  const sp=CIRCUIT_SPEC[cid]||{};
+  const rk=sp.rated_kw||1;
+  const col=sc(c.status||'normal');
+  document.getElementById('modal-title').textContent=`${cid.toUpperCase()} — ${c.name}`;
+  document.getElementById('modal-grid').innerHTML=`
+    <div class="modal-item"><div class="modal-key">현재 부하</div><div class="modal-val" style="color:${col}">${(c.load_kw||0).toFixed(3)} kW</div><div class="modal-sub">정격 ${rk} kW</div></div>
+    <div class="modal-item"><div class="modal-key">가동률</div><div class="modal-val" style="color:${col}">${((c.load_rate||0)*100).toFixed(0)}%</div><div class="modal-sub">${c.status||'normal'}</div></div>
+    <div class="modal-item"><div class="modal-key">전류</div><div class="modal-val">${(c.current_a||0).toFixed(2)} A</div><div class="modal-sub">${sp.breaker||'—'}</div></div>
+    <div class="modal-item"><div class="modal-key">상태</div><div class="modal-val" style="color:${col}">${c.status==='danger'?'위험':c.status==='warn'?'경고':'정상'}</div><div class="modal-sub">&nbsp;</div></div>`;
+  document.getElementById('modal-spec').innerHTML=`
+    <div class="modal-spec-row"><span style="color:var(--muted)">차단기</span><span style="font-family:var(--mono)">${sp.breaker||'—'}</span></div>
+    <div class="modal-spec-row"><span style="color:var(--muted)">정격 용량</span><span style="font-family:var(--mono)">${rk} kW</span></div>
+    <div class="modal-spec-row"><span style="color:var(--muted)">경고 기준</span><span style="font-family:var(--mono);color:var(--yellow)">${(rk*0.7).toFixed(2)} kW (70%)</span></div>
+    <div class="modal-spec-row"><span style="color:var(--muted)">위험 기준</span><span style="font-family:var(--mono);color:var(--red)">${(rk*0.9).toFixed(2)} kW (90%)</span></div>
+    <div class="modal-spec-row"><span style="color:var(--muted)">적용 기준</span><span style="font-family:var(--mono);color:var(--accent)">${sp.std||'—'}</span></div>`;
+  document.getElementById('circuit-modal').classList.add('open');
+}
+
+function openCalPopup(day,c,ml){
+  document.getElementById('cal-popup-title').textContent=`${ml} ${day}일`;
+  const tl=c.type==='forecast'?'KMA 예보':'ASOS 10년 평균';
+  document.getElementById('cal-popup-grid').innerHTML=`
+    <div class="cpg-item"><div class="cpg-key">데이터 종류</div><div class="cpg-val" style="font-size:12px;color:var(--accent)">${tl}</div></div>
+    <div class="cpg-item"><div class="cpg-key">날씨</div><div class="cpg-val">${c.icon||'—'}</div></div>
+    <div class="cpg-item"><div class="cpg-key">최고 기온</div><div class="cpg-val">${c.max_temp!==undefined?Math.round(c.max_temp):'—'}°C</div></div>
+    <div class="cpg-item"><div class="cpg-key">최저 기온</div><div class="cpg-val">${c.min_temp!==undefined?Math.round(c.min_temp):'—'}°C</div></div>
+    <div class="cpg-item"><div class="cpg-key">평균 습도</div><div class="cpg-val">${c.avg_reh!==undefined?Math.round(c.avg_reh):'—'}%</div></div>
+    <div class="cpg-item"><div class="cpg-key">강수 확률</div><div class="cpg-val">${c.avg_pop!==undefined?Math.round(c.avg_pop):'—'}%</div></div>
+    <div class="cpg-item"><div class="cpg-key">풍속</div><div class="cpg-val">${c.avg_wsd||'—'} m/s</div></div>
+    <div class="cpg-item"><div class="cpg-key">체감 기온</div><div class="cpg-val">${c.feel_temp!==undefined?Math.round(c.feel_temp):'—'}°C</div></div>`;
+  const load=c.avg_load||0,wk=15.4,dk=19.8,mk=22;
+  const pct=Math.min(load/mk*100,100);
+  const col=load>=dk?'var(--red)':load>=wk?'var(--yellow)':'var(--green)';
+  document.getElementById('cal-popup-load').textContent=load.toFixed(3);
+  document.getElementById('cal-popup-load').style.color=col;
+  document.getElementById('cal-popup-alert').textContent=load>=dk?'🔴 위험 예상':load>=wk?'🟡 경고 예상':'🟢 정상 예상';
+  document.getElementById('cal-popup-bar').style.width=pct+'%';
+  document.getElementById('cal-popup-bar').style.background=col;
+  document.getElementById('cal-popup').classList.add('open');
+}
+
+async function loadData(){const r=await fetch(DATA_URL+'?t='+Date.now());return await r.json();}
+
+function render(d){
+  _data=d;
+  const s=d.current.status;
+  document.getElementById('upd-at').textContent='업데이트: '+d.updated_at.replace('T',' ').slice(0,16);
+  const badge=document.getElementById('s-badge');
+  badge.textContent=s==='danger'?'위험':s==='warn'?'경고':'정상';
+  badge.className='sbadge s-'+s;
+
+  const kw=d.current.total_load_kw,ratio=d.current.load_ratio;
+  const fill=Math.min(ratio,1)*301.6;
+  const bar=document.getElementById('g-bar');
+  bar.style.strokeDasharray=fill+' '+(301.6-fill);
+  bar.style.stroke=sc(s);
+  document.getElementById('g-kw').textContent=kw.toFixed(2)+' kW';
+  document.getElementById('g-pct').textContent=(ratio*100).toFixed(1)+'%';
+  document.getElementById('g-cur').textContent=d.current.total_current_a.toFixed(1)+' A';
+
+  const w=d.weather;
+  document.getElementById('w-big-icon').textContent=WEATHER_ICON[w.weather_code]||'—';
+  document.getElementById('w-temp-big').textContent=w.temperature+'°C';
+  document.getElementById('w-desc').textContent=WEATHER_KO[w.weather_code]||'—';
+  document.getElementById('wd-hum').textContent=w.humidity+'%';
+  document.getElementById('wd-code').textContent=WEATHER_KO[w.weather_code]||'—';
+  document.getElementById('wd-thunder').textContent=w.is_thunder?'⚡ 감지':'없음';
+
+  const hc=document.getElementById('hourly-chart');
+  hc.innerHTML='';
+  if(d.hourly&&d.hourly.length){
+    const mx=Math.max(...d.hourly.map(h=>h.total_load_kw),0.1);
+    d.hourly.forEach(h=>{
+      const ht=Math.round((h.total_load_kw/mx)*120);
+      const bc=h.status==='danger'?'var(--red)':h.status==='warn'?'var(--yellow)':'var(--accent)';
+      const op=(h.accident&&h.accident!=='none')?'1':'0.5';
+      hc.innerHTML+=`<div class="bar-col" title="${h.hour}시 ${h.total_load_kw}kW"><div class="bar-col-inner" style="height:${ht}px;background:${bc};opacity:${op}"></div><div class="bar-col-label">${h.hour}</div></div>`;
+    });
+  }
+
+  const tb=document.getElementById('acc-tbody');
+  const log=(d.accident_log||[]).slice(-10).reverse();
+  tb.innerHTML=log.length===0?'<tr><td colspan="4" class="no-data">사고 이력 없음</td></tr>':log.map(a=>{
+    const dt=a.datetime.replace('T',' ').slice(0,16);
+    const sev=a.severity==='critical'?`<span style="color:var(--red)">위험</span>`:a.severity==='warn'?`<span style="color:var(--yellow)">경고</span>`:a.severity;
+    return `<tr><td style="font-family:var(--mono);font-size:11px;color:var(--muted)">${dt}</td><td><span class="acc-type">${ACC_KO[a.type]||a.type}</span></td><td>${sev}</td><td style="font-family:var(--mono);color:var(--accent)">${a.circuit}</td></tr>`;
+  }).join('');
+
+  const cg=document.getElementById('circuits-grid');
+  cg.innerHTML='';
+  Object.entries(d.circuits).forEach(([id,c])=>{
+    const pct=Math.min((c.load_rate||0)*100,100);
+    const cs=c.status||'normal';
+    const bc=cs==='danger'?'bar-d':cs==='warn'?'bar-w':'bar-n';
+    const div=document.createElement('div');
+    div.className=`circuit-card ${cs}`;
+    div.innerHTML=`<div class="c-id">${id.toUpperCase()}</div><div class="c-name">${c.name}</div><div class="c-bar-wrap"><div class="c-bar ${bc}" style="width:${pct}%"></div></div><div class="c-nums"><span class="c-kw">${(c.load_kw||0).toFixed(2)} kW</span><span class="c-pct">${pct.toFixed(0)}%</span></div>`;
+    div.onclick=()=>openCircuitModal(id,c);
+    cg.appendChild(div);
+    const dEl=document.getElementById('d-'+id);
+    if(dEl)dEl.setAttribute('stroke',cs==='danger'?'#ff5252':cs==='warn'?'#ffd740':'#252a38');
+  });
+
+  const lgt=d.lightning;
+  const dot=document.getElementById('lgt-dot');
+  if(lgt.detected){dot.classList.add('active');document.getElementById('lgt-label').textContent=lgt.danger_level==='danger'?'⚠️ 위험 — 즉시 확인':lgt.danger_level==='warning'?'🟡 주의 — 모니터링 중':'🔵 원거리 감지';}
+  else{dot.classList.remove('active');document.getElementById('lgt-label').textContent='현재 감지 없음';}
+  document.getElementById('lgt-count').textContent=(lgt.count_10min||0)+'건';
+  document.getElementById('lgt-level').textContent=LGT_LEVEL_KO[lgt.danger_level]||'없음';
+  document.getElementById('lgt-dist').textContent=lgt.closest_dist_km?lgt.closest_dist_km+' km':'—';
+  document.getElementById('lgt-type').textContent=LGT_TYPE_KO[lgt.closest_type]||'—';
+  document.getElementById('lgt-addr').textContent=lgt.closest_address||'—';
+  document.getElementById('lgt-amp').textContent=lgt.closest_amp_ka?(lgt.closest_amp_ka>0?'+':'')+lgt.closest_amp_ka+' kA':'—';
+  document.getElementById('lgt-dt').textContent=lgt.closest_datetime||'—';
+
+  const mg=document.getElementById('model-grid');
+  mg.innerHTML='';
+  Object.entries(d.model_metrics||{}).forEach(([k,v])=>{
+    const r2=Math.max(0,v.r2);
+    const col=r2>=0.8?'var(--green)':r2>=0.6?'var(--yellow)':'var(--red)';
+    mg.innerHTML+=`<div class="model-item"><div class="model-name">${MODEL_NAME[k]||k}</div><div class="model-r2" style="color:${col}">R² ${v.r2.toFixed(4)}</div><div class="model-mae">MAE ${v.mae.toFixed(4)}</div><div class="r2-bar-wrap"><div class="r2-bar" style="width:${Math.round(r2*100)}%;background:${col}"></div></div></div>`;
+  });
+
+
+  renderCalendar(d);
+}
+
+// renderHistoryChart 제거됨
+
+function renderCalendar(d){
+  const cal=_calMode==='this'?d.calendar:d.next_calendar;
+  const ml=_calMode==='this'?(d.calendar_month||'이번 달'):(d.next_calendar_month||'다음 달');
+  const daily=d.daily_actual||{};
+  document.getElementById('cal-month-title').textContent=ml;
+
+  if(cal){
+    const loads=Object.values(cal).map(c=>c.avg_load||0);
+    const peak=Math.max(...loads).toFixed(2);
+    const avg=(loads.reduce((a,b)=>a+b,0)/loads.length).toFixed(2);
+    const wd=Object.values(cal).filter(c=>c.alert&&c.alert.includes('경고')).length;
+    const dd=Object.values(cal).filter(c=>c.alert&&c.alert.includes('위험')).length;
+    document.getElementById('cal-summary').innerHTML=`
+      <div class="cal-sum-item"><div class="cal-sum-key">최대 예측 부하</div><div class="cal-sum-val" style="color:var(--accent)">${peak}</div><div class="cal-sum-sub">kW</div></div>
+      <div class="cal-sum-item"><div class="cal-sum-key">평균 예측 부하</div><div class="cal-sum-val">${avg}</div><div class="cal-sum-sub">kW</div></div>
+      <div class="cal-sum-item"><div class="cal-sum-key">경고 예상일</div><div class="cal-sum-val" style="color:var(--yellow)">${wd}</div><div class="cal-sum-sub">일</div></div>
+      <div class="cal-sum-item"><div class="cal-sum-key">위험 예상일</div><div class="cal-sum-val" style="color:var(--red)">${dd}</div><div class="cal-sum-sub">일</div></div>`;
+  }
+
+  const grid=document.getElementById('cal-grid');
+  grid.innerHTML='<div class="cal-dow">일</div><div class="cal-dow">월</div><div class="cal-dow">화</div><div class="cal-dow">수</div><div class="cal-dow">목</div><div class="cal-dow">금</div><div class="cal-dow">토</div>';
+  if(!cal){grid.innerHTML+='<div class="no-data" style="grid-column:span 7">달력 데이터 없음</div>';return;}
+
+  const now=new Date();
+  let yr,mo;
+  if(_calMode==='this'){yr=now.getFullYear();mo=now.getMonth();}
+  else{yr=now.getMonth()===11?now.getFullYear()+1:now.getFullYear();mo=(now.getMonth()+1)%12;}
+  const firstDow=new Date(yr,mo,1).getDay(),today=now.getDate();
+  const wk=15.4,dk=19.8;
+
+  for(let i=0;i<firstDow;i++)grid.innerHTML+='<div class="cal-day empty"></div>';
+
+  Object.keys(cal).map(Number).sort((a,b)=>a-b).forEach(day=>{
+    const c=cal[day];
+    const isToday=_calMode==='this'&&day===today;
+    const isForecast=c.type==='forecast';
+
+    // 지난날 실적 데이터 확인
+    const dateKey=`${yr}-${String(mo+1).padStart(2,'0')}-${String(day).padStart(2,'0')}`;
+    const actual=daily[dateKey];
+    const isPast=_calMode==='this'&&day<today&&actual;
+
+    // 표시할 부하값 결정: 지난날=실적, 나머지=예측
+    const load=isPast?actual.avg_load:(c.avg_load||0);
+    const maxT=isPast?`${actual.avg_temp}°`:(c.max_temp!==undefined?Math.round(c.max_temp)+'°':'—');
+    const minT=isPast?'':(c.min_temp!==undefined?'/'+Math.round(c.min_temp)+'°':'');
+
+    // 경보 판정
+    let ac='';
+    if(isPast){
+      ac=actual.status==='danger'?'alert-danger':actual.status==='warn'?'alert-warn':'';
+    } else {
+      ac=c.alert&&c.alert.includes('위험')?'alert-danger':c.alert&&c.alert.includes('경고')?'alert-warn':'';
+    }
+    const fc=isForecast?'forecast-day':'';
+    const lc=load>=dk?'var(--red)':load>=wk?'var(--yellow)':'var(--green)';
+
+    // 날짜 색상 + 태그
+    const numColor=isToday?'var(--accent)':isForecast?'#fff':isPast?'var(--muted)':'var(--muted)';
+    const dayTag=isToday
+      ?'<span style="font-size:8px;background:rgba(79,195,247,.2);color:var(--accent);padding:1px 4px;border-radius:3px;margin-left:3px;font-family:var(--mono)">오늘</span>'
+      :isForecast&&!isPast
+        ?'<span style="font-size:8px;background:rgba(79,195,247,.1);color:var(--accent);padding:1px 4px;border-radius:3px;margin-left:3px;font-family:var(--mono)">예보</span>'
+        :'';
+
+    // 아이콘: 지난날은 실적 상태 아이콘
+    const icon=isPast?(actual.status==='danger'?'🔴':actual.status==='warn'?'🟡':'🟢'):(c.icon||'');
+    // 사고 표시
+    const accText=isPast&&actual.accident_count>0?`<div style="font-size:8px;color:var(--orange);font-family:var(--mono)">사고 ${actual.accident_count}건</div>`:'';
+
+    const div=document.createElement('div');
+    div.className=`cal-day ${isToday?'today':''} ${ac} ${fc}`;
+    div.innerHTML=`<div class="cal-day-num" style="color:${numColor}">${day}${dayTag}</div><div class="cal-icon">${icon}</div><div class="cal-temp">${maxT}${minT}</div><div class="cal-load" style="color:${lc}">${load.toFixed(2)} kW</div>${accText}`;
+    div.onclick=()=>isPast?openActualPopup(day,actual,dateKey,ml):openCalPopup(day,c,ml);
+    grid.appendChild(div);
+  });
+}
+
+async function init(){
+  try{
+    const d=await loadData();
+    document.getElementById('loading').style.display='none';
+    document.getElementById('app').style.display='block';
+    render(d);
+  }catch(e){
+    document.getElementById('loading').innerHTML='<div class="no-data">데이터를 불러올 수 없습니다.<br>'+e.message+'</div>';
+  }
+}
+init();
+setInterval(async()=>{try{const d=await loadData();render(d);}catch(e){}},60000);
+
+</script>
+</body>
+</html>
