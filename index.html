@@ -670,7 +670,11 @@ function renderCalendar(d) {
     const maxT = c.max_temp !== undefined ? Math.round(c.max_temp) : '—';
     const minT = c.min_temp !== undefined ? Math.round(c.min_temp) : '—';
     const load = c.avg_load !== undefined ? c.avg_load.toFixed(2) : '—';
-    const loadColor = c.avg_load >= 0.9 ? 'var(--red)' : c.avg_load >= 0.7 ? 'var(--yellow)' : 'var(--green)';
+    const warnKw   = 15.4;
+    const dangerKw = 19.8;
+    const loadColor = c.avg_load >= dangerKw ? 'var(--red)'
+                    : c.avg_load >= warnKw   ? 'var(--yellow)'
+                    : 'var(--green)';
     grid.innerHTML += `<div class="cal-day ${isToday ? 'today' : ''} ${alertCls}">
       <div class="cal-day-num">${day} ${typeBadge}</div>
       <div class="cal-icon">${c.icon || ''}</div>
