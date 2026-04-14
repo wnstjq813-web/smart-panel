@@ -199,7 +199,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:14p
   .cal-day::after{content:'';display:block;width:5px;height:5px;border-radius:50%;margin-top:3px;}
   .cal-day.alert-danger::after{background:var(--red);}
   .cal-day.alert-warn::after{background:var(--yellow);}
-  .cal-day:not(.alert-danger):not(.alert-warn):not(.empty)::after{background:var(--green);opacity:0.4;}
+  .cal-day:not(.alert-danger):not(.alert-warn):not(.empty):not(.past-day)::after{background:var(--green);opacity:0.4;}
   .cal-day.empty::after{display:none;}
 
   /* 달력 팝업 → 1열 */
