@@ -152,7 +152,11 @@ header {
   transition: border-color .2s;
 }
 .cal-day.empty { background: transparent; border-color: transparent; }
-.cal-day.today { border-color: var(--accent); }
+.cal-day.today { 
+  border-color: var(--accent);
+  background: rgba(79,195,247,0.12);
+}
+.cal-day.today .cal-day-num { color: var(--accent); font-weight: 600; }
 .cal-day-num { font-size: 11px; font-family: var(--mono); color: var(--muted); }
 .cal-day.today .cal-day-num { color: var(--accent); font-weight: 600; }
 .cal-icon { font-size: 14px; line-height: 1; }
@@ -161,6 +165,7 @@ header {
 .cal-alert { font-size: 10px; font-weight: 500; }
 .cal-day.alert-warn   { border-color: rgba(255,215,64,.4); }
 .cal-day.alert-danger { border-color: rgba(255,82,82,.4); }
+.cal-day.forecast-day { border-color: rgba(79,195,247,0.4);}
 
 /* ── AI 모델 ── */
 .ai-flow {
