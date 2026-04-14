@@ -665,7 +665,7 @@ function renderCalendar(d) {
   days.forEach(day => {
     const c = cal[day];
     const isToday   = _calMode === 'this' && day === today;
-    const alertCls  = c.alert && c.alert.includes('위험') ? 'alert-danger' : c.alert && c.alert.includes('경고') ? 'alert-warn' : '';
+    const alertCls = c.alert && c.alert.includes('위험') ? 'alert-danger': c.alert && c.alert.includes('경고') ? 'alert-warn' : '';
     const typeBadge = c.type === 'forecast' ? `<span style="font-size:9px;color:var(--accent);font-family:var(--mono)">예보</span>` : '';
     const maxT = c.max_temp !== undefined ? Math.round(c.max_temp) : '—';
     const minT = c.min_temp !== undefined ? Math.round(c.min_temp) : '—';
