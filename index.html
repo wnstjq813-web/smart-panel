@@ -955,8 +955,10 @@ function renderCalendar(d){
     const dayTag=isToday
       ?'<span style="font-size:8px;background:rgba(79,195,247,.2);color:var(--accent);padding:1px 4px;border-radius:3px;margin-left:3px;font-family:var(--mono)">오늘</span>'
       :isForecast&&!isPast
-        ?'<span style="font-size:8px;background:rgba(79,195,247,.1);color:var(--accent);padding:1px 4px;border-radius:3px;margin-left:3px;font-family:var(--mono)">예보</span>'
-        :'';
+        ?'<span ...>예보</span>'
+        :isPast
+          ?'<span style="font-size:8px;color:var(--muted);padding:1px 4px;margin-left:3px;font-family:var(--mono)">실적</span>'
+          :'';
 
     // 아이콘: 지난날은 실적 상태 아이콘
     const icon=isPast?(actual.status==='danger'?'🔴':actual.status==='warn'?'🟡':'🟢'):(c.icon||'');
