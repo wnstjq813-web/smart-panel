@@ -994,7 +994,7 @@ function renderCalendar(d){
     } else {
       ac=c.alert&&c.alert.includes('위험')?'alert-danger':c.alert&&c.alert.includes('경고')?'alert-warn':'';
     }
-    const fc=isForecast?'forecast-day':'';
+    const fc=isForecast&&!isPast?'forecast-day':'';
     const lc=load>=dk?'var(--red)':load>=wk?'var(--yellow)':'var(--green)';
 
     // 날짜 색상 + 태그
