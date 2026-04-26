@@ -1,5 +1,5 @@
 ﻿{
-  "updated_at": "2026-04-26T00:07:51.973821",
+  "updated_at": "2026-04-26T07:08:17.936309",
   "panel_config": {
     "main_breaker_a": 100,
     "main_capacity_kw": 22.0,
@@ -8,81 +8,81 @@
     "nominal_voltage": 220.0
   },
   "current": {
-    "total_load_kw": 2.419,
-    "total_current_a": 11.0,
-    "load_ratio": 0.11,
+    "total_load_kw": 6.035,
+    "total_current_a": 27.43,
+    "load_ratio": 0.2743,
     "status": "normal",
     "warn_kw": 15.399999999999999,
     "danger_kw": 19.8
   },
   "weather": {
-    "temperature": 8.9,
-    "humidity": 64,
+    "temperature": 5.8,
+    "humidity": 82,
     "weather_code": "clear",
     "is_thunder": false
   },
   "circuits": {
     "c1": {
       "name": "조명A(사무공간)",
-      "load_kw": 0.232,
-      "load_rate": 0.155,
-      "current_a": 1.05,
+      "load_kw": 0.421,
+      "load_rate": 0.28,
+      "current_a": 1.91,
       "status": "normal"
     },
     "c2": {
       "name": "조명B(복도화장실)",
-      "load_kw": 0.116,
-      "load_rate": 0.145,
-      "current_a": 0.53,
+      "load_kw": 0.388,
+      "load_rate": 0.485,
+      "current_a": 1.76,
       "status": "normal"
     },
     "c3": {
       "name": "콘센트A(PC모니터)",
-      "load_kw": 0.379,
-      "load_rate": 0.108,
-      "current_a": 1.72,
+      "load_kw": 0.607,
+      "load_rate": 0.173,
+      "current_a": 2.76,
       "status": "normal"
     },
     "c4": {
       "name": "콘센트B(회의실)",
-      "load_kw": 0.217,
-      "load_rate": 0.109,
-      "current_a": 0.99,
+      "load_kw": 0.754,
+      "load_rate": 0.377,
+      "current_a": 3.43,
       "status": "normal"
     },
     "c5": {
       "name": "냉난방기",
-      "load_kw": 0.591,
-      "load_rate": 0.169,
-      "current_a": 2.68,
+      "load_kw": 1.333,
+      "load_rate": 0.381,
+      "current_a": 6.06,
       "status": "normal"
     },
     "c6": {
       "name": "서버·네트워크",
-      "load_kw": 0.282,
-      "load_rate": 0.141,
-      "current_a": 1.28,
+      "load_kw": 0.548,
+      "load_rate": 0.274,
+      "current_a": 2.49,
       "status": "normal"
     },
     "c7": {
       "name": "복합기·프린터",
-      "load_kw": 0.105,
-      "load_rate": 0.07,
-      "current_a": 0.48,
+      "load_kw": 0.355,
+      "load_rate": 0.237,
+      "current_a": 1.62,
       "status": "normal"
     },
     "c8": {
       "name": "동력(환기팬모터)",
-      "load_kw": 0.455,
-      "load_rate": 0.152,
-      "current_a": 2.07,
+      "load_kw": 0.938,
+      "load_rate": 0.313,
+      "current_a": 4.26,
       "status": "normal"
     },
     "c9": {
       "name": "예비회로",
-      "load_kw": 0.025,
-      "load_rate": 0.013,
-      "current_a": 0.12,
+      "load_kw": 0.217,
+      "load_rate": 0.109,
+      "current_a": 0.99,
       "status": "normal"
     }
   },
@@ -92,23 +92,23 @@
       "total_load_kw": 1.52,
       "status": "normal",
       "accident": "low_power_factor",
-      "temperature": 7.7,
-      "humidity": 74,
+      "temperature": 11.0,
+      "humidity": 50.0,
       "precipitation": 0.0,
-      "wind_speed": 0.1,
+      "wind_speed": 0.7,
       "pty": "0",
       "lightning": 0,
-      "climate_source": "actual"
+      "climate_source": "interpolated"
     },
     {
       "hour": 1,
       "total_load_kw": 1.75,
       "status": "normal",
       "accident": "low_power_factor",
-      "temperature": 9.1,
-      "humidity": 67.7,
+      "temperature": 11.0,
+      "humidity": 50.0,
       "precipitation": 0.0,
-      "wind_speed": 0.3,
+      "wind_speed": 0.7,
       "pty": "0",
       "lightning": 0,
       "climate_source": "interpolated"
@@ -118,10 +118,10 @@
       "total_load_kw": 0.9,
       "status": "normal",
       "accident": "low_power_factor",
-      "temperature": 10.6,
-      "humidity": 61.3,
+      "temperature": 11.0,
+      "humidity": 50.0,
       "precipitation": 0.0,
-      "wind_speed": 0.5,
+      "wind_speed": 0.7,
       "pty": "0",
       "lightning": 0,
       "climate_source": "interpolated"
@@ -131,39 +131,39 @@
       "total_load_kw": 2.6,
       "status": "normal",
       "accident": "low_power_factor",
-      "temperature": 12.0,
-      "humidity": 55.0,
+      "temperature": 11.0,
+      "humidity": 50.0,
       "precipitation": 0.0,
       "wind_speed": 0.7,
       "pty": "0",
       "lightning": 0,
-      "climate_source": "forecast"
+      "climate_source": "interpolated"
     },
     {
       "hour": 4,
       "total_load_kw": 1.75,
       "status": "normal",
       "accident": "low_power_factor",
-      "temperature": 12.0,
-      "humidity": 55.0,
+      "temperature": 11.0,
+      "humidity": 50.0,
       "precipitation": 0.0,
-      "wind_speed": 0.5,
+      "wind_speed": 0.7,
       "pty": "0",
       "lightning": 0,
-      "climate_source": "forecast"
+      "climate_source": "interpolated"
     },
     {
       "hour": 5,
       "total_load_kw": 2.7,
       "status": "normal",
       "accident": "low_power_factor",
-      "temperature": 12.0,
+      "temperature": 11.0,
       "humidity": 50.0,
       "precipitation": 0.0,
-      "wind_speed": 0.5,
+      "wind_speed": 0.7,
       "pty": "0",
       "lightning": 0,
-      "climate_source": "forecast"
+      "climate_source": "interpolated"
     },
     {
       "hour": 6,
@@ -173,7 +173,7 @@
       "temperature": 11.0,
       "humidity": 50.0,
       "precipitation": 0.0,
-      "wind_speed": 0.4,
+      "wind_speed": 0.7,
       "pty": "0",
       "lightning": 0,
       "climate_source": "forecast"
@@ -183,13 +183,13 @@
       "total_load_kw": 9.96,
       "status": "normal",
       "accident": "insulation_degradation",
-      "temperature": 12.0,
-      "humidity": 55.0,
+      "temperature": 9.4,
+      "humidity": 70,
       "precipitation": 0.0,
-      "wind_speed": 0.3,
+      "wind_speed": 0.2,
       "pty": "0",
-      "lightning": 0,
-      "climate_source": "forecast"
+      "lightning": 1,
+      "climate_source": "actual"
     },
     {
       "hour": 8,
@@ -199,7 +199,7 @@
       "temperature": 14.0,
       "humidity": 50.0,
       "precipitation": 0.0,
-      "wind_speed": 0.5,
+      "wind_speed": 0.7,
       "pty": "0",
       "lightning": 0,
       "climate_source": "forecast"
@@ -225,7 +225,7 @@
       "temperature": 19.0,
       "humidity": 40.0,
       "precipitation": 0.0,
-      "wind_speed": 1.2,
+      "wind_speed": 0.4,
       "pty": "0",
       "lightning": 0,
       "climate_source": "forecast"
@@ -238,7 +238,7 @@
       "temperature": 20.0,
       "humidity": 40.0,
       "precipitation": 0.0,
-      "wind_speed": 2.0,
+      "wind_speed": 0.7,
       "pty": "0",
       "lightning": 0,
       "climate_source": "forecast"
@@ -251,7 +251,7 @@
       "temperature": 21.0,
       "humidity": 35.0,
       "precipitation": 0.0,
-      "wind_speed": 2.4,
+      "wind_speed": 1.2,
       "pty": "0",
       "lightning": 0,
       "climate_source": "forecast"
@@ -264,7 +264,7 @@
       "temperature": 22.0,
       "humidity": 35.0,
       "precipitation": 0.0,
-      "wind_speed": 1.6,
+      "wind_speed": 1.8,
       "pty": "0",
       "lightning": 0,
       "climate_source": "forecast"
@@ -277,7 +277,7 @@
       "temperature": 22.0,
       "humidity": 30.0,
       "precipitation": 0.0,
-      "wind_speed": 1.5,
+      "wind_speed": 2.5,
       "pty": "0",
       "lightning": 0,
       "climate_source": "forecast"
@@ -290,7 +290,7 @@
       "temperature": 22.0,
       "humidity": 30.0,
       "precipitation": 0.0,
-      "wind_speed": 2.0,
+      "wind_speed": 3.6,
       "pty": "0",
       "lightning": 0,
       "climate_source": "forecast"
@@ -303,7 +303,7 @@
       "temperature": 21.0,
       "humidity": 30.0,
       "precipitation": 0.0,
-      "wind_speed": 2.7,
+      "wind_speed": 3.1,
       "pty": "0",
       "lightning": 0,
       "climate_source": "forecast"
@@ -329,7 +329,7 @@
       "temperature": 19.0,
       "humidity": 35.0,
       "precipitation": 0.0,
-      "wind_speed": 1.7,
+      "wind_speed": 1.5,
       "pty": "0",
       "lightning": 0,
       "climate_source": "forecast"
@@ -342,7 +342,7 @@
       "temperature": 16.0,
       "humidity": 50.0,
       "precipitation": 0.0,
-      "wind_speed": 0.5,
+      "wind_speed": 0.6,
       "pty": "0",
       "lightning": 0,
       "climate_source": "forecast"
@@ -355,7 +355,7 @@
       "temperature": 15.0,
       "humidity": 50.0,
       "precipitation": 20.0,
-      "wind_speed": 1.1,
+      "wind_speed": 1.0,
       "pty": "0",
       "lightning": 0,
       "climate_source": "forecast"
@@ -368,7 +368,7 @@
       "temperature": 15.0,
       "humidity": 55.0,
       "precipitation": 20.0,
-      "wind_speed": 0.8,
+      "wind_speed": 1.1,
       "pty": "0",
       "lightning": 0,
       "climate_source": "forecast"
@@ -381,7 +381,7 @@
       "temperature": 14.0,
       "humidity": 50.0,
       "precipitation": 20.0,
-      "wind_speed": 0.8,
+      "wind_speed": 1.1,
       "pty": "0",
       "lightning": 0,
       "climate_source": "forecast"
@@ -394,7 +394,7 @@
       "temperature": 13.0,
       "humidity": 50.0,
       "precipitation": 0.0,
-      "wind_speed": 1.2,
+      "wind_speed": 1.4,
       "pty": "0",
       "lightning": 0,
       "climate_source": "forecast"
@@ -565,15 +565,31 @@
     }
   },
   "lightning": {
-    "detected": false,
-    "danger_level": "none",
-    "count_10min": 0,
-    "closest_dist_km": null,
-    "closest_type": null,
-    "closest_amp_ka": null,
-    "closest_address": null,
-    "closest_datetime": null,
-    "events": []
+    "detected": true,
+    "danger_level": "watch",
+    "count_10min": 1,
+    "closest_dist_km": 423.0,
+    "closest_type": "CG",
+    "closest_type_label": "구름-지면",
+    "closest_amp_ka": 55.9,
+    "closest_polarity": "정극성(+)",
+    "closest_address": "33.0267°N / 128.2479°E",
+    "closest_datetime": "2026-04-26 06:57:56",
+    "events": [
+      {
+        "datetime": "2026-04-26 06:57:56",
+        "latitude": 33.0267,
+        "longitude": 128.2479,
+        "address": "33.0267°N / 128.2479°E",
+        "type": "CG",
+        "type_label": "구름-지면",
+        "amplitude_ka": 55.9,
+        "polarity": "정극성(+)",
+        "sensor_count": 10,
+        "distance_km": 423.0,
+        "danger_level": "watch"
+      }
+    ]
   },
   "calendar": {
     "1": {
@@ -881,9 +897,9 @@
       "type": "forecast",
       "max_temp": 22.0,
       "min_temp": 11.0,
-      "avg_pop": 2.9,
-      "avg_reh": 44.0,
-      "avg_wsd": 1.2,
+      "avg_pop": 3.3,
+      "avg_reh": 42.5,
+      "avg_wsd": 1.4,
       "avg_load": 7.301,
       "alert": "🟢 정상"
     },
@@ -894,7 +910,7 @@
       "min_temp": 10.0,
       "avg_pop": 23.8,
       "avg_reh": 46.7,
-      "avg_wsd": 1.4,
+      "avg_wsd": 2.1,
       "avg_load": 7.702,
       "alert": "🟢 정상"
     },
@@ -905,7 +921,7 @@
       "min_temp": 10.0,
       "avg_pop": 25.8,
       "avg_reh": 75.6,
-      "avg_wsd": 2.6,
+      "avg_wsd": 2.9,
       "avg_load": 7.181,
       "alert": "🟢 정상"
     },
