@@ -117,10 +117,10 @@ header{display:flex;align-items:center;justify-content:space-between;padding:14p
 .cal-load{font-size:10px;font-family:var(--mono);}
 .cal-popup-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:200;align-items:center;justify-content:center;}
 .cal-popup-overlay.open{display:flex;}
-.cal-popup{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:24px;width:90%;max-width:400px;}
+.cal-popup{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:24px;width:90%;max-width:420px;max-height:85vh;display:flex;flex-direction:column;}
 .cal-popup-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;}
 .cal-popup-title{font-size:15px;font-weight:600;color:#fff;}
-.cal-popup-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px;}
+.cal-popup-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px;overflow-y:auto;max-height:calc(85vh - 140px);padding-right:4px;scrollbar-width:thin;scrollbar-color:var(--border) transparent;}
 .cpg-item{background:var(--bg3);border-radius:7px;padding:10px 12px;}
 .cpg-key{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px;}
 .cpg-val{font-size:15px;font-family:var(--mono);font-weight:600;color:#fff;}
@@ -920,7 +920,7 @@ function openActualPopup(day,actual,dateKey,ml){
       </div>`;
     }).join('');
     accHtml=`<div style="grid-column:span 2;margin-top:4px">
-      <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px">🚨 사고 상세 (${accList.length}건)</div>
+      <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;display:flex;justify-content:space-between;align-items:center"><span>🚨 사고 상세 (${accList.length}건)</span>${accList.length>4?'<span style="font-size:9px;color:var(--muted);font-style:italic">↕ 스크롤</span>':''}</div>
       <div style="display:flex;flex-direction:column;gap:6px">${rows}</div>
     </div>`;
   }
