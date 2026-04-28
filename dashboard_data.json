@@ -1,5 +1,5 @@
 ﻿{
-  "updated_at": "2026-04-28T14:32:26.486697",
+  "updated_at": "2026-04-28T16:42:17.117343",
   "panel_config": {
     "main_breaker_a": 100,
     "main_capacity_kw": 22.0,
@@ -8,81 +8,81 @@
     "nominal_voltage": 220.0
   },
   "current": {
-    "total_load_kw": 11.779,
-    "total_current_a": 53.54,
-    "load_ratio": 0.5354,
+    "total_load_kw": 10.077,
+    "total_current_a": 45.81,
+    "load_ratio": 0.4581,
     "status": "normal",
     "warn_kw": 15.399999999999999,
     "danger_kw": 19.8
   },
   "weather": {
-    "temperature": 16.7,
-    "humidity": 47,
+    "temperature": 15.7,
+    "humidity": 49,
     "weather_code": "clear",
     "is_thunder": false
   },
   "circuits": {
     "c1": {
       "name": "조명A(사무공간)",
-      "load_kw": 0.933,
-      "load_rate": 0.622,
-      "current_a": 4.24,
+      "load_kw": 0.669,
+      "load_rate": 0.446,
+      "current_a": 3.04,
       "status": "normal"
     },
     "c2": {
       "name": "조명B(복도화장실)",
-      "load_kw": 0.647,
-      "load_rate": 0.808,
-      "current_a": 2.94,
-      "status": "warn"
+      "load_kw": 0.509,
+      "load_rate": 0.637,
+      "current_a": 2.32,
+      "status": "normal"
     },
     "c3": {
       "name": "콘센트A(PC모니터)",
-      "load_kw": 2.013,
-      "load_rate": 0.575,
-      "current_a": 9.15,
+      "load_kw": 1.696,
+      "load_rate": 0.485,
+      "current_a": 7.71,
       "status": "normal"
     },
     "c4": {
       "name": "콘센트B(회의실)",
-      "load_kw": 1.258,
-      "load_rate": 0.629,
-      "current_a": 5.72,
+      "load_kw": 1.121,
+      "load_rate": 0.56,
+      "current_a": 5.1,
       "status": "normal"
     },
     "c5": {
       "name": "냉난방기",
-      "load_kw": 2.569,
-      "load_rate": 0.734,
-      "current_a": 11.68,
-      "status": "warn"
+      "load_kw": 2.426,
+      "load_rate": 0.693,
+      "current_a": 11.03,
+      "status": "normal"
     },
     "c6": {
       "name": "서버·네트워크",
-      "load_kw": 1.192,
-      "load_rate": 0.596,
-      "current_a": 5.42,
+      "load_kw": 1.184,
+      "load_rate": 0.592,
+      "current_a": 5.38,
       "status": "normal"
     },
     "c7": {
       "name": "복합기·프린터",
-      "load_kw": 0.796,
-      "load_rate": 0.531,
-      "current_a": 3.62,
+      "load_kw": 0.612,
+      "load_rate": 0.408,
+      "current_a": 2.78,
       "status": "normal"
     },
     "c8": {
       "name": "동력(환기팬모터)",
-      "load_kw": 2.011,
-      "load_rate": 0.67,
-      "current_a": 9.14,
+      "load_kw": 1.829,
+      "load_rate": 0.61,
+      "current_a": 8.31,
       "status": "normal"
     },
     "c9": {
       "name": "예비회로",
-      "load_kw": 0.665,
-      "load_rate": 0.332,
-      "current_a": 3.02,
+      "load_kw": 0.542,
+      "load_rate": 0.271,
+      "current_a": 2.47,
       "status": "normal"
     }
   },
@@ -93,7 +93,7 @@
       "status": "normal",
       "accident": "overvoltage",
       "temperature": 15.0,
-      "humidity": 55.0,
+      "humidity": 45.0,
       "precipitation": 30.0,
       "wind_speed": 4.5,
       "pty": "0",
@@ -107,7 +107,7 @@
       "status": "normal",
       "accident": "overvoltage",
       "temperature": 15.0,
-      "humidity": 55.0,
+      "humidity": 45.0,
       "precipitation": 30.0,
       "wind_speed": 4.5,
       "pty": "0",
@@ -121,7 +121,7 @@
       "status": "normal",
       "accident": "overvoltage",
       "temperature": 15.0,
-      "humidity": 55.0,
+      "humidity": 45.0,
       "precipitation": 30.0,
       "wind_speed": 4.5,
       "pty": "0",
@@ -135,7 +135,7 @@
       "status": "normal",
       "accident": "overvoltage",
       "temperature": 15.0,
-      "humidity": 55.0,
+      "humidity": 45.0,
       "precipitation": 30.0,
       "wind_speed": 4.5,
       "pty": "0",
@@ -149,7 +149,7 @@
       "status": "normal",
       "accident": "overvoltage",
       "temperature": 15.0,
-      "humidity": 55.0,
+      "humidity": 45.0,
       "precipitation": 30.0,
       "wind_speed": 4.5,
       "pty": "0",
@@ -163,7 +163,7 @@
       "status": "normal",
       "accident": "overvoltage",
       "temperature": 15.0,
-      "humidity": 55.0,
+      "humidity": 45.0,
       "precipitation": 30.0,
       "wind_speed": 4.5,
       "pty": "0",
@@ -177,7 +177,7 @@
       "status": "normal",
       "accident": "overvoltage",
       "temperature": 15.0,
-      "humidity": 55.0,
+      "humidity": 45.0,
       "precipitation": 30.0,
       "wind_speed": 4.5,
       "pty": "0",
@@ -191,7 +191,7 @@
       "status": "normal",
       "accident": "overvoltage",
       "temperature": 15.0,
-      "humidity": 55.0,
+      "humidity": 45.0,
       "precipitation": 30.0,
       "wind_speed": 4.5,
       "pty": "0",
@@ -205,7 +205,7 @@
       "status": "normal",
       "accident": "overvoltage",
       "temperature": 15.0,
-      "humidity": 55.0,
+      "humidity": 45.0,
       "precipitation": 30.0,
       "wind_speed": 4.5,
       "pty": "0",
@@ -219,7 +219,7 @@
       "status": "normal",
       "accident": "overvoltage",
       "temperature": 15.0,
-      "humidity": 55.0,
+      "humidity": 45.0,
       "precipitation": 30.0,
       "wind_speed": 4.5,
       "pty": "0",
@@ -233,7 +233,7 @@
       "status": "normal",
       "accident": "overvoltage",
       "temperature": 15.0,
-      "humidity": 55.0,
+      "humidity": 45.0,
       "precipitation": 30.0,
       "wind_speed": 4.5,
       "pty": "0",
@@ -247,7 +247,7 @@
       "status": "normal",
       "accident": "overvoltage",
       "temperature": 15.0,
-      "humidity": 55.0,
+      "humidity": 45.0,
       "precipitation": 30.0,
       "wind_speed": 4.5,
       "pty": "0",
@@ -261,12 +261,12 @@
       "status": "normal",
       "accident": "overvoltage",
       "temperature": 15.0,
-      "humidity": 55.0,
+      "humidity": 45.0,
       "precipitation": 30.0,
       "wind_speed": 4.5,
       "pty": "0",
       "lightning": 0,
-      "climate_source": "forecast",
+      "climate_source": "interpolated",
       "data_type": "actual"
     },
     {
@@ -275,12 +275,12 @@
       "status": "warn",
       "accident": "overvoltage",
       "temperature": 15.0,
-      "humidity": 50.0,
+      "humidity": 45.0,
       "precipitation": 30.0,
-      "wind_speed": 4.8,
+      "wind_speed": 4.5,
       "pty": "0",
       "lightning": 0,
-      "climate_source": "forecast",
+      "climate_source": "interpolated",
       "data_type": "actual"
     },
     {
@@ -288,13 +288,13 @@
       "total_load_kw": 20.96,
       "status": "danger",
       "accident": "overvoltage",
-      "temperature": 16.7,
-      "humidity": 47,
-      "precipitation": 0.0,
-      "wind_speed": 2.1,
+      "temperature": 15.0,
+      "humidity": 45.0,
+      "precipitation": 30.0,
+      "wind_speed": 4.5,
       "pty": "0",
       "lightning": 0,
-      "climate_source": "actual",
+      "climate_source": "interpolated",
       "data_type": "actual"
     },
     {
@@ -305,7 +305,7 @@
       "temperature": 15.0,
       "humidity": 45.0,
       "precipitation": 30.0,
-      "wind_speed": 4.6,
+      "wind_speed": 4.5,
       "pty": "0",
       "lightning": 0,
       "climate_source": "forecast",
@@ -316,13 +316,13 @@
       "total_load_kw": 10.3,
       "status": "normal",
       "accident": "overvoltage",
-      "temperature": 15.0,
-      "humidity": 45.0,
-      "precipitation": 30.0,
-      "wind_speed": 4.7,
+      "temperature": 15.7,
+      "humidity": 49,
+      "precipitation": 0.0,
+      "wind_speed": 1.8,
       "pty": "0",
       "lightning": 0,
-      "climate_source": "forecast",
+      "climate_source": "actual",
       "data_type": "actual"
     },
     {
@@ -333,7 +333,7 @@
       "temperature": 14.0,
       "humidity": 40.0,
       "precipitation": 20.0,
-      "wind_speed": 4.2,
+      "wind_speed": 4.1,
       "pty": "0",
       "lightning": 0,
       "climate_source": "forecast",
@@ -347,7 +347,7 @@
       "temperature": 13.0,
       "humidity": 45.0,
       "precipitation": 30.0,
-      "wind_speed": 3.4,
+      "wind_speed": 3.2,
       "pty": "0",
       "lightning": 0,
       "climate_source": "forecast",
@@ -375,7 +375,7 @@
       "temperature": 10.0,
       "humidity": 65.0,
       "precipitation": 30.0,
-      "wind_speed": 2.4,
+      "wind_speed": 2.3,
       "pty": "0",
       "lightning": 0,
       "climate_source": "forecast",
@@ -389,7 +389,7 @@
       "temperature": 10.0,
       "humidity": 65.0,
       "precipitation": 30.0,
-      "wind_speed": 2.1,
+      "wind_speed": 2.0,
       "pty": "0",
       "lightning": 0,
       "climate_source": "forecast",
@@ -403,7 +403,7 @@
       "temperature": 9.0,
       "humidity": 65.0,
       "precipitation": 30.0,
-      "wind_speed": 2.2,
+      "wind_speed": 2.0,
       "pty": "0",
       "lightning": 0,
       "climate_source": "forecast",
@@ -417,7 +417,7 @@
       "temperature": 9.0,
       "humidity": 65.0,
       "precipitation": 30.0,
-      "wind_speed": 2.2,
+      "wind_speed": 2.0,
       "pty": "0",
       "lightning": 0,
       "climate_source": "forecast",
@@ -425,18 +425,6 @@
     }
   ],
   "accident_log": [
-    {
-      "datetime": "2026-04-22T19:00:00",
-      "type": "insulation_degradation",
-      "severity": "warn",
-      "circuit": "c5"
-    },
-    {
-      "datetime": "2026-04-22T20:00:00",
-      "type": "insulation_degradation",
-      "severity": "warn",
-      "circuit": "c5"
-    },
     {
       "datetime": "2026-04-22T21:00:00",
       "type": "insulation_degradation",
@@ -543,6 +531,18 @@
       "datetime": "2026-04-28T14:00:00",
       "type": "overvoltage",
       "severity": "critical",
+      "circuit": "c5"
+    },
+    {
+      "datetime": "2026-04-28T15:00:00",
+      "type": "overvoltage",
+      "severity": "warn",
+      "circuit": "c5"
+    },
+    {
+      "datetime": "2026-04-28T16:00:00",
+      "type": "overvoltage",
+      "severity": "warn",
       "circuit": "c5"
     }
   ],
@@ -927,12 +927,12 @@
     "28": {
       "icon": "☁️",
       "type": "forecast",
-      "max_temp": 16.0,
+      "max_temp": 15.0,
       "min_temp": 9.0,
-      "avg_pop": 29.2,
-      "avg_reh": 54.2,
-      "avg_wsd": 3.5,
-      "avg_load": 6.926,
+      "avg_pop": 28.9,
+      "avg_reh": 55.0,
+      "avg_wsd": 3.0,
+      "avg_load": 6.935,
       "alert": "🟢 정상"
     },
     "29": {
@@ -942,7 +942,7 @@
       "min_temp": 7.0,
       "avg_pop": 22.1,
       "avg_reh": 58.3,
-      "avg_wsd": 1.7,
+      "avg_wsd": 1.6,
       "avg_load": 7.454,
       "alert": "🟢 정상"
     },
@@ -953,7 +953,7 @@
       "min_temp": 6.0,
       "avg_pop": 2.1,
       "avg_reh": 55.0,
-      "avg_wsd": 1.7,
+      "avg_wsd": 1.6,
       "avg_load": 6.947,
       "alert": "🟢 정상"
     }
@@ -1563,11 +1563,11 @@
       "data_type": "actual"
     },
     "2026-04-28": {
-      "avg_load": 8.084,
+      "avg_load": 8.268,
       "peak_load": 20.96,
-      "avg_temp": 13.2,
-      "avg_reh": 61.2,
-      "accident_count": 15,
+      "avg_temp": 13.4,
+      "avg_reh": 59.3,
+      "accident_count": 17,
       "accident_list": [
         {
           "hour": 0,
@@ -1702,6 +1702,24 @@
           "circuit": "c5",
           "load_kw": 20.96,
           "current_a": 95.27,
+          "voltage_v": 220.0
+        },
+        {
+          "hour": 15,
+          "type": "overvoltage",
+          "severity": "warn",
+          "circuit": "c5",
+          "load_kw": 9.0,
+          "current_a": 40.91,
+          "voltage_v": 220.0
+        },
+        {
+          "hour": 16,
+          "type": "overvoltage",
+          "severity": "warn",
+          "circuit": "c5",
+          "load_kw": 10.3,
+          "current_a": 46.82,
           "voltage_v": 220.0
         }
       ],
