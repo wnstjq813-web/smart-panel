@@ -933,6 +933,15 @@ function openActualPopup(day,actual,dateKey,ml){
     <div class="cpg-item"><div class="cpg-key">사고 건수</div><div class="cpg-val" style="color:${actual.accident_count>0?'var(--orange)':'var(--green)'}">${actual.accident_count}건</div></div>
     ${accHtml}`;
   const load=actual.avg_load||0,wk=15.4,dk=19.8,mk=22;
+  const pct=Math.min(load/mk*100,100);
+  const col=load>=dk?'var(--red)':load>=wk?'var(--yellow)':'var(--green)';
+  document.getElementById('cal-popup-load').textContent=load.toFixed(3);
+  document.getElementById('cal-popup-load').style.color=col;
+  document.getElementById('cal-popup-alert').textContent=load>=dk?'🔴 위험 예상':load>=wk?'🟡 경고 예상':'🟢 정상 예상';
+  document.getElementById('cal-popup-bar').style.width=pct+'%';
+  document.getElementById('cal-popup-bar').style.background=col;
+  document.getElementById('cal-popup').classList.add('open');
+}
 
 function openCircuitModal(cid,c){
   const sp=CIRCUIT_SPEC[cid]||{};
