@@ -1,5 +1,5 @@
 ﻿{
-  "updated_at": "2026-04-28T14:13:58.518863",
+  "updated_at": "2026-04-28T14:32:26.486697",
   "panel_config": {
     "main_breaker_a": 100,
     "main_capacity_kw": 22.0,
@@ -8,81 +8,81 @@
     "nominal_voltage": 220.0
   },
   "current": {
-    "total_load_kw": 12.177,
-    "total_current_a": 55.35,
-    "load_ratio": 0.5535,
+    "total_load_kw": 11.779,
+    "total_current_a": 53.54,
+    "load_ratio": 0.5354,
     "status": "normal",
     "warn_kw": 15.399999999999999,
     "danger_kw": 19.8
   },
   "weather": {
-    "temperature": 15.8,
-    "humidity": 51,
+    "temperature": 16.7,
+    "humidity": 47,
     "weather_code": "clear",
     "is_thunder": false
   },
   "circuits": {
     "c1": {
       "name": "조명A(사무공간)",
-      "load_kw": 1.053,
-      "load_rate": 0.702,
-      "current_a": 4.79,
-      "status": "warn"
+      "load_kw": 0.933,
+      "load_rate": 0.622,
+      "current_a": 4.24,
+      "status": "normal"
     },
     "c2": {
       "name": "조명B(복도화장실)",
-      "load_kw": 0.665,
-      "load_rate": 0.831,
-      "current_a": 3.02,
+      "load_kw": 0.647,
+      "load_rate": 0.808,
+      "current_a": 2.94,
       "status": "warn"
     },
     "c3": {
       "name": "콘센트A(PC모니터)",
-      "load_kw": 2.064,
-      "load_rate": 0.59,
-      "current_a": 9.38,
+      "load_kw": 2.013,
+      "load_rate": 0.575,
+      "current_a": 9.15,
       "status": "normal"
     },
     "c4": {
       "name": "콘센트B(회의실)",
-      "load_kw": 1.263,
-      "load_rate": 0.632,
-      "current_a": 5.74,
+      "load_kw": 1.258,
+      "load_rate": 0.629,
+      "current_a": 5.72,
       "status": "normal"
     },
     "c5": {
       "name": "냉난방기",
-      "load_kw": 2.684,
-      "load_rate": 0.767,
-      "current_a": 12.2,
+      "load_kw": 2.569,
+      "load_rate": 0.734,
+      "current_a": 11.68,
       "status": "warn"
     },
     "c6": {
       "name": "서버·네트워크",
-      "load_kw": 1.237,
-      "load_rate": 0.618,
-      "current_a": 5.62,
+      "load_kw": 1.192,
+      "load_rate": 0.596,
+      "current_a": 5.42,
       "status": "normal"
     },
     "c7": {
       "name": "복합기·프린터",
-      "load_kw": 0.844,
-      "load_rate": 0.563,
-      "current_a": 3.84,
+      "load_kw": 0.796,
+      "load_rate": 0.531,
+      "current_a": 3.62,
       "status": "normal"
     },
     "c8": {
       "name": "동력(환기팬모터)",
-      "load_kw": 2.094,
-      "load_rate": 0.698,
-      "current_a": 9.52,
+      "load_kw": 2.011,
+      "load_rate": 0.67,
+      "current_a": 9.14,
       "status": "normal"
     },
     "c9": {
       "name": "예비회로",
-      "load_kw": 0.723,
-      "load_rate": 0.362,
-      "current_a": 3.29,
+      "load_kw": 0.665,
+      "load_rate": 0.332,
+      "current_a": 3.02,
       "status": "normal"
     }
   },
@@ -288,10 +288,10 @@
       "total_load_kw": 20.96,
       "status": "danger",
       "accident": "overvoltage",
-      "temperature": 16.4,
-      "humidity": 52,
+      "temperature": 16.7,
+      "humidity": 47,
       "precipitation": 0.0,
-      "wind_speed": 1.5,
+      "wind_speed": 2.1,
       "pty": "0",
       "lightning": 0,
       "climate_source": "actual",
@@ -426,6 +426,60 @@
   ],
   "accident_log": [
     {
+      "datetime": "2026-04-22T19:00:00",
+      "type": "insulation_degradation",
+      "severity": "warn",
+      "circuit": "c5"
+    },
+    {
+      "datetime": "2026-04-22T20:00:00",
+      "type": "insulation_degradation",
+      "severity": "warn",
+      "circuit": "c5"
+    },
+    {
+      "datetime": "2026-04-22T21:00:00",
+      "type": "insulation_degradation",
+      "severity": "warn",
+      "circuit": "c5"
+    },
+    {
+      "datetime": "2026-04-22T22:00:00",
+      "type": "low_power_factor",
+      "severity": "warn",
+      "circuit": "c5"
+    },
+    {
+      "datetime": "2026-04-22T23:00:00",
+      "type": "low_power_factor",
+      "severity": "warn",
+      "circuit": "c5"
+    },
+    {
+      "datetime": "2026-04-28T00:00:00",
+      "type": "overvoltage",
+      "severity": "critical",
+      "circuit": "c5"
+    },
+    {
+      "datetime": "2026-04-28T01:00:00",
+      "type": "overvoltage",
+      "severity": "critical",
+      "circuit": "c5"
+    },
+    {
+      "datetime": "2026-04-28T02:00:00",
+      "type": "overvoltage",
+      "severity": "critical",
+      "circuit": "c5"
+    },
+    {
+      "datetime": "2026-04-28T03:00:00",
+      "type": "overvoltage",
+      "severity": "critical",
+      "circuit": "c5"
+    },
+    {
       "datetime": "2026-04-28T04:00:00",
       "type": "overvoltage",
       "severity": "critical",
@@ -487,60 +541,6 @@
     },
     {
       "datetime": "2026-04-28T14:00:00",
-      "type": "overvoltage",
-      "severity": "critical",
-      "circuit": "c5"
-    },
-    {
-      "datetime": "2026-04-28T15:00:00",
-      "type": "overvoltage",
-      "severity": "warn",
-      "circuit": "c5"
-    },
-    {
-      "datetime": "2026-04-28T16:00:00",
-      "type": "overvoltage",
-      "severity": "warn",
-      "circuit": "c5"
-    },
-    {
-      "datetime": "2026-04-28T17:00:00",
-      "type": "overvoltage",
-      "severity": "critical",
-      "circuit": "c5"
-    },
-    {
-      "datetime": "2026-04-28T18:00:00",
-      "type": "overvoltage",
-      "severity": "critical",
-      "circuit": "c5"
-    },
-    {
-      "datetime": "2026-04-28T19:00:00",
-      "type": "overvoltage",
-      "severity": "critical",
-      "circuit": "c5"
-    },
-    {
-      "datetime": "2026-04-28T20:00:00",
-      "type": "overvoltage",
-      "severity": "critical",
-      "circuit": "c5"
-    },
-    {
-      "datetime": "2026-04-28T21:00:00",
-      "type": "overvoltage",
-      "severity": "critical",
-      "circuit": "c5"
-    },
-    {
-      "datetime": "2026-04-28T22:00:00",
-      "type": "overvoltage",
-      "severity": "critical",
-      "circuit": "c5"
-    },
-    {
-      "datetime": "2026-04-28T23:00:00",
       "type": "overvoltage",
       "severity": "critical",
       "circuit": "c5"
@@ -1563,11 +1563,11 @@
       "data_type": "actual"
     },
     "2026-04-28": {
-      "avg_load": 7.766,
+      "avg_load": 8.084,
       "peak_load": 20.96,
-      "avg_temp": 12.6,
-      "avg_reh": 58.9,
-      "accident_count": 24,
+      "avg_temp": 13.2,
+      "avg_reh": 61.2,
+      "accident_count": 15,
       "accident_list": [
         {
           "hour": 0,
@@ -1702,87 +1702,6 @@
           "circuit": "c5",
           "load_kw": 20.96,
           "current_a": 95.27,
-          "voltage_v": 220.0
-        },
-        {
-          "hour": 15,
-          "type": "overvoltage",
-          "severity": "warn",
-          "circuit": "c5",
-          "load_kw": 9.0,
-          "current_a": 40.91,
-          "voltage_v": 220.0
-        },
-        {
-          "hour": 16,
-          "type": "overvoltage",
-          "severity": "warn",
-          "circuit": "c5",
-          "load_kw": 10.3,
-          "current_a": 46.82,
-          "voltage_v": 220.0
-        },
-        {
-          "hour": 17,
-          "type": "overvoltage",
-          "severity": "critical",
-          "circuit": "c5",
-          "load_kw": 9.0,
-          "current_a": 40.91,
-          "voltage_v": 220.0
-        },
-        {
-          "hour": 18,
-          "type": "overvoltage",
-          "severity": "critical",
-          "circuit": "c5",
-          "load_kw": 9.3,
-          "current_a": 42.27,
-          "voltage_v": 220.0
-        },
-        {
-          "hour": 19,
-          "type": "overvoltage",
-          "severity": "critical",
-          "circuit": "c5",
-          "load_kw": 9.6,
-          "current_a": 43.64,
-          "voltage_v": 220.0
-        },
-        {
-          "hour": 20,
-          "type": "overvoltage",
-          "severity": "critical",
-          "circuit": "c5",
-          "load_kw": 9.7,
-          "current_a": 44.09,
-          "voltage_v": 220.0
-        },
-        {
-          "hour": 21,
-          "type": "overvoltage",
-          "severity": "critical",
-          "circuit": "c5",
-          "load_kw": 5.0,
-          "current_a": 22.73,
-          "voltage_v": 220.0
-        },
-        {
-          "hour": 22,
-          "type": "overvoltage",
-          "severity": "critical",
-          "circuit": "c5",
-          "load_kw": 1.85,
-          "current_a": 8.41,
-          "voltage_v": 220.0
-        },
-        {
-          "hour": 23,
-          "type": "overvoltage",
-          "severity": "critical",
-          "circuit": "c5",
-          "load_kw": 1.38,
-          "current_a": 6.27,
           "voltage_v": 220.0
         }
       ],
