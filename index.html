@@ -1192,10 +1192,16 @@ function renderHourlyChart(mode){
     const col  = typeof cfg.color === 'function' ? cfg.color(h) : cfg.color;
     const op   = mode === 'load' && h.accident && h.accident !== 'none' ? '1' : '0.6';
     const src  = h.climate_source || 'csv';
+    const isStaged = h.data_type === 'staged';
     const div  = document.createElement('div');
     div.className = 'bar-col-new';
-    div.title   = `${h.hour}시 ${val}${cfg.unit}`;
-    div.innerHTML = `<div class="bar-col-inner-new" style="height:${ht}px;background:${col};opacity:${op}"></div><div class="bar-col-label-new">${h.hour}</div>`;
+    div.title   = `${h.hour}시 ${val}${cfg.unit}${isStaged?' (예측)':''}`;
+    // staged: 점선 테두리 + 낮은 투명도로 구분
+    const barStyle = isStaged
+      ? `height:${ht}px;background:${col};opacity:0.35;border:1.5px dashed ${col};box-sizing:border-box;`
+      : `height:${ht}px;background:${col};opacity:${op};`;
+    div.innerHTML = `<div class="bar-col-inner-new" style="${barStyle}"></div>`
+      + `<div class="bar-col-label-new" style="${isStaged?'color:var(--muted)':''}"> ${h.hour}</div>`;
     div.onclick = () => openHourlyPopup(h);
     hc.appendChild(div);
   });
@@ -1209,8 +1215,12 @@ function openHourlyPopup(h){
   const sc     = s==='danger'?'var(--red)':s==='warn'?'var(--yellow)':'var(--green)';
   const accTxt = h.accident && h.accident !== 'none' ? (window.ACC_KO?window.ACC_KO[h.accident]||h.accident:h.accident) : '없음';
 
-  document.getElementById('hourly-popup-title').textContent = `${h.hour}시 상세 정보`;
-  document.getElementById('hourly-popup-grid').innerHTML = `
+  const isStaged = h.data_type === 'staged';
+  document.getElementById('hourly-popup-title').textContent = `${h.hour}시 상세 정보${isStaged?' (시뮬레이션 예측)':''}`;
+  const stagedBanner = isStaged
+    ? `<div style="grid-column:span 3;background:rgba(255,255,255,0.05);border:1px dashed var(--muted);border-radius:6px;padding:6px 10px;font-size:11px;color:var(--muted);margin-bottom:4px">📊 이 시간은 아직 공개되지 않은 <b>시뮬레이션 예측값</b>입니다. 실제 데이터는 해당 시각 이후 공개됩니다.</div>`
+    : '';
+  document.getElementById('hourly-popup-grid').innerHTML = stagedBanner + `
     <div class="hourly-item"><div class="hourly-key">부하</div>
       <div class="hourly-val" style="color:${sc}">${h.total_load_kw||0} kW</div>
       <div class="climate-src">분전반 ${s==='danger'?'위험':s==='warn'?'경고':'정상'}</div></div>
