@@ -1,5 +1,5 @@
 ﻿{
-  "updated_at": "2026-04-28T10:10:00.481404",
+  "updated_at": "2026-04-28T11:48:46.293514",
   "panel_config": {
     "main_breaker_a": 100,
     "main_capacity_kw": 22.0,
@@ -8,81 +8,81 @@
     "nominal_voltage": 220.0
   },
   "current": {
-    "total_load_kw": 10.578,
-    "total_current_a": 48.08,
-    "load_ratio": 0.4808,
+    "total_load_kw": 11.635,
+    "total_current_a": 52.89,
+    "load_ratio": 0.5289,
     "status": "normal",
     "warn_kw": 15.399999999999999,
     "danger_kw": 19.8
   },
   "weather": {
-    "temperature": 12.7,
-    "humidity": 62,
+    "temperature": 14.0,
+    "humidity": 59,
     "weather_code": "clear",
     "is_thunder": false
   },
   "circuits": {
     "c1": {
       "name": "조명A(사무공간)",
-      "load_kw": 0.803,
-      "load_rate": 0.536,
-      "current_a": 3.65,
+      "load_kw": 1.025,
+      "load_rate": 0.683,
+      "current_a": 4.66,
       "status": "normal"
     },
     "c2": {
       "name": "조명B(복도화장실)",
-      "load_kw": 0.578,
-      "load_rate": 0.723,
-      "current_a": 2.63,
+      "load_kw": 0.67,
+      "load_rate": 0.837,
+      "current_a": 3.04,
       "status": "warn"
     },
     "c3": {
       "name": "콘센트A(PC모니터)",
-      "load_kw": 1.773,
-      "load_rate": 0.506,
-      "current_a": 8.06,
+      "load_kw": 1.914,
+      "load_rate": 0.547,
+      "current_a": 8.7,
       "status": "normal"
     },
     "c4": {
       "name": "콘센트B(회의실)",
-      "load_kw": 1.152,
-      "load_rate": 0.576,
-      "current_a": 5.24,
+      "load_kw": 1.265,
+      "load_rate": 0.632,
+      "current_a": 5.75,
       "status": "normal"
     },
     "c5": {
       "name": "냉난방기",
-      "load_kw": 2.34,
-      "load_rate": 0.669,
-      "current_a": 10.64,
-      "status": "normal"
+      "load_kw": 2.625,
+      "load_rate": 0.75,
+      "current_a": 11.93,
+      "status": "warn"
     },
     "c6": {
       "name": "서버·네트워크",
-      "load_kw": 1.042,
-      "load_rate": 0.521,
-      "current_a": 4.74,
+      "load_kw": 1.117,
+      "load_rate": 0.558,
+      "current_a": 5.08,
       "status": "normal"
     },
     "c7": {
       "name": "복합기·프린터",
-      "load_kw": 0.702,
-      "load_rate": 0.468,
-      "current_a": 3.19,
+      "load_kw": 0.8,
+      "load_rate": 0.533,
+      "current_a": 3.64,
       "status": "normal"
     },
     "c8": {
       "name": "동력(환기팬모터)",
-      "load_kw": 1.699,
-      "load_rate": 0.566,
-      "current_a": 7.72,
+      "load_kw": 1.871,
+      "load_rate": 0.624,
+      "current_a": 8.51,
       "status": "normal"
     },
     "c9": {
       "name": "예비회로",
-      "load_kw": 0.624,
-      "load_rate": 0.312,
-      "current_a": 2.84,
+      "load_kw": 0.707,
+      "load_rate": 0.353,
+      "current_a": 3.21,
       "status": "normal"
     }
   },
@@ -98,7 +98,8 @@
       "wind_speed": 4.7,
       "pty": "0",
       "lightning": 0,
-      "climate_source": "interpolated"
+      "climate_source": "interpolated",
+      "data_type": "actual"
     },
     {
       "hour": 1,
@@ -111,7 +112,8 @@
       "wind_speed": 4.7,
       "pty": "0",
       "lightning": 0,
-      "climate_source": "interpolated"
+      "climate_source": "interpolated",
+      "data_type": "actual"
     },
     {
       "hour": 2,
@@ -124,7 +126,8 @@
       "wind_speed": 4.7,
       "pty": "0",
       "lightning": 0,
-      "climate_source": "interpolated"
+      "climate_source": "interpolated",
+      "data_type": "actual"
     },
     {
       "hour": 3,
@@ -137,7 +140,8 @@
       "wind_speed": 4.7,
       "pty": "0",
       "lightning": 0,
-      "climate_source": "interpolated"
+      "climate_source": "interpolated",
+      "data_type": "actual"
     },
     {
       "hour": 4,
@@ -150,7 +154,8 @@
       "wind_speed": 4.7,
       "pty": "0",
       "lightning": 0,
-      "climate_source": "interpolated"
+      "climate_source": "interpolated",
+      "data_type": "actual"
     },
     {
       "hour": 5,
@@ -163,7 +168,8 @@
       "wind_speed": 4.7,
       "pty": "0",
       "lightning": 0,
-      "climate_source": "interpolated"
+      "climate_source": "interpolated",
+      "data_type": "actual"
     },
     {
       "hour": 6,
@@ -176,7 +182,8 @@
       "wind_speed": 4.7,
       "pty": "0",
       "lightning": 0,
-      "climate_source": "interpolated"
+      "climate_source": "interpolated",
+      "data_type": "actual"
     },
     {
       "hour": 7,
@@ -189,7 +196,8 @@
       "wind_speed": 4.7,
       "pty": "0",
       "lightning": 0,
-      "climate_source": "interpolated"
+      "climate_source": "interpolated",
+      "data_type": "actual"
     },
     {
       "hour": 8,
@@ -202,7 +210,8 @@
       "wind_speed": 4.7,
       "pty": "0",
       "lightning": 0,
-      "climate_source": "interpolated"
+      "climate_source": "interpolated",
+      "data_type": "actual"
     },
     {
       "hour": 9,
@@ -215,20 +224,22 @@
       "wind_speed": 4.7,
       "pty": "0",
       "lightning": 0,
-      "climate_source": "forecast"
+      "climate_source": "forecast",
+      "data_type": "actual"
     },
     {
       "hour": 10,
       "total_load_kw": 14.0,
       "status": "normal",
       "accident": "overvoltage",
-      "temperature": 13.2,
-      "humidity": 60,
-      "precipitation": 0.0,
-      "wind_speed": 1.9,
+      "temperature": 13.0,
+      "humidity": 70.0,
+      "precipitation": 30.0,
+      "wind_speed": 4.4,
       "pty": "0",
       "lightning": 0,
-      "climate_source": "actual"
+      "climate_source": "forecast",
+      "data_type": "actual"
     },
     {
       "hour": 11,
@@ -236,12 +247,13 @@
       "status": "normal",
       "accident": "overvoltage",
       "temperature": 14.0,
-      "humidity": 60.0,
-      "precipitation": 30.0,
-      "wind_speed": 4.3,
+      "humidity": 59,
+      "precipitation": 0.0,
+      "wind_speed": 1.6,
       "pty": "0",
       "lightning": 0,
-      "climate_source": "forecast"
+      "climate_source": "actual",
+      "data_type": "actual"
     },
     {
       "hour": 12,
@@ -254,7 +266,8 @@
       "wind_speed": 4.7,
       "pty": "0",
       "lightning": 0,
-      "climate_source": "forecast"
+      "climate_source": "forecast",
+      "data_type": "actual"
     },
     {
       "hour": 13,
@@ -267,7 +280,8 @@
       "wind_speed": 4.9,
       "pty": "0",
       "lightning": 0,
-      "climate_source": "forecast"
+      "climate_source": "forecast",
+      "data_type": "actual"
     },
     {
       "hour": 14,
@@ -280,7 +294,8 @@
       "wind_speed": 4.8,
       "pty": "0",
       "lightning": 0,
-      "climate_source": "forecast"
+      "climate_source": "forecast",
+      "data_type": "actual"
     },
     {
       "hour": 15,
@@ -293,7 +308,8 @@
       "wind_speed": 4.7,
       "pty": "0",
       "lightning": 0,
-      "climate_source": "forecast"
+      "climate_source": "forecast",
+      "data_type": "actual"
     },
     {
       "hour": 16,
@@ -306,7 +322,8 @@
       "wind_speed": 4.8,
       "pty": "0",
       "lightning": 0,
-      "climate_source": "forecast"
+      "climate_source": "forecast",
+      "data_type": "actual"
     },
     {
       "hour": 17,
@@ -319,7 +336,8 @@
       "wind_speed": 4.4,
       "pty": "0",
       "lightning": 0,
-      "climate_source": "forecast"
+      "climate_source": "forecast",
+      "data_type": "actual"
     },
     {
       "hour": 18,
@@ -332,7 +350,8 @@
       "wind_speed": 3.5,
       "pty": "0",
       "lightning": 0,
-      "climate_source": "forecast"
+      "climate_source": "forecast",
+      "data_type": "actual"
     },
     {
       "hour": 19,
@@ -345,7 +364,8 @@
       "wind_speed": 2.7,
       "pty": "0",
       "lightning": 0,
-      "climate_source": "forecast"
+      "climate_source": "forecast",
+      "data_type": "actual"
     },
     {
       "hour": 20,
@@ -358,7 +378,8 @@
       "wind_speed": 2.5,
       "pty": "0",
       "lightning": 0,
-      "climate_source": "forecast"
+      "climate_source": "forecast",
+      "data_type": "actual"
     },
     {
       "hour": 21,
@@ -371,7 +392,8 @@
       "wind_speed": 2.2,
       "pty": "0",
       "lightning": 0,
-      "climate_source": "forecast"
+      "climate_source": "forecast",
+      "data_type": "actual"
     },
     {
       "hour": 22,
@@ -384,7 +406,8 @@
       "wind_speed": 2.3,
       "pty": "0",
       "lightning": 0,
-      "climate_source": "forecast"
+      "climate_source": "forecast",
+      "data_type": "actual"
     },
     {
       "hour": 23,
@@ -397,7 +420,8 @@
       "wind_speed": 2.3,
       "pty": "0",
       "lightning": 0,
-      "climate_source": "forecast"
+      "climate_source": "forecast",
+      "data_type": "actual"
     }
   ],
   "accident_log": [
