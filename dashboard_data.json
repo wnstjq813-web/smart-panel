@@ -1,5 +1,5 @@
 ﻿{
-  "updated_at": "2026-04-28T09:31:00.410712",
+  "updated_at": "2026-04-28T09:53:06.510655",
   "panel_config": {
     "main_breaker_a": 100,
     "main_capacity_kw": 22.0,
@@ -8,81 +8,81 @@
     "nominal_voltage": 220.0
   },
   "current": {
-    "total_load_kw": 8.635,
-    "total_current_a": 39.25,
-    "load_ratio": 0.3925,
+    "total_load_kw": 10.212,
+    "total_current_a": 46.42,
+    "load_ratio": 0.4642,
     "status": "normal",
     "warn_kw": 15.399999999999999,
     "danger_kw": 19.8
   },
   "weather": {
     "temperature": 12.5,
-    "humidity": 63,
+    "humidity": 62,
     "weather_code": "clear",
     "is_thunder": false
   },
   "circuits": {
     "c1": {
       "name": "조명A(사무공간)",
-      "load_kw": 0.56,
-      "load_rate": 0.373,
-      "current_a": 2.55,
+      "load_kw": 0.716,
+      "load_rate": 0.477,
+      "current_a": 3.25,
       "status": "normal"
     },
     "c2": {
       "name": "조명B(복도화장실)",
-      "load_kw": 0.559,
-      "load_rate": 0.699,
-      "current_a": 2.54,
-      "status": "normal"
+      "load_kw": 0.565,
+      "load_rate": 0.706,
+      "current_a": 2.57,
+      "status": "warn"
     },
     "c3": {
       "name": "콘센트A(PC모니터)",
-      "load_kw": 1.201,
-      "load_rate": 0.343,
-      "current_a": 5.46,
+      "load_kw": 1.67,
+      "load_rate": 0.477,
+      "current_a": 7.59,
       "status": "normal"
     },
     "c4": {
       "name": "콘센트B(회의실)",
-      "load_kw": 0.974,
-      "load_rate": 0.487,
-      "current_a": 4.43,
+      "load_kw": 1.08,
+      "load_rate": 0.54,
+      "current_a": 4.91,
       "status": "normal"
     },
     "c5": {
       "name": "냉난방기",
-      "load_kw": 1.814,
-      "load_rate": 0.518,
-      "current_a": 8.25,
+      "load_kw": 2.284,
+      "load_rate": 0.653,
+      "current_a": 10.38,
       "status": "normal"
     },
     "c6": {
       "name": "서버·네트워크",
-      "load_kw": 0.839,
-      "load_rate": 0.42,
-      "current_a": 3.81,
+      "load_kw": 1.036,
+      "load_rate": 0.518,
+      "current_a": 4.71,
       "status": "normal"
     },
     "c7": {
       "name": "복합기·프린터",
-      "load_kw": 0.547,
-      "load_rate": 0.365,
-      "current_a": 2.49,
+      "load_kw": 0.664,
+      "load_rate": 0.443,
+      "current_a": 3.02,
       "status": "normal"
     },
     "c8": {
       "name": "동력(환기팬모터)",
-      "load_kw": 1.283,
-      "load_rate": 0.428,
-      "current_a": 5.83,
+      "load_kw": 1.681,
+      "load_rate": 0.56,
+      "current_a": 7.64,
       "status": "normal"
     },
     "c9": {
       "name": "예비회로",
-      "load_kw": 0.329,
-      "load_rate": 0.165,
-      "current_a": 1.5,
+      "load_kw": 0.612,
+      "load_rate": 0.306,
+      "current_a": 2.78,
       "status": "normal"
     }
   },
@@ -91,137 +91,137 @@
       "hour": 0,
       "total_load_kw": 1.52,
       "status": "normal",
-      "accident": "low_power_factor",
+      "accident": "overvoltage",
       "temperature": 12.5,
-      "humidity": 63,
+      "humidity": 62,
       "precipitation": 0.0,
-      "wind_speed": 1.1,
+      "wind_speed": 1.3,
       "pty": "0",
       "lightning": 0,
       "climate_source": "interpolated"
     },
     {
       "hour": 1,
-      "total_load_kw": 1.75,
+      "total_load_kw": 0.9,
       "status": "normal",
-      "accident": "low_power_factor",
+      "accident": "overvoltage",
       "temperature": 12.5,
-      "humidity": 63,
+      "humidity": 62,
       "precipitation": 0.0,
-      "wind_speed": 1.1,
+      "wind_speed": 1.3,
       "pty": "0",
       "lightning": 0,
       "climate_source": "interpolated"
     },
     {
       "hour": 2,
-      "total_load_kw": 0.9,
+      "total_load_kw": 1.52,
       "status": "normal",
-      "accident": "low_power_factor",
+      "accident": "overvoltage",
       "temperature": 12.5,
-      "humidity": 63,
+      "humidity": 62,
       "precipitation": 0.0,
-      "wind_speed": 1.1,
+      "wind_speed": 1.3,
       "pty": "0",
       "lightning": 0,
       "climate_source": "interpolated"
     },
     {
       "hour": 3,
-      "total_load_kw": 2.6,
+      "total_load_kw": 1.3,
       "status": "normal",
-      "accident": "low_power_factor",
+      "accident": "overvoltage",
       "temperature": 12.5,
-      "humidity": 63,
+      "humidity": 62,
       "precipitation": 0.0,
-      "wind_speed": 1.1,
+      "wind_speed": 1.3,
       "pty": "0",
       "lightning": 0,
       "climate_source": "interpolated"
     },
     {
       "hour": 4,
-      "total_load_kw": 1.75,
+      "total_load_kw": 1.5,
       "status": "normal",
-      "accident": "low_power_factor",
+      "accident": "overvoltage",
       "temperature": 12.5,
-      "humidity": 63,
+      "humidity": 62,
       "precipitation": 0.0,
-      "wind_speed": 1.1,
+      "wind_speed": 1.3,
       "pty": "0",
       "lightning": 0,
       "climate_source": "interpolated"
     },
     {
       "hour": 5,
-      "total_load_kw": 2.7,
+      "total_load_kw": 1.75,
       "status": "normal",
-      "accident": "low_power_factor",
+      "accident": "overvoltage",
       "temperature": 12.5,
-      "humidity": 63,
+      "humidity": 62,
       "precipitation": 0.0,
-      "wind_speed": 1.1,
+      "wind_speed": 1.3,
       "pty": "0",
       "lightning": 0,
       "climate_source": "interpolated"
     },
     {
       "hour": 6,
-      "total_load_kw": 1.7,
+      "total_load_kw": 1.85,
       "status": "normal",
-      "accident": "insulation_degradation",
+      "accident": "overvoltage",
       "temperature": 12.5,
-      "humidity": 63,
+      "humidity": 62,
       "precipitation": 0.0,
-      "wind_speed": 1.1,
+      "wind_speed": 1.3,
       "pty": "0",
       "lightning": 0,
       "climate_source": "interpolated"
     },
     {
       "hour": 7,
-      "total_load_kw": 9.96,
+      "total_load_kw": 10.3,
       "status": "normal",
-      "accident": "insulation_degradation",
+      "accident": "overvoltage",
       "temperature": 12.5,
-      "humidity": 63,
+      "humidity": 62,
       "precipitation": 0.0,
-      "wind_speed": 1.1,
+      "wind_speed": 1.3,
       "pty": "0",
       "lightning": 0,
       "climate_source": "interpolated"
     },
     {
       "hour": 8,
-      "total_load_kw": 9.4,
+      "total_load_kw": 9.2,
       "status": "normal",
-      "accident": "insulation_degradation",
+      "accident": "overvoltage",
       "temperature": 12.5,
-      "humidity": 63,
+      "humidity": 62,
       "precipitation": 0.0,
-      "wind_speed": 1.1,
+      "wind_speed": 1.3,
       "pty": "0",
       "lightning": 0,
       "climate_source": "interpolated"
     },
     {
       "hour": 9,
-      "total_load_kw": 10.4,
+      "total_load_kw": 14.3,
       "status": "normal",
-      "accident": "harmonic_distortion",
+      "accident": "overvoltage",
       "temperature": 12.5,
-      "humidity": 63,
+      "humidity": 62,
       "precipitation": 0.0,
-      "wind_speed": 1.1,
+      "wind_speed": 1.3,
       "pty": "0",
       "lightning": 0,
       "climate_source": "actual"
     },
     {
       "hour": 10,
-      "total_load_kw": 10.66,
+      "total_load_kw": 14.0,
       "status": "normal",
-      "accident": "insulation_degradation",
+      "accident": "overvoltage",
       "temperature": 13.0,
       "humidity": 70.0,
       "precipitation": 30.0,
@@ -232,9 +232,9 @@
     },
     {
       "hour": 11,
-      "total_load_kw": 10.5,
+      "total_load_kw": 13.0,
       "status": "normal",
-      "accident": "harmonic_distortion",
+      "accident": "overvoltage",
       "temperature": 14.0,
       "humidity": 60.0,
       "precipitation": 30.0,
@@ -245,9 +245,9 @@
     },
     {
       "hour": 12,
-      "total_load_kw": 10.3,
+      "total_load_kw": 10.9,
       "status": "normal",
-      "accident": "insulation_degradation",
+      "accident": "overvoltage",
       "temperature": 15.0,
       "humidity": 55.0,
       "precipitation": 30.0,
@@ -258,9 +258,9 @@
     },
     {
       "hour": 13,
-      "total_load_kw": 10.8,
-      "status": "normal",
-      "accident": "insulation_degradation",
+      "total_load_kw": 18.26,
+      "status": "warn",
+      "accident": "overvoltage",
       "temperature": 15.0,
       "humidity": 50.0,
       "precipitation": 30.0,
@@ -271,9 +271,9 @@
     },
     {
       "hour": 14,
-      "total_load_kw": 13.6,
-      "status": "normal",
-      "accident": "insulation_degradation",
+      "total_load_kw": 20.96,
+      "status": "danger",
+      "accident": "overvoltage",
       "temperature": 16.0,
       "humidity": 50.0,
       "precipitation": 30.0,
@@ -284,9 +284,9 @@
     },
     {
       "hour": 15,
-      "total_load_kw": 10.2,
+      "total_load_kw": 9.0,
       "status": "normal",
-      "accident": "harmonic_distortion",
+      "accident": "overvoltage",
       "temperature": 15.0,
       "humidity": 45.0,
       "precipitation": 30.0,
@@ -297,9 +297,9 @@
     },
     {
       "hour": 16,
-      "total_load_kw": 9.7,
+      "total_load_kw": 10.3,
       "status": "normal",
-      "accident": "insulation_degradation",
+      "accident": "overvoltage",
       "temperature": 15.0,
       "humidity": 45.0,
       "precipitation": 30.0,
@@ -310,9 +310,9 @@
     },
     {
       "hour": 17,
-      "total_load_kw": 11.2,
+      "total_load_kw": 9.0,
       "status": "normal",
-      "accident": "insulation_degradation",
+      "accident": "overvoltage",
       "temperature": 14.0,
       "humidity": 40.0,
       "precipitation": 20.0,
@@ -323,9 +323,9 @@
     },
     {
       "hour": 18,
-      "total_load_kw": 9.4,
+      "total_load_kw": 9.3,
       "status": "normal",
-      "accident": "insulation_degradation",
+      "accident": "overvoltage",
       "temperature": 13.0,
       "humidity": 45.0,
       "precipitation": 30.0,
@@ -336,9 +336,9 @@
     },
     {
       "hour": 19,
-      "total_load_kw": 9.4,
+      "total_load_kw": 9.6,
       "status": "normal",
-      "accident": "insulation_degradation",
+      "accident": "overvoltage",
       "temperature": 11.0,
       "humidity": 60.0,
       "precipitation": 30.0,
@@ -349,9 +349,9 @@
     },
     {
       "hour": 20,
-      "total_load_kw": 9.4,
+      "total_load_kw": 9.7,
       "status": "normal",
-      "accident": "insulation_degradation",
+      "accident": "overvoltage",
       "temperature": 10.0,
       "humidity": 65.0,
       "precipitation": 30.0,
@@ -362,9 +362,9 @@
     },
     {
       "hour": 21,
-      "total_load_kw": 9.5,
+      "total_load_kw": 5.0,
       "status": "normal",
-      "accident": "insulation_degradation",
+      "accident": "overvoltage",
       "temperature": 10.0,
       "humidity": 65.0,
       "precipitation": 30.0,
@@ -375,9 +375,9 @@
     },
     {
       "hour": 22,
-      "total_load_kw": 1.52,
+      "total_load_kw": 1.85,
       "status": "normal",
-      "accident": "low_power_factor",
+      "accident": "overvoltage",
       "temperature": 9.0,
       "humidity": 65.0,
       "precipitation": 30.0,
@@ -388,9 +388,9 @@
     },
     {
       "hour": 23,
-      "total_load_kw": 1.85,
+      "total_load_kw": 1.38,
       "status": "normal",
-      "accident": "low_power_factor",
+      "accident": "overvoltage",
       "temperature": 9.0,
       "humidity": 65.0,
       "precipitation": 30.0,
@@ -402,166 +402,166 @@
   ],
   "accident_log": [
     {
-      "datetime": "2026-04-22T04:00:00",
-      "type": "low_power_factor",
+      "datetime": "2026-04-28T04:00:00",
+      "type": "overvoltage",
+      "severity": "critical",
+      "circuit": "c5"
+    },
+    {
+      "datetime": "2026-04-28T05:00:00",
+      "type": "overvoltage",
+      "severity": "critical",
+      "circuit": "c5"
+    },
+    {
+      "datetime": "2026-04-28T06:00:00",
+      "type": "overvoltage",
+      "severity": "critical",
+      "circuit": "c5"
+    },
+    {
+      "datetime": "2026-04-28T07:00:00",
+      "type": "overvoltage",
+      "severity": "critical",
+      "circuit": "c5"
+    },
+    {
+      "datetime": "2026-04-28T08:00:00",
+      "type": "overvoltage",
       "severity": "warn",
       "circuit": "c5"
     },
     {
-      "datetime": "2026-04-22T05:00:00",
-      "type": "low_power_factor",
+      "datetime": "2026-04-28T09:00:00",
+      "type": "overvoltage",
       "severity": "warn",
       "circuit": "c5"
     },
     {
-      "datetime": "2026-04-22T06:00:00",
-      "type": "insulation_degradation",
+      "datetime": "2026-04-28T10:00:00",
+      "type": "overvoltage",
       "severity": "warn",
       "circuit": "c5"
     },
     {
-      "datetime": "2026-04-22T07:00:00",
-      "type": "insulation_degradation",
+      "datetime": "2026-04-28T11:00:00",
+      "type": "overvoltage",
+      "severity": "critical",
+      "circuit": "c5"
+    },
+    {
+      "datetime": "2026-04-28T12:00:00",
+      "type": "overvoltage",
+      "severity": "critical",
+      "circuit": "c5"
+    },
+    {
+      "datetime": "2026-04-28T13:00:00",
+      "type": "overvoltage",
+      "severity": "warn",
+      "circuit": "c3"
+    },
+    {
+      "datetime": "2026-04-28T14:00:00",
+      "type": "overvoltage",
+      "severity": "critical",
+      "circuit": "c5"
+    },
+    {
+      "datetime": "2026-04-28T15:00:00",
+      "type": "overvoltage",
       "severity": "warn",
       "circuit": "c5"
     },
     {
-      "datetime": "2026-04-22T08:00:00",
-      "type": "insulation_degradation",
+      "datetime": "2026-04-28T16:00:00",
+      "type": "overvoltage",
       "severity": "warn",
       "circuit": "c5"
     },
     {
-      "datetime": "2026-04-22T09:00:00",
-      "type": "harmonic_distortion",
-      "severity": "warn",
+      "datetime": "2026-04-28T17:00:00",
+      "type": "overvoltage",
+      "severity": "critical",
       "circuit": "c5"
     },
     {
-      "datetime": "2026-04-22T10:00:00",
-      "type": "insulation_degradation",
-      "severity": "warn",
+      "datetime": "2026-04-28T18:00:00",
+      "type": "overvoltage",
+      "severity": "critical",
       "circuit": "c5"
     },
     {
-      "datetime": "2026-04-22T11:00:00",
-      "type": "harmonic_distortion",
-      "severity": "warn",
+      "datetime": "2026-04-28T19:00:00",
+      "type": "overvoltage",
+      "severity": "critical",
       "circuit": "c5"
     },
     {
-      "datetime": "2026-04-22T12:00:00",
-      "type": "insulation_degradation",
-      "severity": "warn",
+      "datetime": "2026-04-28T20:00:00",
+      "type": "overvoltage",
+      "severity": "critical",
       "circuit": "c5"
     },
     {
-      "datetime": "2026-04-22T13:00:00",
-      "type": "insulation_degradation",
-      "severity": "warn",
+      "datetime": "2026-04-28T21:00:00",
+      "type": "overvoltage",
+      "severity": "critical",
       "circuit": "c5"
     },
     {
-      "datetime": "2026-04-22T14:00:00",
-      "type": "insulation_degradation",
-      "severity": "warn",
+      "datetime": "2026-04-28T22:00:00",
+      "type": "overvoltage",
+      "severity": "critical",
       "circuit": "c5"
     },
     {
-      "datetime": "2026-04-22T15:00:00",
-      "type": "harmonic_distortion",
-      "severity": "warn",
-      "circuit": "c5"
-    },
-    {
-      "datetime": "2026-04-22T16:00:00",
-      "type": "insulation_degradation",
-      "severity": "warn",
-      "circuit": "c5"
-    },
-    {
-      "datetime": "2026-04-22T17:00:00",
-      "type": "insulation_degradation",
-      "severity": "warn",
-      "circuit": "c5"
-    },
-    {
-      "datetime": "2026-04-22T18:00:00",
-      "type": "insulation_degradation",
-      "severity": "warn",
-      "circuit": "c5"
-    },
-    {
-      "datetime": "2026-04-22T19:00:00",
-      "type": "insulation_degradation",
-      "severity": "warn",
-      "circuit": "c5"
-    },
-    {
-      "datetime": "2026-04-22T20:00:00",
-      "type": "insulation_degradation",
-      "severity": "warn",
-      "circuit": "c5"
-    },
-    {
-      "datetime": "2026-04-22T21:00:00",
-      "type": "insulation_degradation",
-      "severity": "warn",
-      "circuit": "c5"
-    },
-    {
-      "datetime": "2026-04-22T22:00:00",
-      "type": "low_power_factor",
-      "severity": "warn",
-      "circuit": "c5"
-    },
-    {
-      "datetime": "2026-04-22T23:00:00",
-      "type": "low_power_factor",
-      "severity": "warn",
+      "datetime": "2026-04-28T23:00:00",
+      "type": "overvoltage",
+      "severity": "critical",
       "circuit": "c5"
     }
   ],
   "model_metrics": {
     "total_load_kw": {
-      "r2": 0.9624,
-      "mae": 0.5999
+      "r2": 0.8499,
+      "mae": 1.3588
     },
     "c1_kw": {
-      "r2": 0.8581,
-      "mae": 0.0422
+      "r2": 0.6074,
+      "mae": 0.1643
     },
     "c2_kw": {
-      "r2": -0.2002,
-      "mae": 0.1132
+      "r2": 0.7635,
+      "mae": 0.0965
     },
     "c3_kw": {
-      "r2": 0.653,
-      "mae": 0.2687
+      "r2": 0.7877,
+      "mae": 0.2902
     },
     "c4_kw": {
-      "r2": 0.7088,
-      "mae": 0.1506
+      "r2": 0.8531,
+      "mae": 0.1663
     },
     "c5_kw": {
-      "r2": 0.8311,
-      "mae": 0.3392
+      "r2": 0.9355,
+      "mae": 0.2535
     },
     "c6_kw": {
-      "r2": 0.7958,
-      "mae": 0.1565
+      "r2": 0.887,
+      "mae": 0.1346
     },
     "c7_kw": {
-      "r2": 0.9176,
-      "mae": 0.0515
+      "r2": 0.5617,
+      "mae": 0.1713
     },
     "c8_kw": {
-      "r2": 0.7383,
-      "mae": 0.2805
+      "r2": 0.8247,
+      "mae": 0.3023
     },
     "c9_kw": {
-      "r2": 0.4774,
-      "mae": 0.1457
+      "r2": 0.6528,
+      "mae": 0.1303
     }
   },
   "lightning": {
@@ -585,7 +585,7 @@
       "avg_reh": 60.8,
       "avg_wsd": 3.0,
       "feel_temp": 9.9,
-      "avg_load": 5.928,
+      "avg_load": 6.431,
       "alert": "🟢 정상"
     },
     "2": {
@@ -597,7 +597,7 @@
       "avg_reh": 60.8,
       "avg_wsd": 3.0,
       "feel_temp": 10.8,
-      "avg_load": 7.099,
+      "avg_load": 6.932,
       "alert": "🟢 정상"
     },
     "3": {
@@ -609,7 +609,7 @@
       "avg_reh": 71.5,
       "avg_wsd": 3.0,
       "feel_temp": 10.9,
-      "avg_load": 6.956,
+      "avg_load": 7.342,
       "alert": "🟢 정상"
     },
     "4": {
@@ -621,7 +621,7 @@
       "avg_reh": 68.1,
       "avg_wsd": 3.0,
       "feel_temp": 10.2,
-      "avg_load": 6.267,
+      "avg_load": 6.038,
       "alert": "🟢 정상"
     },
     "5": {
@@ -633,7 +633,7 @@
       "avg_reh": 73.1,
       "avg_wsd": 3.0,
       "feel_temp": 9.5,
-      "avg_load": 5.327,
+      "avg_load": 5.695,
       "alert": "🟢 정상"
     },
     "6": {
@@ -645,7 +645,7 @@
       "avg_reh": 74.6,
       "avg_wsd": 3.0,
       "feel_temp": 8.4,
-      "avg_load": 5.763,
+      "avg_load": 6.325,
       "alert": "🟢 정상"
     },
     "7": {
@@ -657,7 +657,7 @@
       "avg_reh": 64.7,
       "avg_wsd": 3.0,
       "feel_temp": 9.6,
-      "avg_load": 5.766,
+      "avg_load": 6.337,
       "alert": "🟢 정상"
     },
     "8": {
@@ -669,7 +669,7 @@
       "avg_reh": 62.2,
       "avg_wsd": 3.0,
       "feel_temp": 9.7,
-      "avg_load": 5.766,
+      "avg_load": 6.391,
       "alert": "🟢 정상"
     },
     "9": {
@@ -681,7 +681,7 @@
       "avg_reh": 61.4,
       "avg_wsd": 3.0,
       "feel_temp": 11.0,
-      "avg_load": 7.099,
+      "avg_load": 6.826,
       "alert": "🟢 정상"
     },
     "10": {
@@ -693,7 +693,7 @@
       "avg_reh": 63.2,
       "avg_wsd": 3.0,
       "feel_temp": 12.3,
-      "avg_load": 7.14,
+      "avg_load": 7.204,
       "alert": "🟢 정상"
     },
     "11": {
@@ -705,7 +705,7 @@
       "avg_reh": 74.5,
       "avg_wsd": 3.0,
       "feel_temp": 11.5,
-      "avg_load": 6.635,
+      "avg_load": 6.57,
       "alert": "🟢 정상"
     },
     "12": {
@@ -717,7 +717,7 @@
       "avg_reh": 65.8,
       "avg_wsd": 3.0,
       "feel_temp": 11.4,
-      "avg_load": 6.635,
+      "avg_load": 5.935,
       "alert": "🟢 정상"
     },
     "13": {
@@ -729,7 +729,7 @@
       "avg_reh": 63.9,
       "avg_wsd": 3.0,
       "feel_temp": 10.6,
-      "avg_load": 6.717,
+      "avg_load": 6.742,
       "alert": "🟢 정상"
     },
     "14": {
@@ -741,7 +741,7 @@
       "avg_reh": 70.1,
       "avg_wsd": 3.0,
       "feel_temp": 10.6,
-      "avg_load": 6.717,
+      "avg_load": 6.89,
       "alert": "🟢 정상"
     },
     "15": {
@@ -753,7 +753,7 @@
       "avg_reh": 74.0,
       "avg_wsd": 3.0,
       "feel_temp": 10.2,
-      "avg_load": 6.717,
+      "avg_load": 6.893,
       "alert": "🟢 정상"
     },
     "16": {
@@ -765,7 +765,7 @@
       "avg_reh": 69.9,
       "avg_wsd": 3.0,
       "feel_temp": 11.6,
-      "avg_load": 7.086,
+      "avg_load": 7.416,
       "alert": "🟢 정상"
     },
     "17": {
@@ -777,7 +777,7 @@
       "avg_reh": 70.7,
       "avg_wsd": 3.0,
       "feel_temp": 12.2,
-      "avg_load": 7.14,
+      "avg_load": 7.398,
       "alert": "🟢 정상"
     },
     "18": {
@@ -789,7 +789,7 @@
       "avg_reh": 75.2,
       "avg_wsd": 3.0,
       "feel_temp": 12.1,
-      "avg_load": 6.669,
+      "avg_load": 6.545,
       "alert": "🟢 정상"
     },
     "19": {
@@ -801,7 +801,7 @@
       "avg_reh": 72.8,
       "avg_wsd": 3.0,
       "feel_temp": 12.7,
-      "avg_load": 6.729,
+      "avg_load": 7.131,
       "alert": "🟢 정상"
     },
     "20": {
@@ -813,7 +813,7 @@
       "avg_reh": 73.7,
       "avg_wsd": 3.0,
       "feel_temp": 12.9,
-      "avg_load": 7.181,
+      "avg_load": 7.945,
       "alert": "🟢 정상"
     },
     "21": {
@@ -825,7 +825,7 @@
       "avg_reh": 66.8,
       "avg_wsd": 3.0,
       "feel_temp": 14.2,
-      "avg_load": 7.198,
+      "avg_load": 7.896,
       "alert": "🟢 정상"
     },
     "22": {
@@ -837,7 +837,7 @@
       "avg_reh": 63.8,
       "avg_wsd": 3.0,
       "feel_temp": 15.3,
-      "avg_load": 7.242,
+      "avg_load": 8.028,
       "alert": "🟢 정상"
     },
     "23": {
@@ -849,7 +849,7 @@
       "avg_reh": 67.4,
       "avg_wsd": 3.0,
       "feel_temp": 14.2,
-      "avg_load": 7.198,
+      "avg_load": 7.896,
       "alert": "🟢 정상"
     },
     "24": {
@@ -861,7 +861,7 @@
       "avg_reh": 70.3,
       "avg_wsd": 3.0,
       "feel_temp": 13.3,
-      "avg_load": 7.181,
+      "avg_load": 7.977,
       "alert": "🟢 정상"
     },
     "25": {
@@ -873,7 +873,7 @@
       "avg_reh": 73.8,
       "avg_wsd": 3.0,
       "feel_temp": 13.0,
-      "avg_load": 6.729,
+      "avg_load": 7.15,
       "alert": "🟢 정상"
     },
     "26": {
@@ -885,7 +885,7 @@
       "avg_reh": 72.5,
       "avg_wsd": 3.0,
       "feel_temp": 12.1,
-      "avg_load": 6.669,
+      "avg_load": 6.545,
       "alert": "🟢 정상"
     },
     "27": {
@@ -897,7 +897,7 @@
       "avg_reh": 64.8,
       "avg_wsd": 3.0,
       "feel_temp": 12.4,
-      "avg_load": 7.181,
+      "avg_load": 7.775,
       "alert": "🟢 정상"
     },
     "28": {
@@ -908,7 +908,7 @@
       "avg_pop": 29.3,
       "avg_reh": 57.0,
       "avg_wsd": 3.8,
-      "avg_load": 7.358,
+      "avg_load": 6.951,
       "alert": "🟢 정상"
     },
     "29": {
@@ -919,7 +919,7 @@
       "avg_pop": 22.1,
       "avg_reh": 58.3,
       "avg_wsd": 1.8,
-      "avg_load": 7.322,
+      "avg_load": 7.454,
       "alert": "🟢 정상"
     },
     "30": {
@@ -930,7 +930,7 @@
       "avg_pop": 2.1,
       "avg_reh": 55.0,
       "avg_wsd": 1.8,
-      "avg_load": 7.376,
+      "avg_load": 6.947,
       "alert": "🟢 정상"
     }
   },
@@ -945,7 +945,7 @@
       "avg_reh": 79.4,
       "avg_wsd": 3.0,
       "feel_temp": 13.8,
-      "avg_load": 7.182,
+      "avg_load": 8.002,
       "alert": "🟢 정상"
     },
     "2": {
@@ -957,7 +957,7 @@
       "avg_reh": 71.7,
       "avg_wsd": 3.0,
       "feel_temp": 14.1,
-      "avg_load": 6.73,
+      "avg_load": 7.226,
       "alert": "🟢 정상"
     },
     "3": {
@@ -969,7 +969,7 @@
       "avg_reh": 69.6,
       "avg_wsd": 3.0,
       "feel_temp": 14.1,
-      "avg_load": 6.73,
+      "avg_load": 7.226,
       "alert": "🟢 정상"
     },
     "4": {
@@ -981,7 +981,7 @@
       "avg_reh": 65.6,
       "avg_wsd": 3.0,
       "feel_temp": 16.0,
-      "avg_load": 7.289,
+      "avg_load": 8.043,
       "alert": "🟢 정상"
     },
     "5": {
@@ -993,7 +993,7 @@
       "avg_reh": 73.4,
       "avg_wsd": 3.0,
       "feel_temp": 15.8,
-      "avg_load": 7.289,
+      "avg_load": 8.127,
       "alert": "🟢 정상"
     },
     "6": {
@@ -1005,7 +1005,7 @@
       "avg_reh": 70.6,
       "avg_wsd": 3.0,
       "feel_temp": 14.9,
-      "avg_load": 7.207,
+      "avg_load": 7.975,
       "alert": "🟢 정상"
     },
     "7": {
@@ -1017,7 +1017,7 @@
       "avg_reh": 71.0,
       "avg_wsd": 3.0,
       "feel_temp": 14.2,
-      "avg_load": 7.198,
+      "avg_load": 7.979,
       "alert": "🟢 정상"
     },
     "8": {
@@ -1029,7 +1029,7 @@
       "avg_reh": 64.2,
       "avg_wsd": 3.0,
       "feel_temp": 14.9,
-      "avg_load": 7.207,
+      "avg_load": 7.899,
       "alert": "🟢 정상"
     },
     "9": {
@@ -1041,7 +1041,7 @@
       "avg_reh": 73.5,
       "avg_wsd": 3.0,
       "feel_temp": 14.2,
-      "avg_load": 6.746,
+      "avg_load": 7.205,
       "alert": "🟢 정상"
     },
     "10": {
@@ -1053,7 +1053,7 @@
       "avg_reh": 77.0,
       "avg_wsd": 3.0,
       "feel_temp": 13.9,
-      "avg_load": 6.73,
+      "avg_load": 7.226,
       "alert": "🟢 정상"
     },
     "11": {
@@ -1065,7 +1065,7 @@
       "avg_reh": 73.0,
       "avg_wsd": 3.0,
       "feel_temp": 15.9,
-      "avg_load": 7.289,
+      "avg_load": 8.127,
       "alert": "🟢 정상"
     },
     "12": {
@@ -1077,7 +1077,7 @@
       "avg_reh": 70.1,
       "avg_wsd": 3.0,
       "feel_temp": 16.5,
-      "avg_load": 7.387,
+      "avg_load": 8.137,
       "alert": "🟢 정상"
     },
     "13": {
@@ -1089,7 +1089,7 @@
       "avg_reh": 70.4,
       "avg_wsd": 3.0,
       "feel_temp": 16.1,
-      "avg_load": 7.289,
+      "avg_load": 8.127,
       "alert": "🟢 정상"
     },
     "14": {
@@ -1101,7 +1101,7 @@
       "avg_reh": 65.0,
       "avg_wsd": 3.0,
       "feel_temp": 16.8,
-      "avg_load": 7.387,
+      "avg_load": 8.062,
       "alert": "🟢 정상"
     },
     "15": {
@@ -1113,7 +1113,7 @@
       "avg_reh": 76.0,
       "avg_wsd": 3.0,
       "feel_temp": 17.0,
-      "avg_load": 7.387,
+      "avg_load": 8.137,
       "alert": "🟢 정상"
     },
     "16": {
@@ -1125,7 +1125,7 @@
       "avg_reh": 79.1,
       "avg_wsd": 3.0,
       "feel_temp": 17.9,
-      "avg_load": 6.921,
+      "avg_load": 7.344,
       "alert": "🟢 정상"
     },
     "17": {
@@ -1137,7 +1137,7 @@
       "avg_reh": 78.6,
       "avg_wsd": 3.0,
       "feel_temp": 17.9,
-      "avg_load": 6.921,
+      "avg_load": 7.344,
       "alert": "🟢 정상"
     },
     "18": {
@@ -1149,7 +1149,7 @@
       "avg_reh": 75.7,
       "avg_wsd": 3.0,
       "feel_temp": 17.6,
-      "avg_load": 7.387,
+      "avg_load": 8.137,
       "alert": "🟢 정상"
     },
     "19": {
@@ -1161,7 +1161,7 @@
       "avg_reh": 68.3,
       "avg_wsd": 3.0,
       "feel_temp": 18.2,
-      "avg_load": 7.387,
+      "avg_load": 8.137,
       "alert": "🟢 정상"
     },
     "20": {
@@ -1173,7 +1173,7 @@
       "avg_reh": 69.9,
       "avg_wsd": 3.0,
       "feel_temp": 17.5,
-      "avg_load": 7.387,
+      "avg_load": 8.137,
       "alert": "🟢 정상"
     },
     "21": {
@@ -1185,7 +1185,7 @@
       "avg_reh": 78.3,
       "avg_wsd": 3.0,
       "feel_temp": 17.2,
-      "avg_load": 7.387,
+      "avg_load": 8.137,
       "alert": "🟢 정상"
     },
     "22": {
@@ -1197,7 +1197,7 @@
       "avg_reh": 79.4,
       "avg_wsd": 3.0,
       "feel_temp": 17.3,
-      "avg_load": 7.387,
+      "avg_load": 8.137,
       "alert": "🟢 정상"
     },
     "23": {
@@ -1209,7 +1209,7 @@
       "avg_reh": 76.4,
       "avg_wsd": 3.0,
       "feel_temp": 17.8,
-      "avg_load": 6.921,
+      "avg_load": 7.344,
       "alert": "🟢 정상"
     },
     "24": {
@@ -1221,7 +1221,7 @@
       "avg_reh": 72.0,
       "avg_wsd": 3.0,
       "feel_temp": 17.6,
-      "avg_load": 6.921,
+      "avg_load": 7.344,
       "alert": "🟢 정상"
     },
     "25": {
@@ -1233,7 +1233,7 @@
       "avg_reh": 71.7,
       "avg_wsd": 3.0,
       "feel_temp": 17.5,
-      "avg_load": 7.387,
+      "avg_load": 8.137,
       "alert": "🟢 정상"
     },
     "26": {
@@ -1245,7 +1245,7 @@
       "avg_reh": 70.2,
       "avg_wsd": 3.0,
       "feel_temp": 18.0,
-      "avg_load": 7.387,
+      "avg_load": 8.137,
       "alert": "🟢 정상"
     },
     "27": {
@@ -1257,7 +1257,7 @@
       "avg_reh": 80.1,
       "avg_wsd": 3.0,
       "feel_temp": 16.9,
-      "avg_load": 7.387,
+      "avg_load": 8.137,
       "alert": "🟢 정상"
     },
     "28": {
@@ -1269,7 +1269,7 @@
       "avg_reh": 75.1,
       "avg_wsd": 3.0,
       "feel_temp": 18.1,
-      "avg_load": 7.387,
+      "avg_load": 8.137,
       "alert": "🟢 정상"
     },
     "29": {
@@ -1281,7 +1281,7 @@
       "avg_reh": 79.1,
       "avg_wsd": 3.0,
       "feel_temp": 18.6,
-      "avg_load": 7.387,
+      "avg_load": 8.137,
       "alert": "🟢 정상"
     },
     "30": {
@@ -1293,7 +1293,7 @@
       "avg_reh": 71.8,
       "avg_wsd": 3.0,
       "feel_temp": 19.3,
-      "avg_load": 6.921,
+      "avg_load": 7.344,
       "alert": "🟢 정상"
     },
     "31": {
@@ -1305,7 +1305,7 @@
       "avg_reh": 74.1,
       "avg_wsd": 3.0,
       "feel_temp": 18.5,
-      "avg_load": 6.921,
+      "avg_load": 7.344,
       "alert": "🟢 정상"
     }
   },
@@ -1536,6 +1536,233 @@
         }
       ],
       "status": "normal",
+      "data_type": "actual"
+    },
+    "2026-04-28": {
+      "avg_load": 7.766,
+      "peak_load": 20.96,
+      "avg_temp": 12.6,
+      "avg_reh": 58.9,
+      "accident_count": 24,
+      "accident_list": [
+        {
+          "hour": 0,
+          "type": "overvoltage",
+          "severity": "critical",
+          "circuit": "c5",
+          "load_kw": 1.52,
+          "current_a": 6.91,
+          "voltage_v": 220.0
+        },
+        {
+          "hour": 1,
+          "type": "overvoltage",
+          "severity": "critical",
+          "circuit": "c5",
+          "load_kw": 0.9,
+          "current_a": 4.09,
+          "voltage_v": 220.0
+        },
+        {
+          "hour": 2,
+          "type": "overvoltage",
+          "severity": "critical",
+          "circuit": "c5",
+          "load_kw": 1.52,
+          "current_a": 6.91,
+          "voltage_v": 220.0
+        },
+        {
+          "hour": 3,
+          "type": "overvoltage",
+          "severity": "critical",
+          "circuit": "c5",
+          "load_kw": 1.3,
+          "current_a": 5.91,
+          "voltage_v": 220.0
+        },
+        {
+          "hour": 4,
+          "type": "overvoltage",
+          "severity": "critical",
+          "circuit": "c5",
+          "load_kw": 1.5,
+          "current_a": 6.82,
+          "voltage_v": 220.0
+        },
+        {
+          "hour": 5,
+          "type": "overvoltage",
+          "severity": "critical",
+          "circuit": "c5",
+          "load_kw": 1.75,
+          "current_a": 7.95,
+          "voltage_v": 220.0
+        },
+        {
+          "hour": 6,
+          "type": "overvoltage",
+          "severity": "critical",
+          "circuit": "c5",
+          "load_kw": 1.85,
+          "current_a": 8.41,
+          "voltage_v": 220.0
+        },
+        {
+          "hour": 7,
+          "type": "overvoltage",
+          "severity": "critical",
+          "circuit": "c5",
+          "load_kw": 10.3,
+          "current_a": 46.82,
+          "voltage_v": 220.0
+        },
+        {
+          "hour": 8,
+          "type": "overvoltage",
+          "severity": "warn",
+          "circuit": "c5",
+          "load_kw": 9.2,
+          "current_a": 41.82,
+          "voltage_v": 220.0
+        },
+        {
+          "hour": 9,
+          "type": "overvoltage",
+          "severity": "warn",
+          "circuit": "c5",
+          "load_kw": 14.3,
+          "current_a": 65.0,
+          "voltage_v": 220.0
+        },
+        {
+          "hour": 10,
+          "type": "overvoltage",
+          "severity": "warn",
+          "circuit": "c5",
+          "load_kw": 14.0,
+          "current_a": 63.64,
+          "voltage_v": 220.0
+        },
+        {
+          "hour": 11,
+          "type": "overvoltage",
+          "severity": "critical",
+          "circuit": "c5",
+          "load_kw": 13.0,
+          "current_a": 59.09,
+          "voltage_v": 220.0
+        },
+        {
+          "hour": 12,
+          "type": "overvoltage",
+          "severity": "critical",
+          "circuit": "c5",
+          "load_kw": 10.9,
+          "current_a": 49.55,
+          "voltage_v": 220.0
+        },
+        {
+          "hour": 13,
+          "type": "overvoltage",
+          "severity": "warn",
+          "circuit": "c3",
+          "load_kw": 18.26,
+          "current_a": 83.0,
+          "voltage_v": 220.0
+        },
+        {
+          "hour": 14,
+          "type": "overvoltage",
+          "severity": "critical",
+          "circuit": "c5",
+          "load_kw": 20.96,
+          "current_a": 95.27,
+          "voltage_v": 220.0
+        },
+        {
+          "hour": 15,
+          "type": "overvoltage",
+          "severity": "warn",
+          "circuit": "c5",
+          "load_kw": 9.0,
+          "current_a": 40.91,
+          "voltage_v": 220.0
+        },
+        {
+          "hour": 16,
+          "type": "overvoltage",
+          "severity": "warn",
+          "circuit": "c5",
+          "load_kw": 10.3,
+          "current_a": 46.82,
+          "voltage_v": 220.0
+        },
+        {
+          "hour": 17,
+          "type": "overvoltage",
+          "severity": "critical",
+          "circuit": "c5",
+          "load_kw": 9.0,
+          "current_a": 40.91,
+          "voltage_v": 220.0
+        },
+        {
+          "hour": 18,
+          "type": "overvoltage",
+          "severity": "critical",
+          "circuit": "c5",
+          "load_kw": 9.3,
+          "current_a": 42.27,
+          "voltage_v": 220.0
+        },
+        {
+          "hour": 19,
+          "type": "overvoltage",
+          "severity": "critical",
+          "circuit": "c5",
+          "load_kw": 9.6,
+          "current_a": 43.64,
+          "voltage_v": 220.0
+        },
+        {
+          "hour": 20,
+          "type": "overvoltage",
+          "severity": "critical",
+          "circuit": "c5",
+          "load_kw": 9.7,
+          "current_a": 44.09,
+          "voltage_v": 220.0
+        },
+        {
+          "hour": 21,
+          "type": "overvoltage",
+          "severity": "critical",
+          "circuit": "c5",
+          "load_kw": 5.0,
+          "current_a": 22.73,
+          "voltage_v": 220.0
+        },
+        {
+          "hour": 22,
+          "type": "overvoltage",
+          "severity": "critical",
+          "circuit": "c5",
+          "load_kw": 1.85,
+          "current_a": 8.41,
+          "voltage_v": 220.0
+        },
+        {
+          "hour": 23,
+          "type": "overvoltage",
+          "severity": "critical",
+          "circuit": "c5",
+          "load_kw": 1.38,
+          "current_a": 6.27,
+          "voltage_v": 220.0
+        }
+      ],
+      "status": "danger",
       "data_type": "actual"
     }
   }
