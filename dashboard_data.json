@@ -1,5 +1,5 @@
 ﻿{
-  "updated_at": "2026-05-02T04:47:30.597085",
+  "updated_at": "2026-05-02T06:13:37.405145",
   "panel_config": {
     "main_breaker_a": 100,
     "main_capacity_kw": 22.0,
@@ -8,81 +8,81 @@
     "nominal_voltage": 220.0
   },
   "current": {
-    "total_load_kw": 2.953,
-    "total_current_a": 13.42,
-    "load_ratio": 0.1342,
+    "total_load_kw": 3.23,
+    "total_current_a": 14.68,
+    "load_ratio": 0.1468,
     "status": "normal",
     "warn_kw": 15.399999999999999,
     "danger_kw": 19.8
   },
   "weather": {
-    "temperature": 9.2,
-    "humidity": 90,
+    "temperature": 9.3,
+    "humidity": 94,
     "weather_code": "clear",
     "is_thunder": false
   },
   "circuits": {
     "c1": {
       "name": "조명A(사무공간)",
-      "load_kw": 0.412,
-      "load_rate": 0.275,
-      "current_a": 1.87,
+      "load_kw": 0.414,
+      "load_rate": 0.276,
+      "current_a": 1.88,
       "status": "normal"
     },
     "c2": {
       "name": "조명B(복도화장실)",
-      "load_kw": 0.134,
-      "load_rate": 0.168,
-      "current_a": 0.61,
+      "load_kw": 0.138,
+      "load_rate": 0.172,
+      "current_a": 0.63,
       "status": "normal"
     },
     "c3": {
       "name": "콘센트A(PC모니터)",
-      "load_kw": 0.451,
-      "load_rate": 0.129,
-      "current_a": 2.05,
+      "load_kw": 0.475,
+      "load_rate": 0.136,
+      "current_a": 2.16,
       "status": "normal"
     },
     "c4": {
       "name": "콘센트B(회의실)",
-      "load_kw": 0.269,
-      "load_rate": 0.134,
-      "current_a": 1.22,
+      "load_kw": 0.314,
+      "load_rate": 0.157,
+      "current_a": 1.43,
       "status": "normal"
     },
     "c5": {
       "name": "냉난방기",
-      "load_kw": 0.642,
-      "load_rate": 0.183,
-      "current_a": 2.92,
+      "load_kw": 0.717,
+      "load_rate": 0.205,
+      "current_a": 3.26,
       "status": "normal"
     },
     "c6": {
       "name": "서버·네트워크",
-      "load_kw": 0.284,
-      "load_rate": 0.142,
-      "current_a": 1.29,
+      "load_kw": 0.335,
+      "load_rate": 0.168,
+      "current_a": 1.52,
       "status": "normal"
     },
     "c7": {
       "name": "복합기·프린터",
-      "load_kw": 0.185,
-      "load_rate": 0.123,
-      "current_a": 0.84,
+      "load_kw": 0.184,
+      "load_rate": 0.122,
+      "current_a": 0.83,
       "status": "normal"
     },
     "c8": {
       "name": "동력(환기팬모터)",
-      "load_kw": 0.43,
-      "load_rate": 0.143,
-      "current_a": 1.96,
+      "load_kw": 0.504,
+      "load_rate": 0.168,
+      "current_a": 2.29,
       "status": "normal"
     },
     "c9": {
       "name": "예비회로",
-      "load_kw": 0.214,
-      "load_rate": 0.107,
-      "current_a": 0.97,
+      "load_kw": 0.278,
+      "load_rate": 0.139,
+      "current_a": 1.27,
       "status": "normal"
     }
   },
@@ -276,14 +276,14 @@
       "alert": "🟢 정상"
     },
     "2": {
-      "icon": "⛅",
+      "icon": "☁️",
       "type": "forecast",
       "max_temp": 21.0,
-      "min_temp": 12.0,
-      "avg_pop": 22.4,
-      "avg_reh": 71.9,
-      "avg_wsd": 1.8,
-      "avg_load": 7.334,
+      "min_temp": 13.0,
+      "avg_pop": 26.7,
+      "avg_reh": 66.4,
+      "avg_wsd": 2.7,
+      "avg_load": 7.225,
       "alert": "🟢 정상"
     },
     "3": {
@@ -291,9 +291,9 @@
       "type": "forecast",
       "max_temp": 16.0,
       "min_temp": 11.0,
-      "avg_pop": 46.2,
-      "avg_reh": 89.4,
-      "avg_wsd": 2.2,
+      "avg_pop": 47.5,
+      "avg_reh": 87.1,
+      "avg_wsd": 2.5,
       "avg_load": 7.15,
       "alert": "🟢 정상"
     },
@@ -302,9 +302,9 @@
       "type": "forecast",
       "max_temp": 17.0,
       "min_temp": 9.0,
-      "avg_pop": 5.4,
-      "avg_reh": 67.9,
-      "avg_wsd": 3.8,
+      "avg_pop": 5.8,
+      "avg_reh": 70.4,
+      "avg_wsd": 5.3,
       "avg_load": 7.927,
       "alert": "🟢 정상"
     },
@@ -315,7 +315,7 @@
       "min_temp": 9.0,
       "avg_pop": 0.0,
       "avg_reh": 60.0,
-      "avg_wsd": 1.3,
+      "avg_wsd": 1.6,
       "avg_load": 8.097,
       "alert": "🟢 정상"
     },
@@ -326,7 +326,7 @@
       "min_temp": 13.0,
       "avg_pop": 0.0,
       "avg_reh": 70.0,
-      "avg_wsd": 1.0,
+      "avg_wsd": 2.0,
       "avg_load": 7.927,
       "alert": "🟢 정상"
     },
