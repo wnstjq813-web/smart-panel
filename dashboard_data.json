@@ -1,5 +1,5 @@
 ﻿{
-  "updated_at": "2026-05-02T12:58:49.436449",
+  "updated_at": "2026-05-02T15:24:26.759747",
   "panel_config": {
     "main_breaker_a": 100,
     "main_capacity_kw": 22.0,
@@ -8,81 +8,81 @@
     "nominal_voltage": 220.0
   },
   "current": {
-    "total_load_kw": 11.247,
-    "total_current_a": 51.12,
-    "load_ratio": 0.5112,
+    "total_load_kw": 10.981,
+    "total_current_a": 49.91,
+    "load_ratio": 0.4991,
     "status": "normal",
     "warn_kw": 15.399999999999999,
     "danger_kw": 19.8
   },
   "weather": {
-    "temperature": 21.1,
-    "humidity": 56,
+    "temperature": 20.5,
+    "humidity": 57,
     "weather_code": "clear",
     "is_thunder": false
   },
   "circuits": {
     "c1": {
       "name": "조명A(사무공간)",
-      "load_kw": 0.988,
-      "load_rate": 0.658,
-      "current_a": 4.49,
+      "load_kw": 0.833,
+      "load_rate": 0.555,
+      "current_a": 3.79,
       "status": "normal"
     },
     "c2": {
       "name": "조명B(복도화장실)",
-      "load_kw": 0.63,
-      "load_rate": 0.787,
-      "current_a": 2.86,
+      "load_kw": 0.56,
+      "load_rate": 0.7,
+      "current_a": 2.55,
       "status": "warn"
     },
     "c3": {
       "name": "콘센트A(PC모니터)",
-      "load_kw": 1.838,
-      "load_rate": 0.525,
-      "current_a": 8.35,
+      "load_kw": 1.76,
+      "load_rate": 0.503,
+      "current_a": 8.0,
       "status": "normal"
     },
     "c4": {
       "name": "콘센트B(회의실)",
-      "load_kw": 1.16,
-      "load_rate": 0.58,
-      "current_a": 5.27,
+      "load_kw": 1.171,
+      "load_rate": 0.586,
+      "current_a": 5.32,
       "status": "normal"
     },
     "c5": {
       "name": "냉난방기",
-      "load_kw": 2.583,
-      "load_rate": 0.738,
-      "current_a": 11.74,
+      "load_kw": 2.529,
+      "load_rate": 0.723,
+      "current_a": 11.5,
       "status": "warn"
     },
     "c6": {
       "name": "서버·네트워크",
-      "load_kw": 1.151,
-      "load_rate": 0.576,
-      "current_a": 5.23,
+      "load_kw": 1.177,
+      "load_rate": 0.589,
+      "current_a": 5.35,
       "status": "normal"
     },
     "c7": {
       "name": "복합기·프린터",
-      "load_kw": 0.75,
-      "load_rate": 0.5,
-      "current_a": 3.41,
+      "load_kw": 0.71,
+      "load_rate": 0.473,
+      "current_a": 3.23,
       "status": "normal"
     },
     "c8": {
       "name": "동력(환기팬모터)",
-      "load_kw": 1.905,
-      "load_rate": 0.635,
-      "current_a": 8.66,
+      "load_kw": 1.871,
+      "load_rate": 0.624,
+      "current_a": 8.51,
       "status": "normal"
     },
     "c9": {
       "name": "예비회로",
-      "load_kw": 0.7,
-      "load_rate": 0.35,
-      "current_a": 3.18,
+      "load_kw": 0.703,
+      "load_rate": 0.351,
+      "current_a": 3.2,
       "status": "normal"
     }
   },
@@ -280,10 +280,10 @@
       "type": "forecast",
       "max_temp": 21.0,
       "min_temp": 15.0,
-      "avg_pop": 25.0,
-      "avg_reh": 64.6,
-      "avg_wsd": 2.5,
-      "avg_load": 7.231,
+      "avg_pop": 23.3,
+      "avg_reh": 66.7,
+      "avg_wsd": 1.9,
+      "avg_load": 7.225,
       "alert": "🟢 정상"
     },
     "3": {
@@ -293,7 +293,7 @@
       "min_temp": 11.0,
       "avg_pop": 47.5,
       "avg_reh": 87.1,
-      "avg_wsd": 2.2,
+      "avg_wsd": 2.1,
       "avg_load": 7.15,
       "alert": "🟢 정상"
     },
@@ -304,7 +304,7 @@
       "min_temp": 9.0,
       "avg_pop": 5.8,
       "avg_reh": 70.4,
-      "avg_wsd": 5.0,
+      "avg_wsd": 4.9,
       "avg_load": 7.927,
       "alert": "🟢 정상"
     },
