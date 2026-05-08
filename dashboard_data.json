@@ -1,5 +1,5 @@
 ﻿{
-  "updated_at": "2026-05-08T19:02:28.052992",
+  "updated_at": "2026-05-08T20:52:12.330693",
   "panel_config": {
     "main_breaker_a": 100,
     "main_capacity_kw": 22.0,
@@ -8,80 +8,80 @@
     "nominal_voltage": 220.0
   },
   "current": {
-    "total_load_kw": 8.84,
-    "total_current_a": 40.18,
-    "load_ratio": 0.4018,
+    "total_load_kw": 7.533,
+    "total_current_a": 34.24,
+    "load_ratio": 0.3424,
     "status": "normal",
     "warn_kw": 15.399999999999999,
     "danger_kw": 19.8
   },
   "weather": {
-    "temperature": 14.3,
-    "humidity": 50,
+    "temperature": 9.6,
+    "humidity": 68,
     "weather_code": "clear",
     "is_thunder": false
   },
   "circuits": {
     "c1": {
       "name": "조명A(사무공간)",
-      "load_kw": 0.596,
-      "load_rate": 0.398,
-      "current_a": 2.71,
+      "load_kw": 0.497,
+      "load_rate": 0.331,
+      "current_a": 2.26,
       "status": "normal"
     },
     "c2": {
       "name": "조명B(복도화장실)",
-      "load_kw": 0.429,
-      "load_rate": 0.536,
-      "current_a": 1.95,
+      "load_kw": 0.347,
+      "load_rate": 0.433,
+      "current_a": 1.58,
       "status": "normal"
     },
     "c3": {
       "name": "콘센트A(PC모니터)",
-      "load_kw": 1.511,
-      "load_rate": 0.432,
-      "current_a": 6.87,
+      "load_kw": 1.172,
+      "load_rate": 0.335,
+      "current_a": 5.33,
       "status": "normal"
     },
     "c4": {
       "name": "콘센트B(회의실)",
-      "load_kw": 0.916,
-      "load_rate": 0.458,
-      "current_a": 4.16,
+      "load_kw": 0.78,
+      "load_rate": 0.39,
+      "current_a": 3.55,
       "status": "normal"
     },
     "c5": {
       "name": "냉난방기",
-      "load_kw": 2.132,
-      "load_rate": 0.609,
-      "current_a": 9.69,
+      "load_kw": 1.701,
+      "load_rate": 0.486,
+      "current_a": 7.73,
       "status": "normal"
     },
     "c6": {
       "name": "서버·네트워크",
-      "load_kw": 1.025,
-      "load_rate": 0.512,
-      "current_a": 4.66,
+      "load_kw": 0.773,
+      "load_rate": 0.386,
+      "current_a": 3.51,
       "status": "normal"
     },
     "c7": {
       "name": "복합기·프린터",
-      "load_kw": 0.509,
-      "load_rate": 0.339,
-      "current_a": 2.31,
+      "load_kw": 0.418,
+      "load_rate": 0.279,
+      "current_a": 1.9,
       "status": "normal"
     },
     "c8": {
       "name": "동력(환기팬모터)",
-      "load_kw": 1.545,
-      "load_rate": 0.515,
-      "current_a": 7.02,
+      "load_kw": 1.2,
+      "load_rate": 0.4,
+      "current_a": 5.45,
       "status": "normal"
     },
     "c9": {
       "name": "예비회로",
-      "load_kw": 0.32,
-      "load_rate": 0.16,
+      "load_kw": 0.321,
+      "load_rate": 0.161,
       "current_a": 1.46,
       "status": "normal"
     }
@@ -252,44 +252,15 @@
     }
   },
   "lightning": {
-    "detected": true,
-    "danger_level": "watch",
-    "count_10min": 2,
-    "closest_dist_km": 545.58,
-    "closest_type": "CG",
-    "closest_type_label": "구름-지면",
-    "closest_amp_ka": 82.8,
-    "closest_polarity": "정극성(+)",
-    "closest_address": "41.4831°N / 127.2881°E",
-    "closest_datetime": "2026-05-08 18:49:17",
-    "events": [
-      {
-        "datetime": "2026-05-08 18:49:17",
-        "latitude": 41.4831,
-        "longitude": 127.2881,
-        "address": "41.4831°N / 127.2881°E",
-        "type": "CG",
-        "type_label": "구름-지면",
-        "amplitude_ka": 82.8,
-        "polarity": "정극성(+)",
-        "sensor_count": 10,
-        "distance_km": 545.58,
-        "danger_level": "watch"
-      },
-      {
-        "datetime": "2026-05-08 18:47:41",
-        "latitude": 41.4516,
-        "longitude": 128.0259,
-        "address": "41.4516°N / 128.0259°E",
-        "type": "CG",
-        "type_label": "구름-지면",
-        "amplitude_ka": 94.9,
-        "polarity": "정극성(+)",
-        "sensor_count": 11,
-        "distance_km": 552.11,
-        "danger_level": "watch"
-      }
-    ]
+    "detected": false,
+    "danger_level": "none",
+    "count_10min": 0,
+    "closest_dist_km": null,
+    "closest_type": null,
+    "closest_amp_ka": null,
+    "closest_address": null,
+    "closest_datetime": null,
+    "events": []
   },
   "calendar": {
     "1": {
