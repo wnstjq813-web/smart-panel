@@ -1,5 +1,5 @@
 ﻿{
-  "updated_at": "2026-05-12T03:17:11.352422",
+  "updated_at": "2026-05-12T05:16:27.426159",
   "panel_config": {
     "main_breaker_a": 100,
     "main_capacity_kw": 22.0,
@@ -8,15 +8,15 @@
     "nominal_voltage": 220.0
   },
   "current": {
-    "total_load_kw": 4.015,
-    "total_current_a": 18.25,
-    "load_ratio": 0.1825,
+    "total_load_kw": 4.094,
+    "total_current_a": 18.61,
+    "load_ratio": 0.1861,
     "status": "normal",
     "warn_kw": 15.399999999999999,
     "danger_kw": 19.8
   },
   "weather": {
-    "temperature": 15.3,
+    "temperature": 14.1,
     "humidity": 99,
     "weather_code": "rainy",
     "is_thunder": false
@@ -24,65 +24,65 @@
   "circuits": {
     "c1": {
       "name": "조명A(사무공간)",
-      "load_kw": 0.587,
-      "load_rate": 0.391,
-      "current_a": 2.67,
+      "load_kw": 0.576,
+      "load_rate": 0.384,
+      "current_a": 2.62,
       "status": "normal"
     },
     "c2": {
       "name": "조명B(복도화장실)",
-      "load_kw": 0.291,
-      "load_rate": 0.364,
-      "current_a": 1.32,
+      "load_kw": 0.284,
+      "load_rate": 0.355,
+      "current_a": 1.29,
       "status": "normal"
     },
     "c3": {
       "name": "콘센트A(PC모니터)",
-      "load_kw": 0.705,
-      "load_rate": 0.201,
-      "current_a": 3.21,
+      "load_kw": 0.68,
+      "load_rate": 0.194,
+      "current_a": 3.09,
       "status": "normal"
     },
     "c4": {
       "name": "콘센트B(회의실)",
-      "load_kw": 0.51,
-      "load_rate": 0.255,
-      "current_a": 2.32,
+      "load_kw": 0.522,
+      "load_rate": 0.261,
+      "current_a": 2.37,
       "status": "normal"
     },
     "c5": {
       "name": "냉난방기",
-      "load_kw": 0.918,
-      "load_rate": 0.262,
-      "current_a": 4.17,
+      "load_kw": 0.948,
+      "load_rate": 0.271,
+      "current_a": 4.31,
       "status": "normal"
     },
     "c6": {
       "name": "서버·네트워크",
-      "load_kw": 0.436,
-      "load_rate": 0.218,
-      "current_a": 1.98,
+      "load_kw": 0.461,
+      "load_rate": 0.23,
+      "current_a": 2.09,
       "status": "normal"
     },
     "c7": {
       "name": "복합기·프린터",
-      "load_kw": 0.343,
-      "load_rate": 0.228,
-      "current_a": 1.56,
+      "load_kw": 0.337,
+      "load_rate": 0.225,
+      "current_a": 1.53,
       "status": "normal"
     },
     "c8": {
       "name": "동력(환기팬모터)",
-      "load_kw": 0.6,
-      "load_rate": 0.2,
-      "current_a": 2.73,
+      "load_kw": 0.641,
+      "load_rate": 0.214,
+      "current_a": 2.91,
       "status": "normal"
     },
     "c9": {
       "name": "예비회로",
-      "load_kw": 0.408,
-      "load_rate": 0.204,
-      "current_a": 1.85,
+      "load_kw": 0.393,
+      "load_rate": 0.196,
+      "current_a": 1.79,
       "status": "normal"
     }
   },
@@ -253,79 +253,79 @@
   },
   "lightning": {
     "detected": true,
-    "danger_level": "warning",
-    "count_10min": 25,
-    "closest_dist_km": 18.69,
+    "danger_level": "watch",
+    "count_10min": 103,
+    "closest_dist_km": 48.15,
     "closest_type": "CG",
     "closest_type_label": "구름-지면",
-    "closest_amp_ka": -7.7,
+    "closest_amp_ka": -12.4,
     "closest_polarity": "부극성(-)",
-    "closest_address": "36.5506°N / 126.4608°E",
-    "closest_datetime": "2026-05-12 03:03:26",
+    "closest_address": "36.3138°N / 127.0638°E",
+    "closest_datetime": "2026-05-12 05:03:06",
     "events": [
       {
-        "datetime": "2026-05-12 03:03:26",
-        "latitude": 36.5506,
-        "longitude": 126.4608,
-        "address": "36.5506°N / 126.4608°E",
+        "datetime": "2026-05-12 05:03:06",
+        "latitude": 36.3138,
+        "longitude": 127.0638,
+        "address": "36.3138°N / 127.0638°E",
         "type": "CG",
         "type_label": "구름-지면",
-        "amplitude_ka": -7.7,
+        "amplitude_ka": -12.4,
         "polarity": "부극성(-)",
         "sensor_count": 7,
-        "distance_km": 18.69,
-        "danger_level": "warning"
-      },
-      {
-        "datetime": "2026-05-12 03:03:27",
-        "latitude": 36.5642,
-        "longitude": 126.4336,
-        "address": "36.5642°N / 126.4336°E",
-        "type": "CG",
-        "type_label": "구름-지면",
-        "amplitude_ka": -12.7,
-        "polarity": "부극성(-)",
-        "sensor_count": 7,
-        "distance_km": 20.67,
+        "distance_km": 48.15,
         "danger_level": "watch"
       },
       {
-        "datetime": "2026-05-12 03:03:24",
-        "latitude": 36.3791,
-        "longitude": 126.7382,
-        "address": "36.3791°N / 126.7382°E",
-        "type": "CG",
-        "type_label": "구름-지면",
-        "amplitude_ka": -7.3,
+        "datetime": "2026-05-12 05:03:05",
+        "latitude": 36.2791,
+        "longitude": 127.0752,
+        "address": "36.2791°N / 127.0752°E",
+        "type": "CC",
+        "type_label": "구름-구름",
+        "amplitude_ka": -9.0,
         "polarity": "부극성(-)",
-        "sensor_count": 7,
-        "distance_km": 25.61,
-        "danger_level": "watch"
-      },
-      {
-        "datetime": "2026-05-12 03:02:04",
-        "latitude": 36.3722,
-        "longitude": 126.7133,
-        "address": "36.3722°N / 126.7133°E",
-        "type": "CG",
-        "type_label": "구름-지면",
-        "amplitude_ka": 19.0,
-        "polarity": "정극성(+)",
-        "sensor_count": 7,
-        "distance_km": 25.85,
-        "danger_level": "watch"
-      },
-      {
-        "datetime": "2026-05-12 03:04:38",
-        "latitude": 36.2106,
-        "longitude": 126.3838,
-        "address": "36.2106°N / 126.3838°E",
-        "type": "CG",
-        "type_label": "구름-지면",
-        "amplitude_ka": 18.0,
-        "polarity": "정극성(+)",
         "sensor_count": 8,
-        "distance_km": 49.96,
+        "distance_km": 51.53,
+        "danger_level": "watch"
+      },
+      {
+        "datetime": "2026-05-12 05:01:08",
+        "latitude": 36.2695,
+        "longitude": 127.0799,
+        "address": "36.2695°N / 127.0799°E",
+        "type": "CG",
+        "type_label": "구름-지면",
+        "amplitude_ka": -32.7,
+        "polarity": "부극성(-)",
+        "sensor_count": 10,
+        "distance_km": 52.57,
+        "danger_level": "watch"
+      },
+      {
+        "datetime": "2026-05-12 05:03:05",
+        "latitude": 36.3028,
+        "longitude": 127.1201,
+        "address": "36.3028°N / 127.1201°E",
+        "type": "CG",
+        "type_label": "구름-지면",
+        "amplitude_ka": -14.3,
+        "polarity": "부극성(-)",
+        "sensor_count": 6,
+        "distance_km": 52.79,
+        "danger_level": "watch"
+      },
+      {
+        "datetime": "2026-05-12 05:02:35",
+        "latitude": 36.1899,
+        "longitude": 126.3014,
+        "address": "36.1899°N / 126.3014°E",
+        "type": "CG",
+        "type_label": "구름-지면",
+        "amplitude_ka": -20.0,
+        "polarity": "부극성(-)",
+        "sensor_count": 7,
+        "distance_km": 55.87,
         "danger_level": "watch"
       }
     ]
