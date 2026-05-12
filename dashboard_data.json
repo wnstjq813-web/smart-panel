@@ -1,5 +1,5 @@
 ﻿{
-  "updated_at": "2026-05-12T13:59:31.788996",
+  "updated_at": "2026-05-12T17:08:06.552224",
   "panel_config": {
     "main_breaker_a": 100,
     "main_capacity_kw": 22.0,
@@ -8,81 +8,81 @@
     "nominal_voltage": 220.0
   },
   "current": {
-    "total_load_kw": 11.767,
-    "total_current_a": 53.48,
-    "load_ratio": 0.5348,
+    "total_load_kw": 10.595,
+    "total_current_a": 48.16,
+    "load_ratio": 0.4816,
     "status": "normal",
     "warn_kw": 15.399999999999999,
     "danger_kw": 19.8
   },
   "weather": {
-    "temperature": 18.1,
-    "humidity": 88,
+    "temperature": 20.6,
+    "humidity": 80,
     "weather_code": "clear",
     "is_thunder": false
   },
   "circuits": {
     "c1": {
       "name": "조명A(사무공간)",
-      "load_kw": 1.0,
-      "load_rate": 0.667,
-      "current_a": 4.54,
+      "load_kw": 0.796,
+      "load_rate": 0.53,
+      "current_a": 3.62,
       "status": "normal"
     },
     "c2": {
       "name": "조명B(복도화장실)",
-      "load_kw": 0.648,
-      "load_rate": 0.81,
-      "current_a": 2.95,
-      "status": "warn"
+      "load_kw": 0.534,
+      "load_rate": 0.668,
+      "current_a": 2.43,
+      "status": "normal"
     },
     "c3": {
       "name": "콘센트A(PC모니터)",
-      "load_kw": 1.912,
-      "load_rate": 0.546,
-      "current_a": 8.69,
+      "load_kw": 1.582,
+      "load_rate": 0.452,
+      "current_a": 7.19,
       "status": "normal"
     },
     "c4": {
       "name": "콘센트B(회의실)",
-      "load_kw": 1.237,
-      "load_rate": 0.618,
-      "current_a": 5.62,
+      "load_kw": 1.165,
+      "load_rate": 0.583,
+      "current_a": 5.3,
       "status": "normal"
     },
     "c5": {
       "name": "냉난방기",
-      "load_kw": 2.572,
-      "load_rate": 0.735,
-      "current_a": 11.69,
-      "status": "warn"
+      "load_kw": 2.394,
+      "load_rate": 0.684,
+      "current_a": 10.88,
+      "status": "normal"
     },
     "c6": {
       "name": "서버·네트워크",
-      "load_kw": 1.127,
-      "load_rate": 0.564,
-      "current_a": 5.12,
+      "load_kw": 1.104,
+      "load_rate": 0.552,
+      "current_a": 5.02,
       "status": "normal"
     },
     "c7": {
       "name": "복합기·프린터",
-      "load_kw": 0.789,
-      "load_rate": 0.526,
-      "current_a": 3.58,
+      "load_kw": 0.653,
+      "load_rate": 0.435,
+      "current_a": 2.97,
       "status": "normal"
     },
     "c8": {
       "name": "동력(환기팬모터)",
-      "load_kw": 1.973,
-      "load_rate": 0.658,
-      "current_a": 8.97,
+      "load_kw": 1.824,
+      "load_rate": 0.608,
+      "current_a": 8.29,
       "status": "normal"
     },
     "c9": {
       "name": "예비회로",
-      "load_kw": 0.868,
-      "load_rate": 0.434,
-      "current_a": 3.95,
+      "load_kw": 0.741,
+      "load_rate": 0.371,
+      "current_a": 3.37,
       "status": "normal"
     }
   },
@@ -254,78 +254,39 @@
   "lightning": {
     "detected": true,
     "danger_level": "watch",
-    "count_10min": 6,
-    "closest_dist_km": 416.33,
-    "closest_type": "CC",
-    "closest_type_label": "구름-구름",
-    "closest_amp_ka": -18.5,
+    "count_10min": 2,
+    "closest_dist_km": 550.42,
+    "closest_type": "CG",
+    "closest_type_label": "구름-지면",
+    "closest_amp_ka": -50.6,
     "closest_polarity": "부극성(-)",
-    "closest_address": "33.0075°N / 127.9424°E",
-    "closest_datetime": "2026-05-12 13:44:08",
+    "closest_address": "32.0369°N / 128.9828°E",
+    "closest_datetime": "2026-05-12 16:53:51",
     "events": [
       {
-        "datetime": "2026-05-12 13:44:08",
-        "latitude": 33.0075,
-        "longitude": 127.9424,
-        "address": "33.0075°N / 127.9424°E",
-        "type": "CC",
-        "type_label": "구름-구름",
-        "amplitude_ka": -18.5,
-        "polarity": "부극성(-)",
-        "sensor_count": 6,
-        "distance_km": 416.33,
-        "danger_level": "watch"
-      },
-      {
-        "datetime": "2026-05-12 13:44:53",
-        "latitude": 32.8824,
-        "longitude": 127.9342,
-        "address": "32.8824°N / 127.9342°E",
-        "type": "CC",
-        "type_label": "구름-구름",
-        "amplitude_ka": -20.0,
-        "polarity": "부극성(-)",
-        "sensor_count": 6,
-        "distance_km": 429.52,
-        "danger_level": "watch"
-      },
-      {
-        "datetime": "2026-05-12 13:44:21",
-        "latitude": 32.8347,
-        "longitude": 127.9344,
-        "address": "32.8347°N / 127.9344°E",
+        "datetime": "2026-05-12 16:53:51",
+        "latitude": 32.0369,
+        "longitude": 128.9828,
+        "address": "32.0369°N / 128.9828°E",
         "type": "CG",
         "type_label": "구름-지면",
-        "amplitude_ka": -21.8,
-        "polarity": "부극성(-)",
-        "sensor_count": 6,
-        "distance_km": 434.64,
-        "danger_level": "watch"
-      },
-      {
-        "datetime": "2026-05-12 13:44:21",
-        "latitude": 32.8266,
-        "longitude": 127.9379,
-        "address": "32.8266°N / 127.9379°E",
-        "type": "CG",
-        "type_label": "구름-지면",
-        "amplitude_ka": -22.9,
+        "amplitude_ka": -50.6,
         "polarity": "부극성(-)",
         "sensor_count": 7,
-        "distance_km": 435.59,
+        "distance_km": 550.42,
         "danger_level": "watch"
       },
       {
-        "datetime": "2026-05-12 13:44:16",
-        "latitude": 32.6611,
-        "longitude": 127.426,
-        "address": "32.6611°N / 127.4260°E",
+        "datetime": "2026-05-12 16:53:39",
+        "latitude": 31.7899,
+        "longitude": 128.5081,
+        "address": "31.7899°N / 128.5081°E",
         "type": "CG",
         "type_label": "구름-지면",
-        "amplitude_ka": -61.4,
+        "amplitude_ka": -55.2,
         "polarity": "부극성(-)",
         "sensor_count": 11,
-        "distance_km": 443.63,
+        "distance_km": 561.25,
         "danger_level": "watch"
       }
     ]
@@ -468,9 +429,9 @@
       "type": "forecast",
       "max_temp": 21.0,
       "min_temp": 15.0,
-      "avg_pop": 20.0,
-      "avg_reh": 79.6,
-      "avg_wsd": 1.1,
+      "avg_pop": 6.7,
+      "avg_reh": 82.2,
+      "avg_wsd": 0.9,
       "avg_load": 8.137,
       "alert": "🟢 정상"
     },
@@ -481,7 +442,7 @@
       "min_temp": 13.0,
       "avg_pop": 10.8,
       "avg_reh": 84.8,
-      "avg_wsd": 1.1,
+      "avg_wsd": 1.0,
       "avg_load": 8.137,
       "alert": "🟢 정상"
     },
@@ -492,7 +453,7 @@
       "min_temp": 14.0,
       "avg_pop": 7.1,
       "avg_reh": 80.6,
-      "avg_wsd": 1.0,
+      "avg_wsd": 0.9,
       "avg_load": 8.137,
       "alert": "🟢 정상"
     },
@@ -503,7 +464,7 @@
       "min_temp": 16.0,
       "avg_pop": 0.0,
       "avg_reh": 71.2,
-      "avg_wsd": 1.2,
+      "avg_wsd": 1.1,
       "avg_load": 8.137,
       "alert": "🟢 정상"
     },
