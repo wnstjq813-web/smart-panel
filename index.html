@@ -32,14 +32,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:14p
 .sec-title{font-size:11px;font-weight:600;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
 .sec-title::after{content:'';flex:1;height:1px;background:var(--border);}
 .section{margin-bottom:16px;}
-.gauge-wrap{display:flex;align-items:center;gap:24px;}
-.gauge-svg-wrap{position:relative;flex-shrink:0;}
-.gauge-label{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;top:10px;}
-.g-kw{font-size:26px;font-weight:600;font-family:var(--mono);color:#fff;line-height:1;}
-.g-pct{font-size:12px;color:var(--muted);font-family:var(--mono);margin-top:4px;}
-.gauge-stats{flex:1;display:flex;flex-direction:column;gap:10px;}
-.stat-row{display:flex;justify-content:space-between;align-items:center;}
-.sl{font-size:12px;color:var(--muted);}.sv{font-size:13px;font-family:var(--mono);color:#fff;font-weight:500;}
+.gauge-wrap{display:flex;align-items:center;gap:20px;}.gauge-svg-wrap{position:relative;flex-shrink:0;}.gauge-label{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;}.g-kw{font-size:22px;font-weight:700;font-family:var(--mono);color:#fff;line-height:1;letter-spacing:-.5px;}.g-pct{font-size:11px;color:var(--muted);font-family:var(--mono);margin-top:2px;}.gauge-stats{flex:1;display:flex;flex-direction:column;gap:0;border-left:1px solid var(--border);padding-left:16px;}.stat-row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid rgba(255,255,255,0.04);}.stat-row:last-child{border-bottom:none;}.sl{font-size:11px;color:var(--muted);letter-spacing:.04em;}.sv{font-size:13px;font-family:var(--mono);color:#fff;font-weight:600;}
 .weather-main{display:flex;align-items:center;gap:16px;margin-bottom:16px;}
 .weather-big-icon{font-size:48px;line-height:1;}
 .w-temp-big{font-size:36px;font-weight:600;font-family:var(--mono);color:#fff;line-height:1;}
@@ -310,22 +303,42 @@ header{display:flex;align-items:center;justify-content:space-between;padding:14p
 <div class="container">
   <div class="section">
     <div class="grid-3">
-      <div class="card">
-        <div class="card-title">⚡ 총 부하</div>
+      <div class="card" style="position:relative;overflow:hidden;">
+        <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),transparent);opacity:0.6;" id="g-topbar"></div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
+          <div style="font-size:11px;font-weight:600;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;">⚡ 총 부하</div>
+          <div id="g-status-badge" style="font-size:10px;padding:2px 8px;border-radius:10px;background:rgba(67,233,123,.12);color:var(--green);font-weight:600;letter-spacing:.04em;">정상</div>
+        </div>
         <div class="gauge-wrap">
           <div class="gauge-svg-wrap">
-            <svg width="120" height="120" viewBox="0 0 120 120">
-              <circle cx="60" cy="60" r="48" fill="none" stroke="#1a1e28" stroke-width="9"/>
-              <circle cx="60" cy="60" r="48" fill="none" stroke="#252a38" stroke-width="9" stroke-dasharray="301.6" transform="rotate(-90 60 60)"/>
-              <circle id="g-bar" cx="60" cy="60" r="48" fill="none" stroke="#43e97b" stroke-width="9" stroke-dasharray="0 301.6" stroke-linecap="round" transform="rotate(-90 60 60)" style="transition:stroke-dasharray .6s,stroke .3s"/>
+            <svg width="110" height="110" viewBox="0 0 110 110">
+              <circle cx="55" cy="55" r="44" fill="none" stroke="#151920" stroke-width="10"/>
+              <circle cx="55" cy="55" r="44" fill="none" stroke="#1e2535" stroke-width="10" stroke-dasharray="276.5" transform="rotate(-90 55 55)"/>
+              <circle id="g-bar" cx="55" cy="55" r="44" fill="none" stroke="#43e97b" stroke-width="10" stroke-dasharray="0 276.5" stroke-linecap="round" transform="rotate(-90 55 55)" style="transition:stroke-dasharray .6s,stroke .3s;filter:drop-shadow(0 0 4px currentColor)"/>
             </svg>
-            <div class="gauge-label"><div class="g-kw" id="g-kw">—</div><div class="g-pct" id="g-pct">—%</div></div>
+            <div class="gauge-label">
+              <div class="g-kw" id="g-kw">—</div>
+              <div style="font-size:9px;color:var(--muted);font-family:var(--mono);margin-top:1px;">kW</div>
+              <div class="g-pct" id="g-pct">—%</div>
+            </div>
           </div>
           <div class="gauge-stats">
-            <div class="stat-row"><span class="sl">전류</span><span class="sv" id="g-cur">—</span></div>
-            <div class="stat-row"><span class="sl">경고</span><span class="sv" style="color:var(--yellow)">15.4 kW</span></div>
-            <div class="stat-row"><span class="sl">위험</span><span class="sv" style="color:var(--red)">19.8 kW</span></div>
-            <div class="stat-row"><span class="sl">용량</span><span class="sv">22.0 kW</span></div>
+            <div class="stat-row">
+              <span class="sl">전류</span>
+              <span class="sv" id="g-cur">—</span>
+            </div>
+            <div class="stat-row">
+              <span class="sl">경고</span>
+              <span class="sv" style="color:var(--yellow);">15.4 <span style="font-size:10px;opacity:.7">kW</span></span>
+            </div>
+            <div class="stat-row">
+              <span class="sl">위험</span>
+              <span class="sv" style="color:var(--red);">19.8 <span style="font-size:10px;opacity:.7">kW</span></span>
+            </div>
+            <div class="stat-row">
+              <span class="sl">용량</span>
+              <span class="sv" style="color:var(--muted);">22.0 <span style="font-size:10px;opacity:.7">kW</span></span>
+            </div>
           </div>
         </div>
       </div>
@@ -1007,6 +1020,15 @@ function render(d){
   const badge=document.getElementById('s-badge');
   badge.textContent=s==='danger'?'위험':s==='warn'?'경고':'정상';
   badge.className='sbadge s-'+s;
+  // 총 부하 카드 상태 배지 업데이트
+  const gb=document.getElementById('g-status-badge');
+  const gt=document.getElementById('g-topbar');
+  if(gb){
+    const GL={'normal':['정상','rgba(67,233,123,.12)','var(--green)'],'warn':['경고','rgba(255,215,64,.12)','var(--yellow)'],'danger':['위험','rgba(255,82,82,.12)','var(--red)']};
+    const [gt_txt,gt_bg,gt_col]=GL[s]||GL.normal;
+    gb.textContent=gt_txt;gb.style.background=gt_bg;gb.style.color=gt_col;
+  }
+  if(gt){gt.style.background=s==='danger'?'linear-gradient(90deg,var(--red),transparent)':s==='warn'?'linear-gradient(90deg,var(--yellow),transparent)':'linear-gradient(90deg,var(--accent),transparent)';}
 
   const kw=d.current.total_load_kw,ratio=d.current.load_ratio;
   const fill=Math.min(ratio,1)*301.6;
