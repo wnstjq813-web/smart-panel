@@ -1,5 +1,5 @@
 ﻿{
-  "updated_at": "2026-05-21T01:04:52.198672",
+  "updated_at": "2026-05-21T02:54:45.574480",
   "panel_config": {
     "main_breaker_a": 100,
     "main_capacity_kw": 22.0,
@@ -8,15 +8,15 @@
     "nominal_voltage": 220.0
   },
   "current": {
-    "total_load_kw": 2.253,
-    "total_current_a": 10.24,
-    "load_ratio": 0.1024,
+    "total_load_kw": 2.189,
+    "total_current_a": 9.95,
+    "load_ratio": 0.0995,
     "status": "normal",
     "warn_kw": 15.399999999999999,
     "danger_kw": 19.8
   },
   "weather": {
-    "temperature": 16.0,
+    "temperature": 15.8,
     "humidity": 99,
     "weather_code": "rainy",
     "is_thunder": false
@@ -24,65 +24,65 @@
   "circuits": {
     "c1": {
       "name": "조명A(사무공간)",
-      "load_kw": 0.261,
-      "load_rate": 0.174,
-      "current_a": 1.19,
+      "load_kw": 0.236,
+      "load_rate": 0.157,
+      "current_a": 1.07,
       "status": "normal"
     },
     "c2": {
       "name": "조명B(복도화장실)",
-      "load_kw": 0.129,
-      "load_rate": 0.161,
-      "current_a": 0.59,
+      "load_kw": 0.115,
+      "load_rate": 0.143,
+      "current_a": 0.52,
       "status": "normal"
     },
     "c3": {
       "name": "콘센트A(PC모니터)",
-      "load_kw": 0.449,
-      "load_rate": 0.128,
-      "current_a": 2.04,
+      "load_kw": 0.433,
+      "load_rate": 0.124,
+      "current_a": 1.97,
       "status": "normal"
     },
     "c4": {
       "name": "콘센트B(회의실)",
-      "load_kw": 0.196,
-      "load_rate": 0.098,
-      "current_a": 0.89,
+      "load_kw": 0.194,
+      "load_rate": 0.097,
+      "current_a": 0.88,
       "status": "normal"
     },
     "c5": {
       "name": "냉난방기",
-      "load_kw": 0.602,
-      "load_rate": 0.172,
-      "current_a": 2.74,
+      "load_kw": 0.583,
+      "load_rate": 0.167,
+      "current_a": 2.65,
       "status": "normal"
     },
     "c6": {
       "name": "서버·네트워크",
-      "load_kw": 0.264,
-      "load_rate": 0.132,
-      "current_a": 1.2,
+      "load_kw": 0.257,
+      "load_rate": 0.128,
+      "current_a": 1.17,
       "status": "normal"
     },
     "c7": {
       "name": "복합기·프린터",
-      "load_kw": 0.117,
-      "load_rate": 0.078,
-      "current_a": 0.53,
+      "load_kw": 0.1,
+      "load_rate": 0.067,
+      "current_a": 0.45,
       "status": "normal"
     },
     "c8": {
       "name": "동력(환기팬모터)",
-      "load_kw": 0.4,
-      "load_rate": 0.133,
-      "current_a": 1.82,
+      "load_kw": 0.392,
+      "load_rate": 0.131,
+      "current_a": 1.78,
       "status": "normal"
     },
     "c9": {
       "name": "예비회로",
-      "load_kw": 0.065,
-      "load_rate": 0.032,
-      "current_a": 0.3,
+      "load_kw": 0.059,
+      "load_rate": 0.03,
+      "current_a": 0.27,
       "status": "normal"
     }
   },
@@ -252,44 +252,15 @@
     }
   },
   "lightning": {
-    "detected": true,
-    "danger_level": "watch",
-    "count_10min": 2,
-    "closest_dist_km": 184.84,
-    "closest_type": "CG",
-    "closest_type_label": "구름-지면",
-    "closest_amp_ka": -20.6,
-    "closest_polarity": "부극성(-)",
-    "closest_address": "경북 의성군 단촌면 상화리 산 25",
-    "closest_datetime": "2026-05-21 00:50:30",
-    "events": [
-      {
-        "datetime": "2026-05-21 00:50:30",
-        "latitude": 36.4076,
-        "longitude": 128.7147,
-        "address": "경북 의성군 단촌면 상화리 산 25",
-        "type": "CG",
-        "type_label": "구름-지면",
-        "amplitude_ka": -20.6,
-        "polarity": "부극성(-)",
-        "sensor_count": 9,
-        "distance_km": 184.84,
-        "danger_level": "watch"
-      },
-      {
-        "datetime": "2026-05-21 00:50:30",
-        "latitude": 36.4329,
-        "longitude": 128.7184,
-        "address": "경북 의성군 단촌면 후평리 577-1",
-        "type": "CG",
-        "type_label": "구름-지면",
-        "amplitude_ka": -16.1,
-        "polarity": "부극성(-)",
-        "sensor_count": 8,
-        "distance_km": 184.84,
-        "danger_level": "watch"
-      }
-    ]
+    "detected": false,
+    "danger_level": "none",
+    "count_10min": 0,
+    "closest_dist_km": null,
+    "closest_type": null,
+    "closest_amp_ka": null,
+    "closest_address": null,
+    "closest_datetime": null,
+    "events": []
   },
   "calendar": {
     "1": {
@@ -555,7 +526,7 @@
       "alert": "🟢 정상"
     },
     "23": {
-      "icon": "☁️",
+      "icon": "☀️",
       "type": "forecast",
       "max_temp": 21.0,
       "min_temp": 15.0,
@@ -566,7 +537,7 @@
       "alert": "🟢 정상"
     },
     "24": {
-      "icon": "⛅",
+      "icon": "☀️",
       "type": "forecast",
       "max_temp": 26.0,
       "min_temp": 15.0,
