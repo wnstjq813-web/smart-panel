@@ -1,5 +1,5 @@
 ﻿{
-  "updated_at": "2026-09-26T03:49:26.982961",
+  "updated_at": "2026-09-26T04:10:30.262684",
   "panel_config": {
     "main_breaker_a": 100,
     "main_capacity_kw": 22.0,
@@ -8,9 +8,9 @@
     "nominal_voltage": 220.0
   },
   "current": {
-    "total_load_kw": 4.697,
-    "total_current_a": 21.35,
-    "load_ratio": 0.2135,
+    "total_load_kw": 4.872,
+    "total_current_a": 22.15,
+    "load_ratio": 0.2215,
     "status": "normal",
     "warn_kw": 15.399999999999999,
     "danger_kw": 19.8
@@ -24,65 +24,65 @@
   "circuits": {
     "c1": {
       "name": "조명A(사무공간)",
-      "load_kw": 0.474,
-      "load_rate": 0.316,
-      "current_a": 2.15,
+      "load_kw": 0.46,
+      "load_rate": 0.306,
+      "current_a": 2.09,
       "status": "normal"
     },
     "c2": {
       "name": "조명B(복도화장실)",
-      "load_kw": 0.588,
-      "load_rate": 0.735,
-      "current_a": 2.67,
-      "status": "warn"
+      "load_kw": 0.559,
+      "load_rate": 0.699,
+      "current_a": 2.54,
+      "status": "normal"
     },
     "c3": {
       "name": "콘센트A(PC모니터)",
-      "load_kw": 0.566,
-      "load_rate": 0.162,
-      "current_a": 2.57,
+      "load_kw": 0.588,
+      "load_rate": 0.168,
+      "current_a": 2.67,
       "status": "normal"
     },
     "c4": {
       "name": "콘센트B(회의실)",
-      "load_kw": 0.515,
-      "load_rate": 0.258,
-      "current_a": 2.34,
+      "load_kw": 0.629,
+      "load_rate": 0.315,
+      "current_a": 2.86,
       "status": "normal"
     },
     "c5": {
       "name": "냉난방기",
-      "load_kw": 0.521,
-      "load_rate": 0.149,
-      "current_a": 2.37,
+      "load_kw": 0.512,
+      "load_rate": 0.146,
+      "current_a": 2.33,
       "status": "normal"
     },
     "c6": {
       "name": "서버·네트워크",
-      "load_kw": 0.51,
-      "load_rate": 0.255,
-      "current_a": 2.32,
+      "load_kw": 0.545,
+      "load_rate": 0.272,
+      "current_a": 2.48,
       "status": "normal"
     },
     "c7": {
       "name": "복합기·프린터",
-      "load_kw": 0.66,
-      "load_rate": 0.44,
-      "current_a": 3.0,
+      "load_kw": 0.646,
+      "load_rate": 0.43,
+      "current_a": 2.93,
       "status": "normal"
     },
     "c8": {
       "name": "동력(환기팬모터)",
-      "load_kw": 0.444,
-      "load_rate": 0.148,
-      "current_a": 2.02,
+      "load_kw": 0.504,
+      "load_rate": 0.168,
+      "current_a": 2.29,
       "status": "normal"
     },
     "c9": {
       "name": "예비회로",
-      "load_kw": 0.555,
-      "load_rate": 0.277,
-      "current_a": 2.52,
+      "load_kw": 0.548,
+      "load_rate": 0.274,
+      "current_a": 2.49,
       "status": "normal"
     }
   },
@@ -252,15 +252,83 @@
     }
   },
   "lightning": {
-    "detected": false,
-    "danger_level": "none",
-    "count_10min": 0,
-    "closest_dist_km": null,
-    "closest_type": null,
-    "closest_amp_ka": null,
-    "closest_address": null,
-    "closest_datetime": null,
-    "events": []
+    "detected": true,
+    "danger_level": "watch",
+    "count_10min": 10,
+    "closest_dist_km": 270.11,
+    "closest_type": "CG",
+    "closest_type_label": "구름-지면",
+    "closest_amp_ka": 52.5,
+    "closest_polarity": "정극성(+)",
+    "closest_address": "34.5225°N / 125.1144°E",
+    "closest_datetime": "2026-09-26 03:55:03",
+    "events": [
+      {
+        "datetime": "2026-09-26 03:55:03",
+        "latitude": 34.5225,
+        "longitude": 125.1144,
+        "address": "34.5225°N / 125.1144°E",
+        "type": "CG",
+        "type_label": "구름-지면",
+        "amplitude_ka": 52.5,
+        "polarity": "정극성(+)",
+        "sensor_count": 10,
+        "distance_km": 270.11,
+        "danger_level": "watch"
+      },
+      {
+        "datetime": "2026-09-26 03:56:56",
+        "latitude": 34.6916,
+        "longitude": 124.7751,
+        "address": "34.6916°N / 124.7751°E",
+        "type": "CG",
+        "type_label": "구름-지면",
+        "amplitude_ka": -25.9,
+        "polarity": "부극성(-)",
+        "sensor_count": 6,
+        "distance_km": 272.19,
+        "danger_level": "watch"
+      },
+      {
+        "datetime": "2026-09-26 03:56:56",
+        "latitude": 34.6888,
+        "longitude": 124.7692,
+        "address": "34.6888°N / 124.7692°E",
+        "type": "CG",
+        "type_label": "구름-지면",
+        "amplitude_ka": -59.5,
+        "polarity": "부극성(-)",
+        "sensor_count": 11,
+        "distance_km": 272.77,
+        "danger_level": "watch"
+      },
+      {
+        "datetime": "2026-09-26 03:59:23",
+        "latitude": 34.7094,
+        "longitude": 124.6894,
+        "address": "34.7094°N / 124.6894°E",
+        "type": "CG",
+        "type_label": "구름-지면",
+        "amplitude_ka": 18.4,
+        "polarity": "정극성(+)",
+        "sensor_count": 7,
+        "distance_km": 275.58,
+        "danger_level": "watch"
+      },
+      {
+        "datetime": "2026-09-26 03:55:03",
+        "latitude": 34.5368,
+        "longitude": 124.9339,
+        "address": "34.5368°N / 124.9339°E",
+        "type": "CC",
+        "type_label": "구름-구름",
+        "amplitude_ka": -34.7,
+        "polarity": "부극성(-)",
+        "sensor_count": 9,
+        "distance_km": 277.59,
+        "danger_level": "watch"
+      }
+    ]
   },
   "calendar": {
     "1": {
