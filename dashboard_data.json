@@ -1,5 +1,5 @@
 ﻿{
-  "updated_at": "2026-09-28T03:36:54.450334",
+  "updated_at": "2026-09-28T03:56:06.513865",
   "panel_config": {
     "main_breaker_a": 100,
     "main_capacity_kw": 22.0,
@@ -252,44 +252,15 @@
     }
   },
   "lightning": {
-    "detected": true,
-    "danger_level": "watch",
-    "count_10min": 2,
-    "closest_dist_km": 439.53,
-    "closest_type": "CG",
-    "closest_type_label": "구름-지면",
-    "closest_amp_ka": 44.3,
-    "closest_polarity": "정극성(+)",
-    "closest_address": "35.0411°N / 131.1407°E",
-    "closest_datetime": "2026-09-28 03:21:27",
-    "events": [
-      {
-        "datetime": "2026-09-28 03:21:27",
-        "latitude": 35.0411,
-        "longitude": 131.1407,
-        "address": "35.0411°N / 131.1407°E",
-        "type": "CG",
-        "type_label": "구름-지면",
-        "amplitude_ka": 44.3,
-        "polarity": "정극성(+)",
-        "sensor_count": 11,
-        "distance_km": 439.53,
-        "danger_level": "watch"
-      },
-      {
-        "datetime": "2026-09-28 03:23:25",
-        "latitude": 35.8046,
-        "longitude": 133.3379,
-        "address": "35.8046°N / 133.3379°E",
-        "type": "CG",
-        "type_label": "구름-지면",
-        "amplitude_ka": 41.3,
-        "polarity": "정극성(+)",
-        "sensor_count": 10,
-        "distance_km": 605.51,
-        "danger_level": "watch"
-      }
-    ]
+    "detected": false,
+    "danger_level": "none",
+    "count_10min": 0,
+    "closest_dist_km": null,
+    "closest_type": null,
+    "closest_amp_ka": null,
+    "closest_address": null,
+    "closest_datetime": null,
+    "events": []
   },
   "calendar": {
     "1": {
