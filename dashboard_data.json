@@ -1,5 +1,5 @@
 ﻿{
-  "updated_at": "2026-09-30T05:01:26.964874",
+  "updated_at": "2026-09-30T05:58:55.242616",
   "panel_config": {
     "main_breaker_a": 100,
     "main_capacity_kw": 22.0,
@@ -8,15 +8,15 @@
     "nominal_voltage": 220.0
   },
   "current": {
-    "total_load_kw": 4.813,
-    "total_current_a": 21.88,
-    "load_ratio": 0.2188,
+    "total_load_kw": 4.669,
+    "total_current_a": 21.22,
+    "load_ratio": 0.2122,
     "status": "normal",
     "warn_kw": 15.399999999999999,
     "danger_kw": 19.8
   },
   "weather": {
-    "temperature": 14.8,
+    "temperature": 13.9,
     "humidity": 99,
     "weather_code": "clear",
     "is_thunder": false
@@ -24,30 +24,30 @@
   "circuits": {
     "c1": {
       "name": "조명A(사무공간)",
-      "load_kw": 0.512,
-      "load_rate": 0.341,
-      "current_a": 2.33,
+      "load_kw": 0.517,
+      "load_rate": 0.344,
+      "current_a": 2.35,
       "status": "normal"
     },
     "c2": {
       "name": "조명B(복도화장실)",
-      "load_kw": 0.658,
-      "load_rate": 0.822,
-      "current_a": 2.99,
+      "load_kw": 0.618,
+      "load_rate": 0.773,
+      "current_a": 2.81,
       "status": "warn"
     },
     "c3": {
       "name": "콘센트A(PC모니터)",
-      "load_kw": 0.537,
-      "load_rate": 0.153,
-      "current_a": 2.44,
+      "load_kw": 0.563,
+      "load_rate": 0.161,
+      "current_a": 2.56,
       "status": "normal"
     },
     "c4": {
       "name": "콘센트B(회의실)",
-      "load_kw": 0.549,
-      "load_rate": 0.274,
-      "current_a": 2.49,
+      "load_kw": 0.55,
+      "load_rate": 0.275,
+      "current_a": 2.5,
       "status": "normal"
     },
     "c5": {
@@ -59,30 +59,30 @@
     },
     "c6": {
       "name": "서버·네트워크",
-      "load_kw": 0.49,
-      "load_rate": 0.245,
-      "current_a": 2.23,
+      "load_kw": 0.438,
+      "load_rate": 0.219,
+      "current_a": 1.99,
       "status": "normal"
     },
     "c7": {
       "name": "복합기·프린터",
-      "load_kw": 0.504,
-      "load_rate": 0.336,
-      "current_a": 2.29,
+      "load_kw": 0.464,
+      "load_rate": 0.309,
+      "current_a": 2.11,
       "status": "normal"
     },
     "c8": {
       "name": "동력(환기팬모터)",
-      "load_kw": 0.491,
-      "load_rate": 0.164,
-      "current_a": 2.23,
+      "load_kw": 0.478,
+      "load_rate": 0.159,
+      "current_a": 2.17,
       "status": "normal"
     },
     "c9": {
       "name": "예비회로",
-      "load_kw": 0.543,
-      "load_rate": 0.272,
-      "current_a": 2.47,
+      "load_kw": 0.55,
+      "load_rate": 0.275,
+      "current_a": 2.5,
       "status": "normal"
     }
   },
@@ -162,13 +162,13 @@
       "total_load_kw": 4.678,
       "status": "normal",
       "accident": "none",
-      "temperature": 12.0,
-      "humidity": 100.0,
+      "temperature": 13.9,
+      "humidity": 99,
       "precipitation": 0.0,
-      "wind_speed": 1.2,
+      "wind_speed": 0.1,
       "pty": "0",
-      "lightning": 1,
-      "climate_source": "forecast",
+      "lightning": 0,
+      "climate_source": "actual",
       "data_type": "actual"
     },
     {
@@ -589,31 +589,15 @@
     }
   },
   "lightning": {
-    "detected": true,
-    "danger_level": "watch",
-    "count_10min": 1,
-    "closest_dist_km": 283.22,
-    "closest_type": "CG",
-    "closest_type_label": "구름-지면",
-    "closest_amp_ka": 23.5,
-    "closest_polarity": "정극성(+)",
-    "closest_address": "38.8147°N / 125.0683°E",
-    "closest_datetime": "2026-09-30 04:46:16",
-    "events": [
-      {
-        "datetime": "2026-09-30 04:46:16",
-        "latitude": 38.8147,
-        "longitude": 125.0683,
-        "address": "38.8147°N / 125.0683°E",
-        "type": "CG",
-        "type_label": "구름-지면",
-        "amplitude_ka": 23.5,
-        "polarity": "정극성(+)",
-        "sensor_count": 7,
-        "distance_km": 283.22,
-        "danger_level": "watch"
-      }
-    ]
+    "detected": false,
+    "danger_level": "none",
+    "count_10min": 0,
+    "closest_dist_km": null,
+    "closest_type": null,
+    "closest_amp_ka": null,
+    "closest_address": null,
+    "closest_datetime": null,
+    "events": []
   },
   "calendar": {
     "1": {
