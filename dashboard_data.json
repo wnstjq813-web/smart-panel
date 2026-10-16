@@ -1,5 +1,5 @@
 ﻿{
-  "updated_at": "2026-10-17T02:38:42.383339",
+  "updated_at": "2026-10-17T03:40:43.629732",
   "panel_config": {
     "main_breaker_a": 100,
     "main_capacity_kw": 22.0,
@@ -8,81 +8,81 @@
     "nominal_voltage": 220.0
   },
   "current": {
-    "total_load_kw": 4.884,
-    "total_current_a": 22.2,
-    "load_ratio": 0.222,
+    "total_load_kw": 4.877,
+    "total_current_a": 22.17,
+    "load_ratio": 0.2217,
     "status": "normal",
     "warn_kw": 15.399999999999999,
     "danger_kw": 19.8
   },
   "weather": {
-    "temperature": 11.1,
-    "humidity": 95,
+    "temperature": 10.8,
+    "humidity": 96,
     "weather_code": "clear",
     "is_thunder": false
   },
   "circuits": {
     "c1": {
       "name": "조명A(사무공간)",
-      "load_kw": 0.622,
-      "load_rate": 0.415,
-      "current_a": 2.83,
+      "load_kw": 0.53,
+      "load_rate": 0.353,
+      "current_a": 2.41,
       "status": "normal"
     },
     "c2": {
       "name": "조명B(복도화장실)",
-      "load_kw": 0.592,
-      "load_rate": 0.74,
-      "current_a": 2.69,
+      "load_kw": 0.64,
+      "load_rate": 0.801,
+      "current_a": 2.91,
       "status": "warn"
     },
     "c3": {
       "name": "콘센트A(PC모니터)",
-      "load_kw": 0.466,
-      "load_rate": 0.133,
-      "current_a": 2.12,
+      "load_kw": 0.489,
+      "load_rate": 0.14,
+      "current_a": 2.22,
       "status": "normal"
     },
     "c4": {
       "name": "콘센트B(회의실)",
-      "load_kw": 0.446,
-      "load_rate": 0.223,
-      "current_a": 2.03,
+      "load_kw": 0.443,
+      "load_rate": 0.221,
+      "current_a": 2.01,
       "status": "normal"
     },
     "c5": {
       "name": "냉난방기",
-      "load_kw": 0.59,
-      "load_rate": 0.169,
-      "current_a": 2.68,
+      "load_kw": 0.561,
+      "load_rate": 0.16,
+      "current_a": 2.55,
       "status": "normal"
     },
     "c6": {
       "name": "서버·네트워크",
-      "load_kw": 0.431,
-      "load_rate": 0.216,
-      "current_a": 1.96,
+      "load_kw": 0.499,
+      "load_rate": 0.249,
+      "current_a": 2.27,
       "status": "normal"
     },
     "c7": {
       "name": "복합기·프린터",
-      "load_kw": 0.544,
-      "load_rate": 0.363,
-      "current_a": 2.47,
+      "load_kw": 0.532,
+      "load_rate": 0.354,
+      "current_a": 2.42,
       "status": "normal"
     },
     "c8": {
       "name": "동력(환기팬모터)",
-      "load_kw": 0.553,
-      "load_rate": 0.184,
-      "current_a": 2.51,
+      "load_kw": 0.558,
+      "load_rate": 0.186,
+      "current_a": 2.53,
       "status": "normal"
     },
     "c9": {
       "name": "예비회로",
-      "load_kw": 0.534,
-      "load_rate": 0.267,
-      "current_a": 2.43,
+      "load_kw": 0.566,
+      "load_rate": 0.283,
+      "current_a": 2.57,
       "status": "normal"
     }
   },
