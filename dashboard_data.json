@@ -1,5 +1,5 @@
 ﻿{
-  "updated_at": "2026-10-19T01:04:39.437771",
+  "updated_at": "2026-10-19T02:52:55.221129",
   "panel_config": {
     "main_breaker_a": 100,
     "main_capacity_kw": 22.0,
@@ -8,81 +8,81 @@
     "nominal_voltage": 220.0
   },
   "current": {
-    "total_load_kw": 5.004,
-    "total_current_a": 22.75,
-    "load_ratio": 0.2275,
+    "total_load_kw": 4.849,
+    "total_current_a": 22.04,
+    "load_ratio": 0.2204,
     "status": "normal",
     "warn_kw": 15.399999999999999,
     "danger_kw": 19.8
   },
   "weather": {
-    "temperature": 15.0,
-    "humidity": 95,
+    "temperature": 14.0,
+    "humidity": 96,
     "weather_code": "clear",
     "is_thunder": false
   },
   "circuits": {
     "c1": {
       "name": "조명A(사무공간)",
-      "load_kw": 0.626,
-      "load_rate": 0.418,
-      "current_a": 2.85,
+      "load_kw": 0.604,
+      "load_rate": 0.403,
+      "current_a": 2.74,
       "status": "normal"
     },
     "c2": {
       "name": "조명B(복도화장실)",
-      "load_kw": 0.629,
-      "load_rate": 0.786,
-      "current_a": 2.86,
+      "load_kw": 0.617,
+      "load_rate": 0.771,
+      "current_a": 2.8,
       "status": "warn"
     },
     "c3": {
       "name": "콘센트A(PC모니터)",
-      "load_kw": 0.483,
-      "load_rate": 0.138,
-      "current_a": 2.2,
+      "load_kw": 0.567,
+      "load_rate": 0.162,
+      "current_a": 2.58,
       "status": "normal"
     },
     "c4": {
       "name": "콘센트B(회의실)",
-      "load_kw": 0.565,
-      "load_rate": 0.282,
-      "current_a": 2.57,
+      "load_kw": 0.531,
+      "load_rate": 0.265,
+      "current_a": 2.41,
       "status": "normal"
     },
     "c5": {
       "name": "냉난방기",
-      "load_kw": 0.52,
-      "load_rate": 0.148,
-      "current_a": 2.36,
+      "load_kw": 0.491,
+      "load_rate": 0.14,
+      "current_a": 2.23,
       "status": "normal"
     },
     "c6": {
       "name": "서버·네트워크",
-      "load_kw": 0.587,
-      "load_rate": 0.293,
-      "current_a": 2.67,
+      "load_kw": 0.54,
+      "load_rate": 0.27,
+      "current_a": 2.46,
       "status": "normal"
     },
     "c7": {
       "name": "복합기·프린터",
-      "load_kw": 0.562,
-      "load_rate": 0.374,
-      "current_a": 2.55,
+      "load_kw": 0.573,
+      "load_rate": 0.382,
+      "current_a": 2.6,
       "status": "normal"
     },
     "c8": {
       "name": "동력(환기팬모터)",
-      "load_kw": 0.479,
-      "load_rate": 0.16,
-      "current_a": 2.18,
+      "load_kw": 0.486,
+      "load_rate": 0.162,
+      "current_a": 2.21,
       "status": "normal"
     },
     "c9": {
       "name": "예비회로",
-      "load_kw": 0.53,
-      "load_rate": 0.265,
-      "current_a": 2.41,
+      "load_kw": 0.518,
+      "load_rate": 0.259,
+      "current_a": 2.36,
       "status": "normal"
     }
   },
@@ -252,31 +252,15 @@
     }
   },
   "lightning": {
-    "detected": true,
-    "danger_level": "watch",
-    "count_10min": 1,
-    "closest_dist_km": 251.37,
-    "closest_type": "CG",
-    "closest_type_label": "구름-지면",
-    "closest_amp_ka": -35.5,
-    "closest_polarity": "부극성(-)",
-    "closest_address": "35.0219°N / 128.6559°E",
-    "closest_datetime": "2026-10-19 00:50:16",
-    "events": [
-      {
-        "datetime": "2026-10-19 00:50:16",
-        "latitude": 35.0219,
-        "longitude": 128.6559,
-        "address": "35.0219°N / 128.6559°E",
-        "type": "CG",
-        "type_label": "구름-지면",
-        "amplitude_ka": -35.5,
-        "polarity": "부극성(-)",
-        "sensor_count": 11,
-        "distance_km": 251.37,
-        "danger_level": "watch"
-      }
-    ]
+    "detected": false,
+    "danger_level": "none",
+    "count_10min": 0,
+    "closest_dist_km": null,
+    "closest_type": null,
+    "closest_amp_ka": null,
+    "closest_address": null,
+    "closest_datetime": null,
+    "events": []
   },
   "calendar": {
     "1": {
@@ -496,63 +480,58 @@
       "alert": "🟢 정상"
     },
     "19": {
-      "icon": "",
-      "type": "average",
-      "max_temp": 20.1,
-      "min_temp": 10.2,
-      "avg_pop": 20,
-      "avg_reh": 75.8,
-      "avg_wsd": 3.0,
-      "feel_temp": 14.1,
-      "avg_load": 4.973,
+      "icon": "☀️",
+      "type": "forecast",
+      "max_temp": 18.0,
+      "min_temp": 10.0,
+      "avg_pop": 9.5,
+      "avg_reh": 72.9,
+      "avg_wsd": 1.5,
+      "avg_load": 4.992,
       "alert": "🟢 정상"
     },
     "20": {
-      "icon": "",
-      "type": "average",
-      "max_temp": 19.5,
-      "min_temp": 8.5,
-      "avg_pop": 20,
-      "avg_reh": 69.3,
-      "avg_wsd": 3.0,
-      "feel_temp": 12.9,
-      "avg_load": 5.014,
+      "icon": "⛅",
+      "type": "forecast",
+      "max_temp": 19.0,
+      "min_temp": 10.0,
+      "avg_pop": 21.2,
+      "avg_reh": 65.4,
+      "avg_wsd": 1.0,
+      "avg_load": 5.052,
       "alert": "🟢 정상"
     },
     "21": {
-      "icon": "",
-      "type": "average",
-      "max_temp": 19.3,
-      "min_temp": 8.5,
-      "avg_pop": 20,
-      "avg_reh": 69.4,
-      "avg_wsd": 3.0,
-      "feel_temp": 13.2,
-      "avg_load": 5.03,
+      "icon": "☀️",
+      "type": "forecast",
+      "max_temp": 14.0,
+      "min_temp": 7.0,
+      "avg_pop": 8.8,
+      "avg_reh": 73.1,
+      "avg_wsd": 3.9,
+      "avg_load": 4.97,
       "alert": "🟢 정상"
     },
     "22": {
-      "icon": "",
-      "type": "average",
-      "max_temp": 20.2,
-      "min_temp": 9.7,
-      "avg_pop": 20,
-      "avg_reh": 72.8,
-      "avg_wsd": 3.0,
-      "feel_temp": 14.0,
-      "avg_load": 4.979,
+      "icon": "☀️",
+      "type": "forecast",
+      "max_temp": 13.0,
+      "min_temp": 4.0,
+      "avg_pop": 5.0,
+      "avg_reh": 66.2,
+      "avg_wsd": 1.0,
+      "avg_load": 5.056,
       "alert": "🟢 정상"
     },
     "23": {
-      "icon": "",
-      "type": "average",
-      "max_temp": 19.1,
-      "min_temp": 9.6,
-      "avg_pop": 20,
-      "avg_reh": 70.3,
-      "avg_wsd": 3.0,
-      "feel_temp": 13.5,
-      "avg_load": 5.033,
+      "icon": "☀️",
+      "type": "forecast",
+      "max_temp": 6.0,
+      "min_temp": 6.0,
+      "avg_pop": 0.0,
+      "avg_reh": 80.0,
+      "avg_wsd": 1.0,
+      "avg_load": 4.917,
       "alert": "🟢 정상"
     },
     "24": {
