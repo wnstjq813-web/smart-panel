@@ -1,5 +1,5 @@
 ﻿{
-  "updated_at": "2026-10-23T09:10:57.923795",
+  "updated_at": "2026-10-23T10:10:53.390524",
   "panel_config": {
     "main_breaker_a": 100,
     "main_capacity_kw": 22.0,
@@ -8,81 +8,81 @@
     "nominal_voltage": 220.0
   },
   "current": {
-    "total_load_kw": 4.772,
-    "total_current_a": 21.69,
-    "load_ratio": 0.2169,
+    "total_load_kw": 4.653,
+    "total_current_a": 21.15,
+    "load_ratio": 0.2115,
     "status": "normal",
     "warn_kw": 15.399999999999999,
     "danger_kw": 19.8
   },
   "weather": {
-    "temperature": 3.7,
-    "humidity": 93,
+    "temperature": 6.1,
+    "humidity": 90,
     "weather_code": "clear",
     "is_thunder": false
   },
   "circuits": {
     "c1": {
       "name": "조명A(사무공간)",
-      "load_kw": 0.603,
-      "load_rate": 0.402,
-      "current_a": 2.74,
+      "load_kw": 0.554,
+      "load_rate": 0.369,
+      "current_a": 2.52,
       "status": "normal"
     },
     "c2": {
       "name": "조명B(복도화장실)",
-      "load_kw": 0.528,
-      "load_rate": 0.66,
-      "current_a": 2.4,
+      "load_kw": 0.472,
+      "load_rate": 0.589,
+      "current_a": 2.14,
       "status": "normal"
     },
     "c3": {
       "name": "콘센트A(PC모니터)",
-      "load_kw": 0.425,
-      "load_rate": 0.121,
-      "current_a": 1.93,
+      "load_kw": 0.48,
+      "load_rate": 0.137,
+      "current_a": 2.18,
       "status": "normal"
     },
     "c4": {
       "name": "콘센트B(회의실)",
-      "load_kw": 0.498,
-      "load_rate": 0.249,
-      "current_a": 2.26,
+      "load_kw": 0.502,
+      "load_rate": 0.251,
+      "current_a": 2.28,
       "status": "normal"
     },
     "c5": {
       "name": "냉난방기",
-      "load_kw": 0.576,
-      "load_rate": 0.165,
-      "current_a": 2.62,
+      "load_kw": 0.524,
+      "load_rate": 0.15,
+      "current_a": 2.38,
       "status": "normal"
     },
     "c6": {
       "name": "서버·네트워크",
-      "load_kw": 0.602,
-      "load_rate": 0.301,
-      "current_a": 2.73,
+      "load_kw": 0.624,
+      "load_rate": 0.312,
+      "current_a": 2.84,
       "status": "normal"
     },
     "c7": {
       "name": "복합기·프린터",
-      "load_kw": 0.501,
-      "load_rate": 0.334,
-      "current_a": 2.28,
+      "load_kw": 0.529,
+      "load_rate": 0.352,
+      "current_a": 2.4,
       "status": "normal"
     },
     "c8": {
       "name": "동력(환기팬모터)",
-      "load_kw": 0.539,
-      "load_rate": 0.18,
-      "current_a": 2.45,
+      "load_kw": 0.553,
+      "load_rate": 0.184,
+      "current_a": 2.52,
       "status": "normal"
     },
     "c9": {
       "name": "예비회로",
-      "load_kw": 0.353,
-      "load_rate": 0.177,
-      "current_a": 1.61,
+      "load_kw": 0.473,
+      "load_rate": 0.236,
+      "current_a": 2.15,
       "status": "normal"
     }
   },
@@ -92,10 +92,10 @@
       "total_load_kw": 5.0,
       "status": "normal",
       "accident": "none",
-      "temperature": 6.1,
-      "humidity": 90,
-      "precipitation": 0.0,
-      "wind_speed": 0.5,
+      "temperature": 12.0,
+      "humidity": 85.0,
+      "precipitation": 30.0,
+      "wind_speed": 2.6,
       "pty": "0",
       "lightning": 0,
       "climate_source": "interpolated",
@@ -106,10 +106,10 @@
       "total_load_kw": 3.668,
       "status": "normal",
       "accident": "none",
-      "temperature": 6.1,
-      "humidity": 90,
-      "precipitation": 0.0,
-      "wind_speed": 0.5,
+      "temperature": 12.0,
+      "humidity": 85.0,
+      "precipitation": 30.0,
+      "wind_speed": 2.6,
       "pty": "0",
       "lightning": 0,
       "climate_source": "interpolated",
@@ -120,10 +120,10 @@
       "total_load_kw": 4.681,
       "status": "normal",
       "accident": "none",
-      "temperature": 6.1,
-      "humidity": 90,
-      "precipitation": 0.0,
-      "wind_speed": 0.5,
+      "temperature": 12.0,
+      "humidity": 85.0,
+      "precipitation": 30.0,
+      "wind_speed": 2.6,
       "pty": "0",
       "lightning": 0,
       "climate_source": "interpolated",
@@ -134,10 +134,10 @@
       "total_load_kw": 6.363,
       "status": "normal",
       "accident": "none",
-      "temperature": 6.1,
-      "humidity": 90,
-      "precipitation": 0.0,
-      "wind_speed": 0.5,
+      "temperature": 12.0,
+      "humidity": 85.0,
+      "precipitation": 30.0,
+      "wind_speed": 2.6,
       "pty": "0",
       "lightning": 0,
       "climate_source": "interpolated",
@@ -148,10 +148,10 @@
       "total_load_kw": 4.36,
       "status": "normal",
       "accident": "none",
-      "temperature": 6.1,
-      "humidity": 90,
-      "precipitation": 0.0,
-      "wind_speed": 0.5,
+      "temperature": 12.0,
+      "humidity": 85.0,
+      "precipitation": 30.0,
+      "wind_speed": 2.6,
       "pty": "0",
       "lightning": 0,
       "climate_source": "interpolated",
@@ -162,10 +162,10 @@
       "total_load_kw": 4.347,
       "status": "normal",
       "accident": "none",
-      "temperature": 6.1,
-      "humidity": 90,
-      "precipitation": 0.0,
-      "wind_speed": 0.5,
+      "temperature": 12.0,
+      "humidity": 85.0,
+      "precipitation": 30.0,
+      "wind_speed": 2.6,
       "pty": "0",
       "lightning": 0,
       "climate_source": "interpolated",
@@ -176,10 +176,10 @@
       "total_load_kw": 4.683,
       "status": "normal",
       "accident": "none",
-      "temperature": 6.1,
-      "humidity": 90,
-      "precipitation": 0.0,
-      "wind_speed": 0.5,
+      "temperature": 12.0,
+      "humidity": 85.0,
+      "precipitation": 30.0,
+      "wind_speed": 2.6,
       "pty": "0",
       "lightning": 0,
       "climate_source": "interpolated",
@@ -190,10 +190,10 @@
       "total_load_kw": 4.887,
       "status": "normal",
       "accident": "none",
-      "temperature": 6.1,
-      "humidity": 90,
-      "precipitation": 0.0,
-      "wind_speed": 0.5,
+      "temperature": 12.0,
+      "humidity": 85.0,
+      "precipitation": 30.0,
+      "wind_speed": 2.6,
       "pty": "0",
       "lightning": 0,
       "climate_source": "interpolated",
@@ -204,10 +204,10 @@
       "total_load_kw": 5.623,
       "status": "normal",
       "accident": "none",
-      "temperature": 6.1,
-      "humidity": 90,
-      "precipitation": 0.0,
-      "wind_speed": 0.5,
+      "temperature": 12.0,
+      "humidity": 85.0,
+      "precipitation": 30.0,
+      "wind_speed": 2.6,
       "pty": "0",
       "lightning": 0,
       "climate_source": "interpolated",
@@ -218,13 +218,13 @@
       "total_load_kw": 4.911,
       "status": "normal",
       "accident": "none",
-      "temperature": 6.1,
-      "humidity": 90,
-      "precipitation": 0.0,
-      "wind_speed": 0.5,
+      "temperature": 12.0,
+      "humidity": 85.0,
+      "precipitation": 30.0,
+      "wind_speed": 2.6,
       "pty": "0",
       "lightning": 0,
-      "climate_source": "actual",
+      "climate_source": "forecast",
       "data_type": "actual"
     },
     {
@@ -232,14 +232,14 @@
       "total_load_kw": 5.773,
       "status": "normal",
       "accident": "none",
-      "temperature": 14.0,
-      "humidity": 80.0,
-      "precipitation": 30.0,
-      "wind_speed": 3.5,
+      "temperature": 12.4,
+      "humidity": 82,
+      "precipitation": 0.0,
+      "wind_speed": 1.3,
       "pty": "0",
       "lightning": 0,
-      "climate_source": "forecast",
-      "data_type": "staged"
+      "climate_source": "actual",
+      "data_type": "actual"
     },
     {
       "hour": 11,
@@ -548,44 +548,44 @@
   ],
   "model_metrics": {
     "total_load_kw": {
-      "r2": 0.766,
-      "mae": 0.8143
+      "r2": 0.7653,
+      "mae": 0.8257
     },
     "c1_kw": {
-      "r2": 0.2925,
-      "mae": 0.1426
+      "r2": 0.287,
+      "mae": 0.1437
     },
     "c2_kw": {
-      "r2": 0.3322,
-      "mae": 0.1385
+      "r2": 0.3174,
+      "mae": 0.1373
     },
     "c3_kw": {
-      "r2": 0.6781,
-      "mae": 0.2036
+      "r2": 0.6832,
+      "mae": 0.2033
     },
     "c4_kw": {
-      "r2": 0.4301,
-      "mae": 0.1726
+      "r2": 0.4206,
+      "mae": 0.1757
     },
     "c5_kw": {
-      "r2": 0.8282,
-      "mae": 0.2549
+      "r2": 0.8211,
+      "mae": 0.2569
     },
     "c6_kw": {
-      "r2": 0.4683,
-      "mae": 0.1775
+      "r2": 0.472,
+      "mae": 0.1803
     },
     "c7_kw": {
-      "r2": 0.3509,
-      "mae": 0.1466
+      "r2": 0.3879,
+      "mae": 0.1457
     },
     "c8_kw": {
-      "r2": 0.7392,
-      "mae": 0.2209
+      "r2": 0.7346,
+      "mae": 0.2224
     },
     "c9_kw": {
-      "r2": 0.4879,
-      "mae": 0.1582
+      "r2": 0.4954,
+      "mae": 0.1564
     }
   },
   "lightning": {
@@ -609,7 +609,7 @@
       "avg_reh": 76.5,
       "avg_wsd": 3.0,
       "feel_temp": 18.6,
-      "avg_load": 4.82,
+      "avg_load": 4.823,
       "alert": "🟢 정상"
     },
     "2": {
@@ -621,7 +621,7 @@
       "avg_reh": 75.9,
       "avg_wsd": 3.0,
       "feel_temp": 18.8,
-      "avg_load": 4.813,
+      "avg_load": 4.818,
       "alert": "🟢 정상"
     },
     "3": {
@@ -633,7 +633,7 @@
       "avg_reh": 78.3,
       "avg_wsd": 3.0,
       "feel_temp": 18.8,
-      "avg_load": 4.771,
+      "avg_load": 4.766,
       "alert": "🟢 정상"
     },
     "4": {
@@ -645,7 +645,7 @@
       "avg_reh": 76.0,
       "avg_wsd": 3.0,
       "feel_temp": 19.1,
-      "avg_load": 4.771,
+      "avg_load": 4.815,
       "alert": "🟢 정상"
     },
     "5": {
@@ -657,7 +657,7 @@
       "avg_reh": 74.5,
       "avg_wsd": 3.0,
       "feel_temp": 17.7,
-      "avg_load": 4.898,
+      "avg_load": 4.929,
       "alert": "🟢 정상"
     },
     "6": {
@@ -669,7 +669,7 @@
       "avg_reh": 79.8,
       "avg_wsd": 3.0,
       "feel_temp": 17.5,
-      "avg_load": 4.839,
+      "avg_load": 4.855,
       "alert": "🟢 정상"
     },
     "7": {
@@ -681,7 +681,7 @@
       "avg_reh": 78.9,
       "avg_wsd": 3.0,
       "feel_temp": 17.1,
-      "avg_load": 4.862,
+      "avg_load": 4.881,
       "alert": "🟢 정상"
     },
     "8": {
@@ -693,7 +693,7 @@
       "avg_reh": 75.0,
       "avg_wsd": 3.0,
       "feel_temp": 17.3,
-      "avg_load": 4.893,
+      "avg_load": 4.92,
       "alert": "🟢 정상"
     },
     "9": {
@@ -705,7 +705,7 @@
       "avg_reh": 72.4,
       "avg_wsd": 3.0,
       "feel_temp": 17.9,
-      "avg_load": 4.905,
+      "avg_load": 4.921,
       "alert": "🟢 정상"
     },
     "10": {
@@ -717,7 +717,7 @@
       "avg_reh": 72.4,
       "avg_wsd": 3.0,
       "feel_temp": 17.3,
-      "avg_load": 4.891,
+      "avg_load": 4.919,
       "alert": "🟢 정상"
     },
     "11": {
@@ -729,7 +729,7 @@
       "avg_reh": 75.5,
       "avg_wsd": 3.0,
       "feel_temp": 16.3,
-      "avg_load": 4.917,
+      "avg_load": 4.949,
       "alert": "🟢 정상"
     },
     "12": {
@@ -741,7 +741,7 @@
       "avg_reh": 74.9,
       "avg_wsd": 3.0,
       "feel_temp": 15.7,
-      "avg_load": 4.97,
+      "avg_load": 4.96,
       "alert": "🟢 정상"
     },
     "13": {
@@ -753,7 +753,7 @@
       "avg_reh": 73.2,
       "avg_wsd": 3.0,
       "feel_temp": 15.6,
-      "avg_load": 4.97,
+      "avg_load": 4.966,
       "alert": "🟢 정상"
     },
     "14": {
@@ -765,7 +765,7 @@
       "avg_reh": 76.0,
       "avg_wsd": 3.0,
       "feel_temp": 15.5,
-      "avg_load": 4.969,
+      "avg_load": 4.954,
       "alert": "🟢 정상"
     },
     "15": {
@@ -777,7 +777,7 @@
       "avg_reh": 76.7,
       "avg_wsd": 3.0,
       "feel_temp": 15.9,
-      "avg_load": 4.939,
+      "avg_load": 4.923,
       "alert": "🟢 정상"
     },
     "16": {
@@ -789,7 +789,7 @@
       "avg_reh": 73.2,
       "avg_wsd": 3.0,
       "feel_temp": 15.1,
-      "avg_load": 4.976,
+      "avg_load": 4.977,
       "alert": "🟢 정상"
     },
     "17": {
@@ -801,7 +801,7 @@
       "avg_reh": 68.9,
       "avg_wsd": 3.0,
       "feel_temp": 13.9,
-      "avg_load": 5.0,
+      "avg_load": 5.02,
       "alert": "🟢 정상"
     },
     "18": {
@@ -813,7 +813,7 @@
       "avg_reh": 73.0,
       "avg_wsd": 3.0,
       "feel_temp": 14.1,
-      "avg_load": 4.964,
+      "avg_load": 4.989,
       "alert": "🟢 정상"
     },
     "19": {
@@ -825,7 +825,7 @@
       "avg_reh": 75.8,
       "avg_wsd": 3.0,
       "feel_temp": 14.1,
-      "avg_load": 4.992,
+      "avg_load": 5.005,
       "alert": "🟢 정상"
     },
     "20": {
@@ -837,7 +837,7 @@
       "avg_reh": 69.3,
       "avg_wsd": 3.0,
       "feel_temp": 12.9,
-      "avg_load": 5.089,
+      "avg_load": 5.093,
       "alert": "🟢 정상"
     },
     "21": {
@@ -849,7 +849,7 @@
       "avg_reh": 69.4,
       "avg_wsd": 3.0,
       "feel_temp": 13.2,
-      "avg_load": 5.039,
+      "avg_load": 5.058,
       "alert": "🟢 정상"
     },
     "22": {
@@ -861,7 +861,7 @@
       "avg_reh": 72.8,
       "avg_wsd": 3.0,
       "feel_temp": 14.0,
-      "avg_load": 5.0,
+      "avg_load": 5.007,
       "alert": "🟢 정상"
     },
     "23": {
@@ -872,7 +872,7 @@
       "avg_pop": 12.7,
       "avg_reh": 75.3,
       "avg_wsd": 1.3,
-      "avg_load": 4.985,
+      "avg_load": 4.972,
       "alert": "🟢 정상"
     },
     "24": {
@@ -883,7 +883,7 @@
       "avg_pop": 26.2,
       "avg_reh": 92.9,
       "avg_wsd": 1.0,
-      "avg_load": 4.89,
+      "avg_load": 4.908,
       "alert": "🟢 정상"
     },
     "25": {
@@ -894,7 +894,7 @@
       "avg_pop": 15.0,
       "avg_reh": 85.8,
       "avg_wsd": 1.9,
-      "avg_load": 4.841,
+      "avg_load": 4.851,
       "alert": "🟢 정상"
     },
     "26": {
@@ -905,7 +905,7 @@
       "avg_pop": 7.5,
       "avg_reh": 89.4,
       "avg_wsd": 1.1,
-      "avg_load": 4.792,
+      "avg_load": 4.793,
       "alert": "🟢 정상"
     },
     "27": {
@@ -916,7 +916,7 @@
       "avg_pop": 0.0,
       "avg_reh": 90.0,
       "avg_wsd": 1.0,
-      "avg_load": 4.927,
+      "avg_load": 4.866,
       "alert": "🟢 정상"
     },
     "28": {
@@ -928,7 +928,7 @@
       "avg_reh": 70.7,
       "avg_wsd": 3.0,
       "feel_temp": 13.1,
-      "avg_load": 5.067,
+      "avg_load": 5.05,
       "alert": "🟢 정상"
     },
     "29": {
@@ -940,7 +940,7 @@
       "avg_reh": 67.9,
       "avg_wsd": 3.0,
       "feel_temp": 12.6,
-      "avg_load": 5.098,
+      "avg_load": 5.056,
       "alert": "🟢 정상"
     },
     "30": {
@@ -952,7 +952,7 @@
       "avg_reh": 68.5,
       "avg_wsd": 3.0,
       "feel_temp": 11.6,
-      "avg_load": 5.001,
+      "avg_load": 4.954,
       "alert": "🟢 정상"
     },
     "31": {
@@ -964,7 +964,7 @@
       "avg_reh": 75.5,
       "avg_wsd": 3.0,
       "feel_temp": 12.8,
-      "avg_load": 5.007,
+      "avg_load": 4.991,
       "alert": "🟢 정상"
     }
   },
@@ -979,7 +979,7 @@
       "avg_reh": 78.2,
       "avg_wsd": 3.0,
       "feel_temp": 13.6,
-      "avg_load": 4.938,
+      "avg_load": 4.957,
       "alert": "🟢 정상"
     },
     "2": {
@@ -991,7 +991,7 @@
       "avg_reh": 72.5,
       "avg_wsd": 3.0,
       "feel_temp": 13.0,
-      "avg_load": 5.062,
+      "avg_load": 5.041,
       "alert": "🟢 정상"
     },
     "3": {
@@ -1003,7 +1003,7 @@
       "avg_reh": 72.0,
       "avg_wsd": 3.0,
       "feel_temp": 11.8,
-      "avg_load": 5.021,
+      "avg_load": 4.989,
       "alert": "🟢 정상"
     },
     "4": {
@@ -1015,7 +1015,7 @@
       "avg_reh": 69.8,
       "avg_wsd": 3.0,
       "feel_temp": 11.2,
-      "avg_load": 4.971,
+      "avg_load": 4.943,
       "alert": "🟢 정상"
     },
     "5": {
@@ -1027,7 +1027,7 @@
       "avg_reh": 70.4,
       "avg_wsd": 3.0,
       "feel_temp": 11.1,
-      "avg_load": 4.945,
+      "avg_load": 4.906,
       "alert": "🟢 정상"
     },
     "6": {
@@ -1039,7 +1039,7 @@
       "avg_reh": 71.1,
       "avg_wsd": 3.0,
       "feel_temp": 11.5,
-      "avg_load": 5.01,
+      "avg_load": 4.974,
       "alert": "🟢 정상"
     },
     "7": {
@@ -1051,7 +1051,7 @@
       "avg_reh": 71.2,
       "avg_wsd": 3.0,
       "feel_temp": 11.7,
-      "avg_load": 4.985,
+      "avg_load": 4.957,
       "alert": "🟢 정상"
     },
     "8": {
@@ -1063,7 +1063,7 @@
       "avg_reh": 69.2,
       "avg_wsd": 3.0,
       "feel_temp": 10.9,
-      "avg_load": 4.959,
+      "avg_load": 4.924,
       "alert": "🟢 정상"
     },
     "9": {
@@ -1075,7 +1075,7 @@
       "avg_reh": 69.6,
       "avg_wsd": 3.0,
       "feel_temp": 10.7,
-      "avg_load": 4.967,
+      "avg_load": 4.916,
       "alert": "🟢 정상"
     },
     "10": {
@@ -1087,7 +1087,7 @@
       "avg_reh": 67.4,
       "avg_wsd": 3.0,
       "feel_temp": 10.2,
-      "avg_load": 4.996,
+      "avg_load": 4.976,
       "alert": "🟢 정상"
     },
     "11": {
@@ -1099,7 +1099,7 @@
       "avg_reh": 68.0,
       "avg_wsd": 3.0,
       "feel_temp": 9.5,
-      "avg_load": 5.008,
+      "avg_load": 4.971,
       "alert": "🟢 정상"
     },
     "12": {
@@ -1111,7 +1111,7 @@
       "avg_reh": 72.4,
       "avg_wsd": 3.0,
       "feel_temp": 9.4,
-      "avg_load": 5.012,
+      "avg_load": 4.984,
       "alert": "🟢 정상"
     },
     "13": {
@@ -1123,7 +1123,7 @@
       "avg_reh": 74.7,
       "avg_wsd": 3.0,
       "feel_temp": 9.2,
-      "avg_load": 4.997,
+      "avg_load": 4.981,
       "alert": "🟢 정상"
     },
     "14": {
@@ -1135,7 +1135,7 @@
       "avg_reh": 68.0,
       "avg_wsd": 3.0,
       "feel_temp": 9.4,
-      "avg_load": 4.989,
+      "avg_load": 4.972,
       "alert": "🟢 정상"
     },
     "15": {
@@ -1147,7 +1147,7 @@
       "avg_reh": 70.3,
       "avg_wsd": 3.0,
       "feel_temp": 10.4,
-      "avg_load": 4.962,
+      "avg_load": 4.938,
       "alert": "🟢 정상"
     },
     "16": {
@@ -1159,7 +1159,7 @@
       "avg_reh": 73.5,
       "avg_wsd": 3.0,
       "feel_temp": 10.0,
-      "avg_load": 4.971,
+      "avg_load": 4.945,
       "alert": "🟢 정상"
     },
     "17": {
@@ -1171,7 +1171,7 @@
       "avg_reh": 66.0,
       "avg_wsd": 3.0,
       "feel_temp": 8.6,
-      "avg_load": 5.038,
+      "avg_load": 5.036,
       "alert": "🟢 정상"
     },
     "18": {
@@ -1183,7 +1183,7 @@
       "avg_reh": 62.7,
       "avg_wsd": 3.0,
       "feel_temp": 7.7,
-      "avg_load": 4.976,
+      "avg_load": 5.011,
       "alert": "🟢 정상"
     },
     "19": {
@@ -1195,7 +1195,7 @@
       "avg_reh": 67.6,
       "avg_wsd": 3.0,
       "feel_temp": 7.9,
-      "avg_load": 5.022,
+      "avg_load": 5.027,
       "alert": "🟢 정상"
     },
     "20": {
@@ -1207,7 +1207,7 @@
       "avg_reh": 69.1,
       "avg_wsd": 3.0,
       "feel_temp": 7.0,
-      "avg_load": 4.956,
+      "avg_load": 5.021,
       "alert": "🟢 정상"
     },
     "21": {
@@ -1219,7 +1219,7 @@
       "avg_reh": 69.2,
       "avg_wsd": 3.0,
       "feel_temp": 7.4,
-      "avg_load": 4.996,
+      "avg_load": 5.029,
       "alert": "🟢 정상"
     },
     "22": {
@@ -1231,7 +1231,7 @@
       "avg_reh": 67.0,
       "avg_wsd": 3.0,
       "feel_temp": 8.1,
-      "avg_load": 5.022,
+      "avg_load": 5.027,
       "alert": "🟢 정상"
     },
     "23": {
@@ -1243,7 +1243,7 @@
       "avg_reh": 67.6,
       "avg_wsd": 3.0,
       "feel_temp": 7.0,
-      "avg_load": 4.961,
+      "avg_load": 5.01,
       "alert": "🟢 정상"
     },
     "24": {
@@ -1255,7 +1255,7 @@
       "avg_reh": 70.8,
       "avg_wsd": 3.0,
       "feel_temp": 7.1,
-      "avg_load": 4.979,
+      "avg_load": 5.024,
       "alert": "🟢 정상"
     },
     "25": {
@@ -1267,7 +1267,7 @@
       "avg_reh": 66.4,
       "avg_wsd": 3.0,
       "feel_temp": 7.0,
-      "avg_load": 4.958,
+      "avg_load": 5.005,
       "alert": "🟢 정상"
     },
     "26": {
@@ -1279,7 +1279,7 @@
       "avg_reh": 68.0,
       "avg_wsd": 3.0,
       "feel_temp": 6.6,
-      "avg_load": 4.946,
+      "avg_load": 4.996,
       "alert": "🟢 정상"
     },
     "27": {
@@ -1291,7 +1291,7 @@
       "avg_reh": 65.2,
       "avg_wsd": 3.0,
       "feel_temp": 5.9,
-      "avg_load": 4.784,
+      "avg_load": 4.821,
       "alert": "🟢 정상"
     },
     "28": {
@@ -1303,7 +1303,7 @@
       "avg_reh": 64.0,
       "avg_wsd": 3.0,
       "feel_temp": 5.9,
-      "avg_load": 4.79,
+      "avg_load": 4.826,
       "alert": "🟢 정상"
     },
     "29": {
@@ -1315,7 +1315,7 @@
       "avg_reh": 65.1,
       "avg_wsd": 3.0,
       "feel_temp": 5.3,
-      "avg_load": 4.714,
+      "avg_load": 4.749,
       "alert": "🟢 정상"
     },
     "30": {
@@ -1327,7 +1327,7 @@
       "avg_reh": 64.8,
       "avg_wsd": 3.0,
       "feel_temp": 3.9,
-      "avg_load": 4.642,
+      "avg_load": 4.633,
       "alert": "🟢 정상"
     }
   },
@@ -3887,10 +3887,10 @@
       "data_type": "actual"
     },
     "2026-10-23": {
-      "avg_load": 4.852,
+      "avg_load": 4.936,
       "peak_load": 6.363,
-      "avg_temp": 6.2,
-      "avg_reh": 92.2,
+      "avg_temp": 6.9,
+      "avg_reh": 91.1,
       "accident_count": 0,
       "accident_list": [],
       "status": "normal",
