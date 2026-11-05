@@ -1,5 +1,5 @@
 ﻿{
-  "updated_at": "2026-11-05T16:10:53.258741",
+  "updated_at": "2026-11-05T16:13:01.996988",
   "panel_config": {
     "main_breaker_a": 100,
     "main_capacity_kw": 22.0,
@@ -321,7 +321,7 @@
       "precipitation": 0.0,
       "wind_speed": 1.0,
       "pty": "0",
-      "lightning": 4,
+      "lightning": 3,
       "climate_source": "actual",
       "data_type": "actual"
     },
@@ -591,28 +591,15 @@
   "lightning": {
     "detected": true,
     "danger_level": "watch",
-    "count_10min": 4,
-    "closest_dist_km": 359.6,
-    "closest_type": "CG",
-    "closest_type_label": "구름-지면",
-    "closest_amp_ka": -24.6,
-    "closest_polarity": "부극성(-)",
-    "closest_address": "39.5545°N / 124.9871°E",
-    "closest_datetime": "2026-11-05 15:57:45",
+    "count_10min": 3,
+    "closest_dist_km": 422.66,
+    "closest_type": "CC",
+    "closest_type_label": "구름-구름",
+    "closest_amp_ka": 31.6,
+    "closest_polarity": "정극성(+)",
+    "closest_address": "40.2027°N / 125.1105°E",
+    "closest_datetime": "2026-11-05 15:59:38",
     "events": [
-      {
-        "datetime": "2026-11-05 15:57:45",
-        "latitude": 39.5545,
-        "longitude": 124.9871,
-        "address": "39.5545°N / 124.9871°E",
-        "type": "CG",
-        "type_label": "구름-지면",
-        "amplitude_ka": -24.6,
-        "polarity": "부극성(-)",
-        "sensor_count": 5,
-        "distance_km": 359.6,
-        "danger_level": "watch"
-      },
       {
         "datetime": "2026-11-05 15:59:38",
         "latitude": 40.2027,
@@ -627,6 +614,19 @@
         "danger_level": "watch"
       },
       {
+        "datetime": "2026-11-05 16:00:31",
+        "latitude": 40.722,
+        "longitude": 124.4638,
+        "address": "40.7220°N / 124.4638°E",
+        "type": "CG",
+        "type_label": "구름-지면",
+        "amplitude_ka": 59.4,
+        "polarity": "정극성(+)",
+        "sensor_count": 8,
+        "distance_km": 496.32,
+        "danger_level": "watch"
+      },
+      {
         "datetime": "2026-11-05 15:58:31",
         "latitude": 40.7445,
         "longitude": 124.4721,
@@ -637,19 +637,6 @@
         "polarity": "정극성(+)",
         "sensor_count": 10,
         "distance_km": 498.34,
-        "danger_level": "watch"
-      },
-      {
-        "datetime": "2026-11-05 15:57:45",
-        "latitude": 40.7457,
-        "longitude": 124.4438,
-        "address": "40.7457°N / 124.4438°E",
-        "type": "CG",
-        "type_label": "구름-지면",
-        "amplitude_ka": 60.2,
-        "polarity": "정극성(+)",
-        "sensor_count": 10,
-        "distance_km": 499.41,
         "danger_level": "watch"
       }
     ]
