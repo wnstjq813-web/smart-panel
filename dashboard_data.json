@@ -1,5 +1,5 @@
 ﻿{
-  "updated_at": "2026-11-08T01:11:14.303282",
+  "updated_at": "2026-11-08T01:58:06.991395",
   "panel_config": {
     "main_breaker_a": 100,
     "main_capacity_kw": 22.0,
@@ -8,7 +8,7 @@
     "nominal_voltage": 220.0
   },
   "current": {
-    "total_load_kw": 5.101,
+    "total_load_kw": 5.103,
     "total_current_a": 23.19,
     "load_ratio": 0.2319,
     "status": "normal",
@@ -16,8 +16,8 @@
     "danger_kw": 19.8
   },
   "weather": {
-    "temperature": -1.3,
-    "humidity": 87,
+    "temperature": -1.6,
+    "humidity": 89,
     "weather_code": "clear",
     "is_thunder": false
   },
@@ -31,9 +31,9 @@
     },
     "c2": {
       "name": "조명B(복도화장실)",
-      "load_kw": 0.503,
-      "load_rate": 0.628,
-      "current_a": 2.28,
+      "load_kw": 0.504,
+      "load_rate": 0.631,
+      "current_a": 2.29,
       "status": "normal"
     },
     "c3": {
@@ -45,44 +45,44 @@
     },
     "c4": {
       "name": "콘센트B(회의실)",
-      "load_kw": 0.418,
-      "load_rate": 0.209,
-      "current_a": 1.9,
+      "load_kw": 0.402,
+      "load_rate": 0.201,
+      "current_a": 1.83,
       "status": "normal"
     },
     "c5": {
       "name": "냉난방기",
-      "load_kw": 0.688,
-      "load_rate": 0.197,
-      "current_a": 3.13,
+      "load_kw": 0.695,
+      "load_rate": 0.198,
+      "current_a": 3.16,
       "status": "normal"
     },
     "c6": {
       "name": "서버·네트워크",
-      "load_kw": 0.596,
-      "load_rate": 0.298,
-      "current_a": 2.71,
+      "load_kw": 0.591,
+      "load_rate": 0.296,
+      "current_a": 2.69,
       "status": "normal"
     },
     "c7": {
       "name": "복합기·프린터",
       "load_kw": 0.551,
-      "load_rate": 0.368,
+      "load_rate": 0.367,
       "current_a": 2.51,
       "status": "normal"
     },
     "c8": {
       "name": "동력(환기팬모터)",
-      "load_kw": 0.451,
-      "load_rate": 0.15,
-      "current_a": 2.05,
+      "load_kw": 0.44,
+      "load_rate": 0.147,
+      "current_a": 2.0,
       "status": "normal"
     },
     "c9": {
       "name": "예비회로",
-      "load_kw": 0.756,
-      "load_rate": 0.378,
-      "current_a": 3.44,
+      "load_kw": 0.751,
+      "load_rate": 0.375,
+      "current_a": 3.41,
       "status": "normal"
     }
   },
